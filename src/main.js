@@ -9,4 +9,6 @@ const arrayTresEnRaya = [
   [[""], [""], [""]],
   [[""], [""], [""]]
 ];
-printTresEnRaya(tresEnRayaTable, arrayTresEnRaya)
+printTresEnRaya(tresEnRayaTable, arrayTresEnRaya);
+
+

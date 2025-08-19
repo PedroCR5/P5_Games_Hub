@@ -17,6 +17,7 @@ export function crearEstructuraPpal() {
     title.textContent = `${e}`;
     game.appendChild(title);
     const gameContainer = document.createElement("div");
+    gameContainer.id = `${e}Container`;
     const gameTable = document.createElement("div");
     gameTable.id = `${e}Table`;
     const gamePlayers = document.createElement("div");
