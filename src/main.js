@@ -12,8 +12,21 @@ const arrayTresEnRaya = [
 printTresEnRaya(tresEnRayaTable, arrayTresEnRaya);
 //console.log("hola");
 
-for (let i = 0; i < arrayTresEnRaya.length; i++) {
-  //console.log("hola");
+
+// Add event listeners to each cell in the rendered table
+const cells = document.querySelectorAll('.casilla');
+cells.forEach(cell => {
+  cell.addEventListener('click', () => {
+    console.log("Cell clicked!");
+    if (cell.className = "casilla") {
+      cell.classList = "círculo"
+    }
+  });
+
+});
+
+
+/* for (let i = 0; i < arrayTresEnRaya.length; i++) {
 
   for (let j = 0; j < arrayTresEnRaya[i].length; j++) {
     const element = arrayTresEnRaya[i][j];
@@ -24,4 +37,4 @@ for (let i = 0; i < arrayTresEnRaya.length; i++) {
     console.log("hola");
 
   }
-}
+} */

@@ -44,4 +44,11 @@
 }
 .casilla {
   background-image: url(./assets/cruz.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.círculo {
+  background-image: url(./assets/circulo.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
