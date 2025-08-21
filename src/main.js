@@ -10,14 +10,18 @@ const arrayTresEnRaya = [
   [[``], [""], [""]]
 ];
 printTresEnRaya(tresEnRayaTable, arrayTresEnRaya);
+//console.log("hola");
 
 for (let i = 0; i < arrayTresEnRaya.length; i++) {
-  const element = arrayTresEnRaya[i];
+  //console.log("hola");
+
   for (let j = 0; j < arrayTresEnRaya[i].length; j++) {
+    const element = arrayTresEnRaya[i][j];
+    console.log("hola");
+    element.addEventListener('click', () => {
+      console.log("hola ok");
+    })
+    console.log("hola");
 
-    const element = array[index];
-    for (const element of arrayTresEnRaya) {
-
-    }
   }
 }
