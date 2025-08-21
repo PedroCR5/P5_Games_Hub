@@ -23,3 +23,7 @@ export const printTresEnRaya = (tresEnRayaTable, arrayTresEnRaya) => {
   player1.textContent = "Jugador 1";
   player2.textContent = "Jugador 2";
 };
+
+//<a href="https://www.flaticon.es/iconos-gratis/cerca" title="cerca iconos">Cerca iconos creados por Pixel perfect - Flaticon</a>
+//<a href="https://www.flaticon.es/iconos-gratis/circulo" title="circulo iconos">Circulo iconos creados por Designspace Team - Flaticon</a>
+//<a href="https://www.flaticon.es/iconos-gratis/cerca" title="cerca iconos">Cerca iconos creados por Pixel perfect - Flaticon</a>

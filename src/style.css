@@ -42,3 +42,6 @@
   --pf-gap-l: 30px;
   --pf-gap-xl: 50px;
 }
+.casilla {
+  background-image: url(./assets/cruz.png);
+}

@@ -7,7 +7,7 @@ const tresEnRayaTable = document.querySelector(`#tresEnRayaTable`);
 const arrayTresEnRaya = [
   [[""], [""], [""]],
   [[""], [""], [""]],
-  [[""], [""], [""]]
+  [[``], [""], [""]]
 ];
 printTresEnRaya(tresEnRayaTable, arrayTresEnRaya);
 
