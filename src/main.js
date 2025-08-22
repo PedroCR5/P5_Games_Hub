@@ -19,10 +19,10 @@ cells.forEach(cell => {
   cell.addEventListener('click', () => {
     console.log("Cell clicked!");
     if (cell.className = "casilla") {
-      cell.classList = "círculo"
+      cell.classList = "cruz";
+      cell.classList = "círculo";
     }
   });
-
 });
 
 
