@@ -12,16 +12,22 @@ const arrayTresEnRaya = [
 printTresEnRaya(tresEnRayaTable, arrayTresEnRaya);
 //console.log("hola");
 
-
+let player = "1";
 // Add event listeners to each cell in the rendered table
 const cells = document.querySelectorAll('.casilla');
 cells.forEach(cell => {
   cell.addEventListener('click', () => {
     console.log("Cell clicked!");
-    if (cell.className = "casilla") {
+    if (player === "1") {
       cell.classList = "cruz";
+      player = "2";
+    } else if (player === "2") {
       cell.classList = "círculo";
+      player = "1";
     }
+    console.log(player);
+
+    //cell.classList = "casillaOcupada";
   });
 });
 
