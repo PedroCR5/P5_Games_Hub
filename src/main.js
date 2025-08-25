@@ -3,44 +3,34 @@ import { crearEstructuraPpal } from './structure/structure';
 import './style.css'
 
 crearEstructuraPpal()
-const tresEnRayaTable = document.querySelector(`#tresEnRayaTable`);
-const arrayTresEnRaya = [
-  [[""], [""], [""]],
-  [[""], [""], [""]],
-  [[``], [""], [""]]
-];
-printTresEnRaya(tresEnRayaTable, arrayTresEnRaya);
-//console.log("hola");
 
+//! Juego Tres en Raya
+printTresEnRaya();
+// Poner cruz o círculo al hacer click en la casilla
 let player = "1";
-// Add event listeners to each cell in the rendered table
 const cells = document.querySelectorAll('.casilla');
 cells.forEach(cell => {
   cell.addEventListener('click', () => {
     console.log("Cell clicked!");
+    if (cell.classList.contains('cruz') || cell.classList.contains('círculo')) {
+      console.log("Cell already occupied!");
+      return;
+    }
     if (player === "1") {
       cell.classList = "cruz";
       player = "2";
     } else if (player === "2") {
-      cell.classList = "círculo";
+      cell.classList = "circulo";
       player = "1";
     }
-    console.log(player);
+    // Selecciona directamente el div hijo basado en el ID del padre
+    const arrayTresEnRayaCheck = document.querySelectorAll('#tresEnRayaTable > div');
+    const infoGanador = "";
+    console.log(arrayTresEnRayaCheck);
+    console.log(arrayTresEnRayaCheck[0].className);
+    arrayTresEnRayaCheck.forEach(element => {
 
-    //cell.classList = "casillaOcupada";
+    });
+    //console.log(infoGanador);
   });
 });
-
-
-/* for (let i = 0; i < arrayTresEnRaya.length; i++) {
-
-  for (let j = 0; j < arrayTresEnRaya[i].length; j++) {
-    const element = arrayTresEnRaya[i][j];
-    console.log("hola");
-    element.addEventListener('click', () => {
-      console.log("hola ok");
-    })
-    console.log("hola");
-
-  }
-} */

@@ -1,15 +1,16 @@
 import './tresEnRaya.css';
-export const printTresEnRaya = (tresEnRayaTable, arrayTresEnRaya) => {
-
+export const printTresEnRaya = () => {
+  const tresEnRayaTable = document.querySelector(`#tresEnRayaTable`);
+  const arrayTresEnRaya = [
+    [[""], [""], [""]],
+    [[""], [""], [""]],
+    [[``], [""], [""]]
+  ];
   tresEnRayaTable.innerHTML = "";
   for (const fila of arrayTresEnRaya) {
     for (const columna of fila) {
       const divCasilla = document.createElement("div");
       divCasilla.className = "casilla";
-      if (columna[0]) {
-        divCasilla.className = "pieza";
-      }
-      divCasilla.style.background = columna.slice(1);
       tresEnRayaTable.append(divCasilla);
     }
   }
@@ -23,6 +24,8 @@ export const printTresEnRaya = (tresEnRayaTable, arrayTresEnRaya) => {
   player1.textContent = "Jugador 1";
   player2.textContent = "Jugador 2";
 };
+
+
 
 //<a href="https://www.flaticon.es/iconos-gratis/cerca" title="cerca iconos">Cerca iconos creados por Pixel perfect - Flaticon</a>
 //<a href="https://www.flaticon.es/iconos-gratis/circulo" title="circulo iconos">Circulo iconos creados por Designspace Team - Flaticon</a>
