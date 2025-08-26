@@ -1,8 +1,9 @@
-import { printTresEnRaya } from './games/tresEnRaya/tresEnRaya';
+import { clickCasillaCheck, printTresEnRaya } from './games/tresEnRaya/tresEnRaya';
 import { crearEstructuraPpal } from './structure/structure';
 import './style.css'
 
 crearEstructuraPpal()
+//? Pulsar para ir al juego
 
 //! Juego Tres en Raya
 printTresEnRaya();
@@ -11,38 +12,65 @@ let player = "1";
 const cells = document.querySelectorAll('.casilla');
 cells.forEach(cell => {
   cell.addEventListener('click', () => {
-    console.log("Cell clicked!");
-    if (cell.classList.contains('cruz') || cell.classList.contains('circulo')) {
-      console.log("Cell already occupied!");
-      return;
-    }
-    if (player === "1") {
-      cell.classList = "cruz";
-      player = "2";
-    } else if (player === "2") {
-      cell.classList = "circulo";
-      player = "1";
-    }
-    // Selecciona directamente el div hijo basado en el ID del padre
-    const arrayTresEnRayaCheck = document.querySelectorAll('#tresEnRayaTable > div');
-    const infoGanador = [];
-    console.log(arrayTresEnRayaCheck);
-    console.log(arrayTresEnRayaCheck[0].className);
-    arrayTresEnRayaCheck.forEach(element => {
-      //console.log(element.className);
-      infoGanador.push(element.className);
-      //console.log(infoGanador);
-
-    });
-    //combinacionesGanadoras1 = []
-    if ((infoGanador[0] === "cruz" & infoGanador[1] === "cruz" & infoGanador[2] === 'cruz') || (infoGanador[3] === "cruz" & infoGanador[4] === "cruz" & infoGanador[5] === 'cruz') || (infoGanador[6] === "cruz" & infoGanador[7] === "cruz" & infoGanador[8] === 'cruz') || (infoGanador[0] === "cruz" & infoGanador[3] === "cruz" & infoGanador[6] === 'cruz') || (infoGanador[1] === "cruz" & infoGanador[4] === "cruz" & infoGanador[7] === 'cruz') || (infoGanador[2] === "cruz" & infoGanador[5] === "cruz" & infoGanador[8] === 'cruz') || (infoGanador[0] === "cruz" & infoGanador[4] === "cruz" & infoGanador[8] === 'cruz') || (infoGanador[2] === "cruz" & infoGanador[4] === "cruz" & infoGanador[6] === 'cruz')
-    ) {
-      console.log("ganador es Jugador 1");
-    }
-    else if ((infoGanador[0] === "circulo" & infoGanador[1] === "cruz" & infoGanador[2] === 'cruz') || (infoGanador[3] === "cruz" & infoGanador[4] === "cruz" & infoGanador[5] === 'cruz') || (infoGanador[6] === "cruz" & infoGanador[7] === "cruz" & infoGanador[8] === 'cruz') || (infoGanador[0] === "cruz" & infoGanador[3] === "cruz" & infoGanador[6] === 'cruz') || (infoGanador[1] === "cruz" & infoGanador[4] === "cruz" & infoGanador[7] === 'cruz') || (infoGanador[2] === "cruz" & infoGanador[5] === "cruz" & infoGanador[8] === 'cruz') || (infoGanador[0] === "cruz" & infoGanador[4] === "cruz" & infoGanador[8] === 'cruz') || (infoGanador[2] === "cruz" & infoGanador[4] === "cruz" & infoGanador[6] === 'cruz')
-    ) {
-      console.log("ganador es Jugador 1");
-    }
-    //console.log(infoGanador);
+    player = clickCasillaCheck(cell, player);
   });
 });
+//? Nombre jugadores
+//? localStorage puntuaciones
+//? Reset puntuaciones
+//? Reiniciar partida
+
+//! Juego la Oca
+//? Tablero
+//? Dado random
+//? Fichas
+//? Cambio de turno
+//? Casillas especiales
+//? Jugador ganador
+//? Reiniciar partida
+//? localStorage puntuaciones
+//? Reset puntuaciones
+
+const printOca = () => {
+  const laOcaTable = document.querySelector(`#laOcaContainer`);
+  const arrayOca = [
+    [[""], [""], [""]],
+    [[""], [""], [""]],
+    [[``], [""], [""]]
+  ];
+  laOcaTable.innerHTML = "";
+  for (const fila of arrayOca) {
+    for (const columna of fila) {
+      const divCasilla = document.createElement("div");
+      divCasilla.className = "casillaOca";
+      laOcaTable.append(divCasilla);
+    }
+  }
+  /*   const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);
+    const player1 = document.createElement("button");
+    const player2 = document.createElement("button");
+    laOcaPlayersDiv.append(player1);
+    laOcaPlayersDiv.append(player2);
+    player1.className = "playerOca1";
+    player2.className = "playerOca2";
+    player1.textContent = "Jugador 1";
+    player2.textContent = "Jugador 2"; */
+};
+
+
+printOca();
+
+
+
+
+
+
+
+
+//! Memory
+//? Tema de cartas imput
+//? Las 10/20 cartas
+//? Puntos
+//? Reiniciar partida
+//? localStorage puntuaciones
+//? Reset puntuaciones
