@@ -12,7 +12,7 @@ const cells = document.querySelectorAll('.casilla');
 cells.forEach(cell => {
   cell.addEventListener('click', () => {
     console.log("Cell clicked!");
-    if (cell.classList.contains('cruz') || cell.classList.contains('círculo')) {
+    if (cell.classList.contains('cruz') || cell.classList.contains('circulo')) {
       console.log("Cell already occupied!");
       return;
     }
@@ -25,12 +25,24 @@ cells.forEach(cell => {
     }
     // Selecciona directamente el div hijo basado en el ID del padre
     const arrayTresEnRayaCheck = document.querySelectorAll('#tresEnRayaTable > div');
-    const infoGanador = "";
+    const infoGanador = [];
     console.log(arrayTresEnRayaCheck);
     console.log(arrayTresEnRayaCheck[0].className);
     arrayTresEnRayaCheck.forEach(element => {
+      //console.log(element.className);
+      infoGanador.push(element.className);
+      //console.log(infoGanador);
 
     });
+    //combinacionesGanadoras1 = []
+    if ((infoGanador[0] === "cruz" & infoGanador[1] === "cruz" & infoGanador[2] === 'cruz') || (infoGanador[3] === "cruz" & infoGanador[4] === "cruz" & infoGanador[5] === 'cruz') || (infoGanador[6] === "cruz" & infoGanador[7] === "cruz" & infoGanador[8] === 'cruz') || (infoGanador[0] === "cruz" & infoGanador[3] === "cruz" & infoGanador[6] === 'cruz') || (infoGanador[1] === "cruz" & infoGanador[4] === "cruz" & infoGanador[7] === 'cruz') || (infoGanador[2] === "cruz" & infoGanador[5] === "cruz" & infoGanador[8] === 'cruz') || (infoGanador[0] === "cruz" & infoGanador[4] === "cruz" & infoGanador[8] === 'cruz') || (infoGanador[2] === "cruz" & infoGanador[4] === "cruz" & infoGanador[6] === 'cruz')
+    ) {
+      console.log("ganador es Jugador 1");
+    }
+    else if ((infoGanador[0] === "circulo" & infoGanador[1] === "cruz" & infoGanador[2] === 'cruz') || (infoGanador[3] === "cruz" & infoGanador[4] === "cruz" & infoGanador[5] === 'cruz') || (infoGanador[6] === "cruz" & infoGanador[7] === "cruz" & infoGanador[8] === 'cruz') || (infoGanador[0] === "cruz" & infoGanador[3] === "cruz" & infoGanador[6] === 'cruz') || (infoGanador[1] === "cruz" & infoGanador[4] === "cruz" & infoGanador[7] === 'cruz') || (infoGanador[2] === "cruz" & infoGanador[5] === "cruz" & infoGanador[8] === 'cruz') || (infoGanador[0] === "cruz" & infoGanador[4] === "cruz" & infoGanador[8] === 'cruz') || (infoGanador[2] === "cruz" & infoGanador[4] === "cruz" & infoGanador[6] === 'cruz')
+    ) {
+      console.log("ganador es Jugador 1");
+    }
     //console.log(infoGanador);
   });
 });

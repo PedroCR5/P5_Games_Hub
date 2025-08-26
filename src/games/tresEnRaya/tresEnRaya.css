@@ -20,7 +20,7 @@
 }
 
 .casilla,
-.círculo,
+.circulo,
 .cruz {
   border: 1px solid rgb(20, 19, 19);
   min-width: 100px;
@@ -31,7 +31,7 @@
 .casilla {
   cursor: pointer;
 }
-.círculo {
+.circulo {
   background-image: url(./assets/circulo.png);
 }
 .cruz {
