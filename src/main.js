@@ -22,6 +22,7 @@ cells.forEach(cell => {
 //? Reiniciar partida
 
 //! Juego la Oca
+//? Hacer tirada de dados
 //? Tablero
 //? Dado random
 //? Fichas

@@ -29,12 +29,12 @@ const casillasOcaTablero = [
   { id: 5, tipo: "puente", destino: 12 },
   { id: 6, tipo: "normal" },
   { id: 7, tipo: "normal" },
-  { id: 8, tipo: "oca", destino: 12 },
+  { id: 8, tipo: "oca", destino: 13 },
   { id: 9, tipo: "normal" },
   { id: 10, tipo: "normal" },
   { id: 11, tipo: "normal" },
-  { id: 12, tipo: "oca", destino: 17 },
-  { id: 13, tipo: "normal" },
+  { id: 12, tipo: "puente", destino: 5 },
+  { id: 13, tipo: "oca", destino: 17 },
   { id: 14, tipo: "normal" },
   { id: 15, tipo: "normal" },
   { id: 16, tipo: "normal" },
@@ -47,7 +47,7 @@ const casillasOcaTablero = [
   { id: 23, tipo: "normal" },
   { id: 24, tipo: "normal" },
   { id: 25, tipo: "normal" },
-  { id: 26, tipo: "dados", destino: 13 },
+  { id: 26, tipo: "dados", destino: 48 },
   { id: 27, tipo: "normal" },
   { id: 28, tipo: "oca", destino: 34 },
   { id: 29, tipo: "normal" },
@@ -69,7 +69,7 @@ const casillasOcaTablero = [
   { id: 45, tipo: "normal" },
   { id: 46, tipo: "oca", destino: 51 },
   { id: 47, tipo: "normal" },
-  { id: 48, tipo: "normal" },
+  { id: 48, tipo: "dados", destino: 26 },
   { id: 49, tipo: "normal" },
   { id: 50, tipo: "normal" },
   { id: 51, tipo: "oca", destino: 60 },
@@ -100,16 +100,18 @@ export const printOca = () => {
     ["", "", "", "", "", "", "", "", ""],
   ];
   laOcaTable.innerHTML = "";
-  let counter = "1";
+  let counter = "0";
   for (const fila of arrayOca) {
     for (const columna of fila) {
       const divCasilla = document.createElement("div");
       const datoCasilla = casillasOcaTablero[counter];
       divCasilla.className = `casillaOca ${datoCasilla.tipo}`;
-
+      divCasilla.id = `${datoCasilla.id}`;
       //Pasar a otra casilla
       if (datoCasilla.tipo === "oca") { };
-      if (datoCasilla.tipo === "puente") { };
+      if (datoCasilla.tipo === "puente") {
+
+      };
       if (datoCasilla.tipo === "dados") { };
       if (datoCasilla.tipo === "meta") { };
 
@@ -126,10 +128,12 @@ export const printOca = () => {
 
 
 
-      divCasilla.textContent = counter;
+      divCasilla.textContent = counter + 1;
+      console.log(counter);
 
-      counter++
+
       laOcaTable.append(divCasilla);
+      counter++
     }
   }
   /*   const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);

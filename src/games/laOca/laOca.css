@@ -30,3 +30,37 @@
 .casillaOca {
   cursor: pointer;
 }
+
+.oca {
+  background-image: url(./assets/pato.png);
+  background-repeat: no-repeat;
+}
+.normal {
+  background-image: url(./assets/bosque.png);
+}
+.puente {
+  background-image: url(./assets/puente.png);
+}
+.inicio {
+  background-image: url(./assets/comienzo.png);
+}
+.dados {
+  background-image: url(./assets/circulo.png);
+}
+.meta {
+  background-image: url(./assets/terminar.png);
+  min-width: 200px;
+  min-height: 200px;
+}
+.carcel {
+  background-image: url(./assets/circulo.png);
+}
+.posada {
+  background-image: url(./assets/casa.png);
+}
+.laberinto {
+  background-image: url(./assets/laberinto.png);
+}
+.calavera {
+  background-image: url(./assets/calavera.png);
+}
