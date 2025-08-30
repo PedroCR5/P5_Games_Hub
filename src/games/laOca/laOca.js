@@ -89,7 +89,7 @@ const casillasOcaTablero = [
 
 
 export const printOca = () => {
-  const laOcaTable = document.querySelector(`#laOcaContainer`);
+  const laOcaTable = document.querySelector(`#laOcaTable`);
   const arrayOca = [
     ["", "", "", "", "", "", "", "", ""],
     ["", "", "", "", "", "", "", "", ""],
@@ -129,7 +129,7 @@ export const printOca = () => {
 
 
       divCasilla.textContent = counter + 1;
-      console.log(counter);
+      //console.log(counter);
 
 
       laOcaTable.append(divCasilla);

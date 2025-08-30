@@ -34,9 +34,31 @@ cells.forEach(cell => {
 //? Reset puntuaciones
 
 
+
 printOca();
 
+//Hacer un input nº jugadores y luego con bucle crearlos (nombre, color)
+const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);
+const numberPlayers = document.createElement("input");
+numberPlayers.value = "1";
+numberPlayers.id = "jugadoresOca";
+numberPlayers.placeholder = "Número de jugadores";
+numberPlayers.type = "number";
+laOcaPlayersDiv.append(numberPlayers);
 
+for (i = 0; i < numberPlayers.value; i++) {
+  console.log("Hola");
+
+
+}
+const player1 = document.createElement("button");
+const player2 = document.createElement("button");
+tresEnRayaPlayersDiv.append(player1);
+tresEnRayaPlayersDiv.append(player2);
+player1.className = "player1";
+player2.className = "player2";
+player1.textContent = "Jugador 1";
+player2.textContent = "Jugador 2";
 
 
 
