@@ -69,6 +69,12 @@ numberPlayers.addEventListener('input', () => {
     playerDice.textContent = `Jugador ${i + 1} pulsa aquí`;
 
   }
+  /*  playersList.innerHTML += `<div class="tenor-gif-embed" data-postid="14180407918897652939" data-share-method="host" data-aspect-ratio="1.16667" data-width="100%"><a href="https://tenor.com/view/dice-gif-14180407918897652939">Dice GIF</a>from <a href="https://tenor.com/search/dice-gifs">Dice GIFs</a></div> `; */
+  const diceGif = document.createElement("image");
+  diceGif.id = `dados`;
+  laOcaPlayersDiv.append(diceGif);
+
+
   const playersDice = document.querySelectorAll('.jugadorDice');
   playersDice.forEach(dice => {
     dice.addEventListener('click', () => {
