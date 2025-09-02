@@ -45,20 +45,44 @@ numberPlayers.id = "jugadoresOca";
 numberPlayers.placeholder = "Número de jugadores";
 numberPlayers.type = "number";
 laOcaPlayersDiv.append(numberPlayers);
-const playersList = document.createElement("div");
+const playersList = document.createElement("ul");
 laOcaPlayersDiv.append(playersList);
 //Pintar los jugadores
 numberPlayers.addEventListener('input', () => {
   playersList.innerHTML = "";
   let i = 0;
   for (i; i < numberPlayers.value; i++) {
-    console.log(`Hola jugador ${i + 1}`);
-    const player = document.createElement("button");
-    playersList.append(player);
-    player.id = `Jugador ${i + 1}`;
-    player.textContent = `Jugador ${i + 1}`;
+    //console.log(`Hola jugador ${i + 1}`);
+    const playerLi = document.createElement("li");
+    const playerName = document.createElement("p");
+    const playerDice = document.createElement("button");
+    playersList.append(playerLi);
+    playerLi.append(playerName);
+    playerLi.append(playerDice);
+    playerLi.id = `Jugador ${i + 1}Li`;
+    playerName.id = `JugadorName ${i + 1}Name`;
+    playerDice.id = `JugadorDice ${i + 1}Dice`;
+    playerLi.className = `jugador`;
+    playerName.className = `jugadorName`;
+    playerDice.className = `jugadorDice`;
+    playerName.textContent = `Jugador ${i + 1}`;
+    playerDice.textContent = `Jugador ${i + 1} pulsa aquí`;
+
   }
+  const playersDice = document.querySelectorAll('.jugadorDice');
+  playersDice.forEach(dice => {
+    dice.addEventListener('click', () => {
+      //player = clickCasillaCheck(dice, playerDice);
+      console.log("dados");
+      // Generar un número aleatorio entre 1 y 6
+      const numeroAleatorio = Math.floor(Math.random() * 6) + 1;
+      console.log(numeroAleatorio);
+
+
+    });
+  });
 });
+
 
 /* for (i = 0; i < inputInfoValue.value; i++) {
   console.log("Hola");
