@@ -42,14 +42,3 @@
   --pf-gap-l: 30px;
   --pf-gap-xl: 50px;
 }
-#dados {
-  background-image: url(./assets/dice.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  min-width: 50px;
-  min-height: 100px;
-  cursor: pointer;
-}
-#dados:hover {
-  scale: 1.1;
-}

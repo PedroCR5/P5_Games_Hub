@@ -23,7 +23,7 @@ cells.forEach(cell => {
 
 //! Juego la Oca
 //? Hacer tirada de dados
-//? Tablero
+//// Tablero
 //? Dado random
 //? Fichas
 //? Cambio de turno
@@ -32,8 +32,6 @@ cells.forEach(cell => {
 //? Reiniciar partida
 //? localStorage puntuaciones
 //? Reset puntuaciones
-
-
 
 printOca();
 
@@ -52,7 +50,6 @@ numberPlayers.addEventListener('input', () => {
   playersList.innerHTML = "";
   let i = 0;
   for (i; i < numberPlayers.value; i++) {
-    //console.log(`Hola jugador ${i + 1}`);
     const playerLi = document.createElement("li");
     const playerName = document.createElement("p");
     const playerDice = document.createElement("button");
@@ -67,14 +64,13 @@ numberPlayers.addEventListener('input', () => {
     playerDice.className = `jugadorDice`;
     playerName.textContent = `Jugador ${i + 1}`;
     playerDice.textContent = `Jugador ${i + 1} pulsa aquí`;
-
   }
-  /*  playersList.innerHTML += `<div class="tenor-gif-embed" data-postid="14180407918897652939" data-share-method="host" data-aspect-ratio="1.16667" data-width="100%"><a href="https://tenor.com/view/dice-gif-14180407918897652939">Dice GIF</a>from <a href="https://tenor.com/search/dice-gifs">Dice GIFs</a></div> `; */
   const diceGif = document.createElement("image");
   diceGif.id = `dados`;
   laOcaPlayersDiv.append(diceGif);
-
-
+  const diceValue = document.createElement("number");
+  diceValue.id = `dadoValor`;
+  laOcaPlayersDiv.append(diceValue);
   const playersDice = document.querySelectorAll('.jugadorDice');
   playersDice.forEach(dice => {
     dice.addEventListener('click', () => {
@@ -83,8 +79,8 @@ numberPlayers.addEventListener('input', () => {
       // Generar un número aleatorio entre 1 y 6
       const numeroAleatorio = Math.floor(Math.random() * 6) + 1;
       console.log(numeroAleatorio);
-
-
+      const diceValue = document.querySelector(`#dadoValor`);
+      diceValue.textContent = numeroAleatorio;
     });
   });
 });

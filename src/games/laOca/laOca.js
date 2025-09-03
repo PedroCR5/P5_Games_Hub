@@ -1,26 +1,5 @@
 import './laOca.css';
 
-
-let arrayTetris = [
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""], // 4
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""],
-];
-
 const casillasOcaTablero = [
   { id: 1, tipo: "inicio" },
   { id: 2, tipo: "oca", destino: 8 },
@@ -87,7 +66,6 @@ const casillasOcaTablero = [
   { id: 63, tipo: "meta" }
 ];
 
-
 export const printOca = () => {
   const laOcaTable = document.querySelector(`#laOcaTable`);
   const arrayOca = [
@@ -109,40 +87,19 @@ export const printOca = () => {
       divCasilla.id = `${datoCasilla.id}`;
       //Pasar a otra casilla
       if (datoCasilla.tipo === "oca") { };
-      if (datoCasilla.tipo === "puente") {
-
-      };
+      if (datoCasilla.tipo === "puente") { };
       if (datoCasilla.tipo === "dados") { };
       if (datoCasilla.tipo === "meta") { };
-
-
-
       //Perder turnos 
       if (datoCasilla.tipo === "posada") { };
       if (datoCasilla.tipo === "carcel") { };
       if (datoCasilla.tipo === "laberinto") { };
       if (datoCasilla.tipo === "calavera") { };
-
-
-
-
-
-
       divCasilla.textContent = counter + 1;
       //console.log(counter);
-
-
       laOcaTable.append(divCasilla);
       counter++
     }
   }
-  /*   const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);
-    const player1 = document.createElement("button");
-    const player2 = document.createElement("button");
-    laOcaPlayersDiv.append(player1);
-    laOcaPlayersDiv.append(player2);
-    player1.className = "playerOca1";
-    player2.className = "playerOca2";
-    player1.textContent = "Jugador 1";
-    player2.textContent = "Jugador 2"; */
+
 };
