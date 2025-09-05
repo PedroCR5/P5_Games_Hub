@@ -83,8 +83,21 @@ numberPlayers.addEventListener('input', () => {
       diceValue.textContent = numeroAleatorio;
     });
   });
+
 });
 
+function crearFicha1() {
+  const ficha1 = document.createElement("div");
+  ficha1.id = "ficha1";
+  ficha1.className = "fichaJugador";
+  const positionFicha1 = 1;
+}
+crearFicha1();
+
+
+
+const casillaActual1 = document.getElementById(`${positionFicha1}`);
+casillaActual1.append(ficha1);
 
 /* for (i = 0; i < inputInfoValue.value; i++) {
   console.log("Hola");
