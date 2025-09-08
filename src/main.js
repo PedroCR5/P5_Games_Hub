@@ -56,14 +56,14 @@ numberPlayers.addEventListener('input', () => {
     playersList.append(playerLi);
     playerLi.append(playerName);
     playerLi.append(playerDice);
-    playerLi.id = `Jugador ${i + 1}Li`;
-    playerName.id = `JugadorName ${i + 1}Name`;
-    playerDice.id = `JugadorDice ${i + 1}Dice`;
+    playerLi.id = `${i + 1}Li`;
+    playerName.id = `${i + 1}Name`;
+    playerDice.id = `${i + 1}Dice`;
     playerLi.className = `jugador`;
     playerName.className = `jugadorName`;
     playerDice.className = `jugadorDice`;
     playerName.textContent = `Jugador ${i + 1}`;
-    playerDice.textContent = `Jugador ${i + 1} pulsa aquí`;
+    //playerDice.textContent = `Jugador ${i + 1} pulsa aquí`;
   }
   const diceGif = document.createElement("image");
   diceGif.id = `dados`;
@@ -80,7 +80,7 @@ numberPlayers.addEventListener('input', () => {
       const numeroAleatorio = Math.floor(Math.random() * 6) + 1;
       console.log(numeroAleatorio);
       const diceValue = document.querySelector(`#dadoValor`);
-      diceValue.textContent = numeroAleatorio;
+      diceValue.textContent = `Te ha salido un ${numeroAleatorio}`;
     });
   });
 
@@ -91,6 +91,8 @@ function crearFicha1() {
   ficha1.id = "ficha1";
   ficha1.className = "fichaJugador";
   const positionFicha1 = 1;
+  const casillaInicial = document.getElementById("1");
+  casillaInicial.append(ficha1);
 }
 crearFicha1();
 

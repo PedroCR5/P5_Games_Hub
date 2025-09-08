@@ -64,20 +64,20 @@
 .calavera {
   background-image: url(./assets/calavera.png);
 }
-#dados {
+/* #dados {
   background-image: url(./assets/dice.png);
   background-repeat: no-repeat;
   background-size: contain;
   min-width: 50px;
   min-height: 100px;
   cursor: pointer;
-}
+} */
 #dados:hover {
   scale: 1.1;
 }
 #dadoValor {
   border: solid 2px black;
-  width: 30px;
+  width: 130px;
   display: flex;
   justify-content: center;
   border-radius: 50%;
@@ -92,4 +92,21 @@
   top: 0;
   left: 0;
   transition: all 0.3s ease;
+}
+.jugador {
+  width: 150px;
+  height: 150px;
+}
+.jugagorName {
+  border: solid 1px red;
+}
+.jugadorDice {
+  background-image: url(./assets/dice.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-width: 100px;
+  min-height: 100px;
+  cursor: pointer;
+  /*   width: 100px;
+  height: 100px; */
 }
