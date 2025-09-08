@@ -42,3 +42,10 @@
   --pf-gap-l: 30px;
   --pf-gap-xl: 50px;
 }
+#ficha1 {
+  width: 30px;
+  height: 30px;
+  background-color: blue;
+  border-radius: 50%;
+  display: flex;
+}

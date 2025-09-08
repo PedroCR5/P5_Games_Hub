@@ -147,7 +147,7 @@ export function createPlayerToPlay() {
     ficha1.id = `ficha${i + 1}`;
     ficha1.className = "fichaJugador";
     const casillaInicial = document.getElementById("1");
-    console.log(casillaInicial);
+    //console.log(casillaInicial);
     //casillaInicial.innerHTML = "";
 
     casillaInicial.append(ficha1);
@@ -159,6 +159,25 @@ export function createPlayerToPlay() {
   diceValue.id = `dadoValor`;
   laOcaPlayersDiv.append(diceValue);
 
+}
+
+export function moverFichaJugador(n, position, numeroAleatorio) {
+  const casillaAnterior = parseInt(position) - parseInt(numeroAleatorio);;
+  console.log(casillaAnterior);
+  const parentDiv = document.getElementById(casillaAnterior);
+  const childDiv = document.getElementById(`ficha${n}`);
+  parentDiv.removeChild(childDiv);
+
+  const casillaActual = document.getElementById(position);
+  console.log(casillaActual);
+  //const ficha=`ficha${n}`;
+  const ficha = document.createElement("div");
+  ficha.id = `ficha${n}`;
+  ficha.className = "fichaJugador";
+  /*   const fichaMover = document.getElementById(ficha1);
+    console.log(ficha1); */
+
+  casillaActual.append(ficha);
 }
 /* export function crearFicha1() {
   const ficha1 = document.createElement("div");

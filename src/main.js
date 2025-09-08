@@ -1,4 +1,4 @@
-import { createImputNumberPlayers, createPlayerToPlay, printOca } from './games/laOca/laOca';
+import { createImputNumberPlayers, createPlayerToPlay, moverFichaJugador, printOca } from './games/laOca/laOca';
 import { clickCasillaCheck, printTresEnRaya } from './games/tresEnRaya/tresEnRaya';
 import { crearEstructuraPpal } from './structure/structure';
 import './style.css'
@@ -33,7 +33,11 @@ cells.forEach(cell => {
 //? localStorage puntuaciones
 //? Reset puntuaciones
 //? jugadores entre 1 y 4
-export const positionPlayer1 = "1";
+export let positionPlayer1 = "1";
+export let positionPlayer2 = "1";
+export let positionPlayer3 = "1";
+export let positionPlayer4 = "1";
+
 
 printOca();
 //Hacer un input nº jugadores y luego con bucle crearlos (nombre, color)
@@ -57,10 +61,43 @@ numberPlayers.addEventListener('input', () => {
       const diceValue = document.querySelector(`#dadoValor`);
       diceValue.textContent = `Te ha salido un ${numeroAleatorio}`;
       console.log(dice);
+      //console.log(positionPlayer1);
+      //document.getElementById(`ficha1`).remove;
+      if (dice.id == "1Dice") {
+        //console.log(positionPlayer1);
+        //document.getElementById(`ficha1`).remove;
+        positionPlayer1 = parseInt(positionPlayer1) + parseInt(numeroAleatorio);
+        moverFichaJugador(1, positionPlayer1, numeroAleatorio)
+
+      } else if (dice.id == "2Dice") {
+        //console.log(positionPlayer2);
+        positionPlayer2 = parseInt(positionPlayer2) + parseInt(numeroAleatorio);
+        moverFichaJugador(2, positionPlayer2, numeroAleatorio)
+
+      } else if (dice.id == "3Dice") {
+        //console.log(positionPlayer3);
+        positionPlayer3 = parseInt(positionPlayer3) + parseInt(numeroAleatorio);
+        moverFichaJugador(3, positionPlayer3, numeroAleatorio)
+
+      }
+      else if (dice.id == "4Dice") {
+        //console.log(positionPlayer4);
+        positionPlayer4 = parseInt(positionPlayer4) + parseInt(numeroAleatorio);
+        moverFichaJugador(4, positionPlayer4, numeroAleatorio)
+
+      }
+      /*  console.log(positionPlayer1);
+       console.log(positionPlayer2);
+       console.log(positionPlayer3);
+       console.log(positionPlayer4); */
+      //Mover casilla
 
     });
   });
 });
+
+
+
 
 //crearFicha1();
 
