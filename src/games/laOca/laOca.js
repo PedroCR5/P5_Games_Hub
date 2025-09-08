@@ -65,7 +65,6 @@ const casillasOcaTablero = [
   { id: 62, tipo: "normal" },
   { id: 63, tipo: "meta" }
 ];
-
 export const printOca = () => {
   const laOcaTable = document.querySelector(`#laOcaTable`);
   const arrayOca = [
@@ -103,3 +102,68 @@ export const printOca = () => {
   }
 
 };
+export function createImputNumberPlayers() {
+  const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);
+  const numberPlayers = document.createElement("input");
+  numberPlayers.type = 'number';
+  numberPlayers.min = "1";
+  numberPlayers.max = "4";
+
+  numberPlayers.id = "jugadoresOca";
+  numberPlayers.placeholder = "Número de jugadores";
+  numberPlayers.type = "number";
+  laOcaPlayersDiv.append(numberPlayers);
+  const playersList = document.createElement("ul");
+  playersList.id = "playerListId";
+  //console.log(playersList);
+  laOcaPlayersDiv.append(playersList);
+}
+export function createPlayerToPlay() {
+  const playersList = document.getElementById(`playerListId`);
+  const numberPlayers = document.getElementById("jugadoresOca");
+  const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);
+  // console.log(playersList);
+
+  playersList.innerHTML = "";
+  let i = 0;
+  for (i; i < numberPlayers.value; i++) {
+    const playerLi = document.createElement("li");
+    const playerName = document.createElement("p");
+    const playerDice = document.createElement("button");
+    playersList.append(playerLi);
+    playerLi.append(playerName);
+    playerLi.append(playerDice);
+    playerLi.id = `${i + 1}Li`;
+    playerName.id = `${i + 1}Name`;
+    playerDice.id = `${i + 1}Dice`;
+    playerLi.className = `jugador`;
+    playerName.className = `jugadorName`;
+    playerDice.className = `jugadorDice`;
+    playerName.textContent = `Jugador ${i + 1}`;
+    //Pintamos la ficha en la posición inicial
+
+    const ficha1 = document.createElement("div");
+    ficha1.id = `ficha${i + 1}`;
+    ficha1.className = "fichaJugador";
+    const casillaInicial = document.getElementById("1");
+    console.log(casillaInicial);
+    //casillaInicial.innerHTML = "";
+
+    casillaInicial.append(ficha1);
+  }
+  const diceGif = document.createElement("image");
+  diceGif.id = `dados`;
+  laOcaPlayersDiv.append(diceGif);
+  const diceValue = document.createElement("number");
+  diceValue.id = `dadoValor`;
+  laOcaPlayersDiv.append(diceValue);
+
+}
+/* export function crearFicha1() {
+  const ficha1 = document.createElement("div");
+  ficha1.id = "ficha1";
+  ficha1.className = "fichaJugador";
+  const positionFicha1 = 1;
+  const casillaInicial = document.getElementById("1");
+  casillaInicial.append(ficha1);
+} */

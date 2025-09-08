@@ -1,4 +1,4 @@
-import { printOca } from './games/laOca/laOca';
+import { createImputNumberPlayers, createPlayerToPlay, printOca } from './games/laOca/laOca';
 import { clickCasillaCheck, printTresEnRaya } from './games/tresEnRaya/tresEnRaya';
 import { crearEstructuraPpal } from './structure/structure';
 import './style.css'
@@ -32,50 +32,24 @@ cells.forEach(cell => {
 //? Reiniciar partida
 //? localStorage puntuaciones
 //? Reset puntuaciones
+//? jugadores entre 1 y 4
 
 printOca();
-
 //Hacer un input nº jugadores y luego con bucle crearlos (nombre, color)
-const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);
-const numberPlayers = document.createElement("input");
-numberPlayers.value = "1";
-numberPlayers.id = "jugadoresOca";
-numberPlayers.placeholder = "Número de jugadores";
-numberPlayers.type = "number";
-laOcaPlayersDiv.append(numberPlayers);
-const playersList = document.createElement("ul");
-laOcaPlayersDiv.append(playersList);
+createImputNumberPlayers();
 //Pintar los jugadores
+const numberPlayers = document.getElementById("jugadoresOca");
+/* numberPlayers.min = "1";
+numberPlayers.max = "4"; */
 numberPlayers.addEventListener('input', () => {
-  playersList.innerHTML = "";
-  let i = 0;
-  for (i; i < numberPlayers.value; i++) {
-    const playerLi = document.createElement("li");
-    const playerName = document.createElement("p");
-    const playerDice = document.createElement("button");
-    playersList.append(playerLi);
-    playerLi.append(playerName);
-    playerLi.append(playerDice);
-    playerLi.id = `${i + 1}Li`;
-    playerName.id = `${i + 1}Name`;
-    playerDice.id = `${i + 1}Dice`;
-    playerLi.className = `jugador`;
-    playerName.className = `jugadorName`;
-    playerDice.className = `jugadorDice`;
-    playerName.textContent = `Jugador ${i + 1}`;
-    //playerDice.textContent = `Jugador ${i + 1} pulsa aquí`;
-  }
-  const diceGif = document.createElement("image");
-  diceGif.id = `dados`;
-  laOcaPlayersDiv.append(diceGif);
-  const diceValue = document.createElement("number");
-  diceValue.id = `dadoValor`;
-  laOcaPlayersDiv.append(diceValue);
+  createPlayerToPlay();
   const playersDice = document.querySelectorAll('.jugadorDice');
   playersDice.forEach(dice => {
     dice.addEventListener('click', () => {
+      console.log(dice);
+
       //player = clickCasillaCheck(dice, playerDice);
-      console.log("dados");
+      //console.log("dados");
       // Generar un número aleatorio entre 1 y 6
       const numeroAleatorio = Math.floor(Math.random() * 6) + 1;
       console.log(numeroAleatorio);
@@ -83,23 +57,14 @@ numberPlayers.addEventListener('input', () => {
       diceValue.textContent = `Te ha salido un ${numeroAleatorio}`;
     });
   });
-
 });
 
-function crearFicha1() {
-  const ficha1 = document.createElement("div");
-  ficha1.id = "ficha1";
-  ficha1.className = "fichaJugador";
-  const positionFicha1 = 1;
-  const casillaInicial = document.getElementById("1");
-  casillaInicial.append(ficha1);
-}
-crearFicha1();
+//crearFicha1();
 
 
 
-const casillaActual1 = document.getElementById(`${positionFicha1}`);
-casillaActual1.append(ficha1);
+/* const casillaActual1 = document.getElementById(`${positionFicha1}`);
+casillaActual1.append(ficha1); */
 
 /* for (i = 0; i < inputInfoValue.value; i++) {
   console.log("Hola");
