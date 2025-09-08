@@ -33,6 +33,7 @@ cells.forEach(cell => {
 //? localStorage puntuaciones
 //? Reset puntuaciones
 //? jugadores entre 1 y 4
+export const positionPlayer1 = "1";
 
 printOca();
 //Hacer un input nº jugadores y luego con bucle crearlos (nombre, color)
@@ -55,6 +56,8 @@ numberPlayers.addEventListener('input', () => {
       console.log(numeroAleatorio);
       const diceValue = document.querySelector(`#dadoValor`);
       diceValue.textContent = `Te ha salido un ${numeroAleatorio}`;
+      console.log(dice);
+
     });
   });
 });

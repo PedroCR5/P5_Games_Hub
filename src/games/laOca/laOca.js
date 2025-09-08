@@ -1,3 +1,4 @@
+import { positionPlayer1 } from '../../main';
 import './laOca.css';
 
 const casillasOcaTablero = [
