@@ -187,3 +187,4 @@ export function moverFichaJugador(n, position, numeroAleatorio) {
   const casillaInicial = document.getElementById("1");
   casillaInicial.append(ficha1);
 } */
+

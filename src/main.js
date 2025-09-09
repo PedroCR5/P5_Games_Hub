@@ -22,17 +22,17 @@ cells.forEach(cell => {
 //? Reiniciar partida
 
 //! Juego la Oca
-//? Hacer tirada de dados
+//// Hacer tirada de dados
 //// Tablero
-//? Dado random
-//? Fichas
-//? Cambio de turno
+//// Dado random
+//// Fichas
+//// Cambio de turno
 //? Casillas especiales
 //? Jugador ganador
 //? Reiniciar partida
 //? localStorage puntuaciones
 //? Reset puntuaciones
-//? jugadores entre 1 y 4
+//// jugadores entre 1 y 4
 export let positionPlayer1 = "1";
 export let positionPlayer2 = "1";
 export let positionPlayer3 = "1";
@@ -46,52 +46,36 @@ createImputNumberPlayers();
 const numberPlayers = document.getElementById("jugadoresOca");
 /* numberPlayers.min = "1";
 numberPlayers.max = "4"; */
+let clavePlayerCurrent = "jugador1";
 numberPlayers.addEventListener('input', () => {
   createPlayerToPlay();
   const playersDice = document.querySelectorAll('.jugadorDice');
   playersDice.forEach(dice => {
     dice.addEventListener('click', () => {
-      console.log(dice);
-
-      //player = clickCasillaCheck(dice, playerDice);
-      //console.log("dados");
       // Generar un número aleatorio entre 1 y 6
       const numeroAleatorio = Math.floor(Math.random() * 6) + 1;
-      console.log(numeroAleatorio);
       const diceValue = document.querySelector(`#dadoValor`);
       diceValue.textContent = `Te ha salido un ${numeroAleatorio}`;
-      console.log(dice);
-      //console.log(positionPlayer1);
-      //document.getElementById(`ficha1`).remove;
-      if (dice.id == "1Dice") {
-        //console.log(positionPlayer1);
-        //document.getElementById(`ficha1`).remove;
+      //Ver quien tiene el turno y mover su ficha
+      if ((dice.id == "1Dice") && (clavePlayerCurrent == "jugador1")) {
         positionPlayer1 = parseInt(positionPlayer1) + parseInt(numeroAleatorio);
-        moverFichaJugador(1, positionPlayer1, numeroAleatorio)
-
-      } else if (dice.id == "2Dice") {
-        //console.log(positionPlayer2);
+        moverFichaJugador(1, positionPlayer1, numeroAleatorio);
+        clavePlayerCurrent = "jugador2";
+        console.log(clavePlayerCurrent);
+      } else if ((dice.id == "2Dice") && (clavePlayerCurrent == "jugador2")) {
         positionPlayer2 = parseInt(positionPlayer2) + parseInt(numeroAleatorio);
         moverFichaJugador(2, positionPlayer2, numeroAleatorio)
-
-      } else if (dice.id == "3Dice") {
-        //console.log(positionPlayer3);
+        clavePlayerCurrent = "jugador3";
+      } else if ((dice.id == "3Dice") && (clavePlayerCurrent == "jugador3")) {
         positionPlayer3 = parseInt(positionPlayer3) + parseInt(numeroAleatorio);
-        moverFichaJugador(3, positionPlayer3, numeroAleatorio)
-
+        moverFichaJugador(3, positionPlayer3, numeroAleatorio);
+        clavePlayerCurrent = "jugador4";
       }
-      else if (dice.id == "4Dice") {
-        //console.log(positionPlayer4);
+      else if ((dice.id == "4Dice") && (clavePlayerCurrent == "jugador4")) {
         positionPlayer4 = parseInt(positionPlayer4) + parseInt(numeroAleatorio);
-        moverFichaJugador(4, positionPlayer4, numeroAleatorio)
-
+        moverFichaJugador(4, positionPlayer4, numeroAleatorio);
+        clavePlayerCurrent = "jugador1";
       }
-      /*  console.log(positionPlayer1);
-       console.log(positionPlayer2);
-       console.log(positionPlayer3);
-       console.log(positionPlayer4); */
-      //Mover casilla
-
     });
   });
 });
