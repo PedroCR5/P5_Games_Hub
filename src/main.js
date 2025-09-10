@@ -47,6 +47,10 @@ const numberPlayers = document.getElementById("jugadoresOca");
 /* numberPlayers.min = "1";
 numberPlayers.max = "4"; */
 let clavePlayerCurrent = "jugador1";
+/* const dicePlayer1 = document.querySelector("#1Dice");
+console.log(dicePlayer1); */
+
+//dicePlayer1.classList = "";
 numberPlayers.addEventListener('input', () => {
   createPlayerToPlay();
   const playersDice = document.querySelectorAll('.jugadorDice');
