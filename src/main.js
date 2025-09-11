@@ -53,6 +53,7 @@ console.log(dicePlayer1); */
 //dicePlayer1.classList = "";
 numberPlayers.addEventListener('input', () => {
   createPlayerToPlay();
+
   const playersDice = document.querySelectorAll('.jugadorDice');
   playersDice.forEach(dice => {
     dice.addEventListener('click', () => {
@@ -82,10 +83,48 @@ numberPlayers.addEventListener('input', () => {
       }
     });
   });
+  const fichasPositionCheck = document.getElementsByClassName(`fichaJugador`);
+  console.log(fichasPositionCheck);
+  /*  const prueba1 = document.getElementById(`ficha1`);
+   console.log(prueba1); */
+  for (let i = 0; i < fichasPositionCheck.length; i++) {
+    const element = fichasPositionCheck[i];
+    const padre = element.parentNode;
+    if (padre.id = 1) {
+      console.log("estoy en casilla 1");
+
+    }
+    const valor = "valor2";
+
+    /*  switch (valor) {
+       case "valor1":
+         console.log("Acción para valor1");
+         break;
+       case "valor2":
+         console.log("Acción para valor2");
+         break;
+       case "valor3":
+         console.log("Acción para valor3");
+         break;
+       default:
+         console.log("Valor no reconocido");
+     } */
+
+    console.log(padre);
+  }
+
+
+
 });
 
+/* fichasPositionCheck.forEach(ficha => {
+  console.log("padre");
+}); */
+/* fichasPositionCheck.forEach(element => {
+  //const padre = element.parent.Node;
+  console.log("padre");
 
-
+}); */
 
 //crearFicha1();
 
