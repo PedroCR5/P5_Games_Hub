@@ -1,4 +1,4 @@
-import { createImputNumberPlayers, createPlayerToPlay, moverFichaJugador, printOca } from './games/laOca/laOca';
+import { createImputNumberPlayers, createPlayerToPlay, moverDesdeCasillasEspeciales, moverFichaJugador, printOca } from './games/laOca/laOca';
 import { clickCasillaCheck, printTresEnRaya } from './games/tresEnRaya/tresEnRaya';
 import { crearEstructuraPpal } from './structure/structure';
 import './style.css'
@@ -64,54 +64,30 @@ numberPlayers.addEventListener('input', () => {
       //Ver quien tiene el turno y mover su ficha
       if ((dice.id == "1Dice") && (clavePlayerCurrent == "jugador1")) {
         positionPlayer1 = parseInt(positionPlayer1) + parseInt(numeroAleatorio);
-        moverFichaJugador(1, positionPlayer1, numeroAleatorio);
+        moverFichaJugador(1, positionPlayer1, numeroAleatorio, 1);
+        moverDesdeCasillasEspeciales();
         clavePlayerCurrent = "jugador2";
-        console.log(clavePlayerCurrent);
+        //console.log(clavePlayerCurrent);
       } else if ((dice.id == "2Dice") && (clavePlayerCurrent == "jugador2")) {
         positionPlayer2 = parseInt(positionPlayer2) + parseInt(numeroAleatorio);
-        moverFichaJugador(2, positionPlayer2, numeroAleatorio)
+        moverFichaJugador(2, positionPlayer2, numeroAleatorio, 1)
+        moverDesdeCasillasEspeciales();
         clavePlayerCurrent = "jugador3";
       } else if ((dice.id == "3Dice") && (clavePlayerCurrent == "jugador3")) {
         positionPlayer3 = parseInt(positionPlayer3) + parseInt(numeroAleatorio);
-        moverFichaJugador(3, positionPlayer3, numeroAleatorio);
+        moverFichaJugador(3, positionPlayer3, numeroAleatorio, 1);
+        moverDesdeCasillasEspeciales();
         clavePlayerCurrent = "jugador4";
       }
       else if ((dice.id == "4Dice") && (clavePlayerCurrent == "jugador4")) {
         positionPlayer4 = parseInt(positionPlayer4) + parseInt(numeroAleatorio);
-        moverFichaJugador(4, positionPlayer4, numeroAleatorio);
+        moverFichaJugador(4, positionPlayer4, numeroAleatorio, 1);
+        moverDesdeCasillasEspeciales();
         clavePlayerCurrent = "jugador1";
       }
     });
   });
-  const fichasPositionCheck = document.getElementsByClassName(`fichaJugador`);
-  console.log(fichasPositionCheck);
-  /*  const prueba1 = document.getElementById(`ficha1`);
-   console.log(prueba1); */
-  for (let i = 0; i < fichasPositionCheck.length; i++) {
-    const element = fichasPositionCheck[i];
-    const padre = element.parentNode;
-    if (padre.id = 1) {
-      console.log("estoy en casilla 1");
 
-    }
-    const valor = "valor2";
-
-    /*  switch (valor) {
-       case "valor1":
-         console.log("Acción para valor1");
-         break;
-       case "valor2":
-         console.log("Acción para valor2");
-         break;
-       case "valor3":
-         console.log("Acción para valor3");
-         break;
-       default:
-         console.log("Valor no reconocido");
-     } */
-
-    console.log(padre);
-  }
 
 
 
