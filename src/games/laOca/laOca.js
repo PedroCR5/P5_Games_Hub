@@ -66,121 +66,7 @@ const casillasOcaTablero = [
   { id: 62, tipo: "normal" },
   { id: 63, tipo: "meta" }
 ];
-export function moverDesdeCasillasEspeciales() {
-  const fichasPositionCheck = document.getElementsByClassName(`fichaJugador`);
-  //console.log(fichasPositionCheck);
-  /*  const prueba1 = document.getElementById(`ficha1`);
-   console.log(prueba1); */
-  for (let i = 0; i < fichasPositionCheck.length; i++) {
-    const element = fichasPositionCheck[i];
-    console.log(element.id);
 
-    const numeroFichaCasillaEspecial = parseInt(element.id.match(/\d/)[0]);
-    console.log(numeroFichaCasillaEspecial);
-
-    /* const str = "ficha3";
-    const numero = str.match(/\d+/)[0]; // Extrae el número
-    console.log(numero); // Resultado: "3" */
-
-
-    const padre = element.parentNode;
-    /* if (padre.id = 1) {
-      console.log("estoy en casilla 1");
-
-    } else if (padre.id = 2) {
-      console.log("estoy en casilla 2");
-
-    }
-    const valor = "valor2"; */
-
-    switch (padre.id) {
-      case "2":
-        console.log(`Acción para ${element.id}`);
-        //let remove = false;
-        //positionPlayer1 = parseInt(positionPlayer1) + parseInt(numeroAleatorio);
-        moverFichaJugador(numeroFichaCasillaEspecial, 8, 6, 0);
-        break;
-      case "5":
-        console.log(`Acción para ${element.id}`);
-        moverFichaJugador(numeroFichaCasillaEspecial, 8, 6, 0);
-
-        break;
-      case "8":
-        console.log(`Acción para ${element.id}`);
-        moverFichaJugador(numeroFichaCasillaEspecial, 8, 6, 0);
-
-        break;
-      case "12":
-        console.log(`Acción para ${element.id}`);
-        moverFichaJugador(numeroFichaCasillaEspecial, 8, 6, 0);
-
-        break;
-      case "13":
-        console.log(`Acción para ${element}`);
-        moverFichaJugador(numeroFichaCasillaEspecial, 8, 6, 0);
-
-        break;
-      case "17":
-        console.log(`Acción para ${element}`);
-        moverFichaJugador(numeroFichaCasillaEspecial, 8, 6, 0);
-
-        break;
-      case "19":
-        console.log(`Acción para ${fichasPositionCheck[i]}`);
-        break;
-      case "5":
-        console.log(`Acción para ${fichasPositionCheck[i]}`);
-        break;
-      case "19":
-        console.log(`Acción para ${fichasPositionCheck[i]}`);
-        break;
-      case "22":
-        console.log(`Acción para ${fichasPositionCheck[i]}`);
-        break;
-      case "26":
-        console.log(`Acción para ${fichasPositionCheck[i]}`);
-        break;
-      case "28":
-        console.log(`Acción para ${fichasPositionCheck[i]}`);
-        break;
-      case "30":
-        console.log(`Acción para ${fichasPositionCheck[i]}`);
-        break;
-      case "34":
-        console.log("Acción para valor2");
-        break;
-      case "40":
-        console.log("Acción para valor2");
-        break;
-      case "41":
-        console.log("Acción para valor2");
-        break;
-      case "46":
-        console.log("Acción para valor2");
-        break;
-      case "48":
-        console.log("Acción para valor2");
-        break;
-      case "51":
-        console.log("Acción para valor2");
-        break;
-      case "55":
-        console.log("Acción para valor2");
-        break;
-      case "60":
-        console.log("Acción para valor2");
-        break;
-      case "63":
-        console.log("Acción para valor2");
-        break;
-      default:
-        console.log("Casilla normal");
-    }
-  }
-
-
-  //console.log(padre);
-};
 export const printOca = () => {
   const laOcaTable = document.querySelector(`#laOcaTable`);
   const arrayOca = [
@@ -276,24 +162,119 @@ export function createPlayerToPlay() {
 
 }
 
-export function moverFichaJugador(n, position, numeroAleatorio, check) {
+export function moverFichaJugador(n, position, numeroAleatorio) {
   const casillaAnterior = parseInt(position) - parseInt(numeroAleatorio);;
   console.log(casillaAnterior);
   const parentDiv = document.getElementById(casillaAnterior);
   const childDiv = document.getElementById(`ficha${n}`);
-  if (check === 1) { parentDiv.removeChild(childDiv) };
-
+  parentDiv.removeChild(childDiv)
   const casillaActual = document.getElementById(position);
   console.log(casillaActual);
-  //const ficha=`ficha${n}`;
   const ficha = document.createElement("div");
   ficha.id = `ficha${n}`;
   ficha.className = "fichaJugador";
-  /*   const fichaMover = document.getElementById(ficha1);
-    console.log(ficha1); */
-
   casillaActual.append(ficha);
-}
+};
+export function moverDesdeCasillasEspeciales() {
+  const fichasPositionCheck = document.getElementsByClassName(`fichaJugador`);
+  //console.log(fichasPositionCheck);
+  /*  const prueba1 = document.getElementById(`ficha1`);
+   console.log(prueba1); */
+  for (let i = 0; i < fichasPositionCheck.length; i++) {
+    const element = fichasPositionCheck[i];
+    console.log(element.id);
+
+    const numeroFichaCasillaEspecial = parseInt(element.id.match(/\d/)[0]);
+    console.log(numeroFichaCasillaEspecial);
+    const padre = element.parentNode;
+    switch (padre.id) {
+      case "2":
+        console.log(`Acción para ${element.id}`);
+        //let remove = false;
+        //positionPlayer1 = parseInt(positionPlayer1) + parseInt(numeroAleatorio);
+        moverFichaJugador(numeroFichaCasillaEspecial, 8, 6);
+        break;
+      case "5":
+        console.log(`Acción para ${element.id}`);
+        moverFichaJugador(numeroFichaCasillaEspecial, 8, 6);
+
+        break;
+      case "8":
+        console.log(`Acción para ${element.id}`);
+        moverFichaJugador(numeroFichaCasillaEspecial, 8, 6);
+
+        break;
+      case "12":
+        console.log(`Acción para ${element.id}`);
+        moverFichaJugador(numeroFichaCasillaEspecial, 8, 6);
+
+        break;
+      case "13":
+        console.log(`Acción para ${element}`);
+        moverFichaJugador(numeroFichaCasillaEspecial, 8, 6);
+
+        break;
+      case "17":
+        console.log(`Acción para ${element}`);
+        moverFichaJugador(numeroFichaCasillaEspecial, 8, 6);
+
+        break;
+      case "19":
+        console.log(`Acción para ${fichasPositionCheck[i]}`);
+        break;
+      case "5":
+        console.log(`Acción para ${fichasPositionCheck[i]}`);
+        break;
+      case "19":
+        console.log(`Acción para ${fichasPositionCheck[i]}`);
+        break;
+      case "22":
+        console.log(`Acción para ${fichasPositionCheck[i]}`);
+        break;
+      case "26":
+        console.log(`Acción para ${fichasPositionCheck[i]}`);
+        break;
+      case "28":
+        console.log(`Acción para ${fichasPositionCheck[i]}`);
+        break;
+      case "30":
+        console.log(`Acción para ${fichasPositionCheck[i]}`);
+        break;
+      case "34":
+        console.log("Acción para valor2");
+        break;
+      case "40":
+        console.log("Acción para valor2");
+        break;
+      case "41":
+        console.log("Acción para valor2");
+        break;
+      case "46":
+        console.log("Acción para valor2");
+        break;
+      case "48":
+        console.log("Acción para valor2");
+        break;
+      case "51":
+        console.log("Acción para valor2");
+        break;
+      case "55":
+        console.log("Acción para valor2");
+        break;
+      case "60":
+        console.log("Acción para valor2");
+        break;
+      case "63":
+        console.log("Acción para valor2");
+        break;
+      default:
+        console.log("Casilla normal");
+    }
+  }
+
+
+  //console.log(padre);
+};
 /* export function crearFicha1() {
   const ficha1 = document.createElement("div");
   ficha1.id = "ficha1";
