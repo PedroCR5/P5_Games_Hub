@@ -1,4 +1,4 @@
-import { positionPlayer1 } from '../../main';
+import { clavePlayerCurrent, positionPlayer1 } from '../../main';
 import './laOca.css';
 
 const casillasOcaTablero = [
@@ -150,7 +150,6 @@ export function createPlayerToPlay() {
     const casillaInicial = document.getElementById("1");
     //console.log(casillaInicial);
     //casillaInicial.innerHTML = "";
-
     casillaInicial.append(ficha1);
   }
   const diceGif = document.createElement("image");
@@ -159,7 +158,6 @@ export function createPlayerToPlay() {
   const diceValue = document.createElement("number");
   diceValue.id = `dadoValor`;
   laOcaPlayersDiv.append(diceValue);
-
 }
 
 export function moverFichaJugador(n, position, numeroAleatorio) {
@@ -171,247 +169,102 @@ export function moverFichaJugador(n, position, numeroAleatorio) {
   const casillaActual = document.getElementById(position);
   let newPosition = `${position}`;
   console.log(newPosition);
-  //const numeroFichaCasillaEspecial = `${newPosition}`;
-  //console.log(numeroFichaCasillaEspecial);
 
   switch (newPosition) {
-
     case "2":
       console.log(`Acción para ficha${n}`);
-      //let remove = false;
-      //positionPlayer1 = parseInt(positionPlayer1) + parseInt(numeroAleatorio);
+      setTimeout(() => {
+        const diceValue = document.querySelector(`#dadoValor`);
+        diceValue.textContent = `De oca a oca y tiro por que me toca`;
+      }, 1000);
       newPosition = 8;
+      //clavePlayerCurrent = `jugador${n}`;
       break;
     case "5":
       console.log(`Acción para ficha${n}`);
       newPosition = 12;
-
       break;
     case "8":
       console.log(`Acción para ficha${n}`);
       newPosition = 13;
-
       break;
     case "12":
-      console.log(`Acción para ${element.id}`);
+      console.log(`Acción para ficha${n}`);
       newPosition = 5;
-
       break;
     case "13":
-      console.log(`Acción para ${element}`);
-      newPosition = 10;
-
+      console.log(`Acción para ficha${n}`);
+      newPosition = 17;
       break;
     case "17":
-      console.log(`Acción para ${element}`);
-      newPosition = 10;
-
+      console.log(`Acción para ficha${n}`);
+      newPosition = 22;
       break;
     case "19":
-      console.log(`Acción para ${fichasPositionCheck[i]}`);
-      newPosition = 10;
-
-      break;
-    case "5":
-      console.log(`Acción para ${fichasPositionCheck[i]}`);
-      newPosition = 10;
-
-      break;
-    case "19":
-      console.log(`Acción para ${fichasPositionCheck[i]}`);
-      newPosition = 10;
-
+      console.log(`Acción para ficha${n}`);
+      turnosPerdidos = 1;
       break;
     case "22":
-      console.log(`Acción para ${fichasPositionCheck[i]}`);
-      newPosition = 10;
-
+      console.log(`Acción para ficha${n}`);
+      newPosition = 28;
       break;
     case "26":
-      console.log(`Acción para ${fichasPositionCheck[i]}`);
-      newPosition = 10;
-
+      console.log(`Acción para ficha${n}`);
+      newPosition = 48;
       break;
     case "28":
-      console.log(`Acción para ${fichasPositionCheck[i]}`);
-      newPosition = 10;
-
+      console.log(`Acción para ficha${n}`);
+      newPosition = 34;
       break;
     case "30":
-      console.log(`Acción para ${fichasPositionCheck[i]}`);
+      console.log(`Acción para ficha${n}`);
+      turnosPerdidos = 2;
       break;
     case "34":
-      console.log("Acción para valor2");
+      console.log(`Acción para ficha${n}`);
+      newPosition = 40;
       break;
     case "40":
-      console.log("Acción para valor2");
+      console.log(`Acción para ficha${n}`);
+      newPosition = 46;
       break;
     case "41":
-      console.log("Acción para valor2");
+      console.log(`Acción para ficha${n}`);
+      newPosition = 30;
       break;
     case "46":
-      console.log("Acción para valor2");
+      console.log(`Acción para ficha${n}`);
+      newPosition = 51;
       break;
     case "48":
-      console.log("Acción para valor2");
+      console.log(`Acción para ficha${n}`);
+      newPosition = 26;
       break;
     case "51":
-      console.log("Acción para valor2");
+      console.log(`Acción para ficha${n}`);
+      newPosition = 60;
       break;
     case "55":
-      console.log("Acción para valor2");
+      console.log(`Acción para ficha${n}`);
+      newPosition = 1;
       break;
     case "60":
-      console.log("Acción para valor2");
+      console.log(`Acción para ficha${n}`);
+      newPosition = 63;
       break;
     case "63":
-      console.log("Acción para valor2");
+      console.log(`Ha ganado el jugador con ficha${n}`);
       break;
     default:
       console.log("Casilla normal");
+    //clavePlayerCurrent = `jugador${n + 1}`;
+
   }
-
-
   console.log(newPosition);
   const casillaNewPosition = document.getElementById(newPosition);
-
   const ficha = document.createElement("div");
   ficha.id = `ficha${n}`;
   ficha.className = "fichaJugador";
   casillaNewPosition.append(ficha);
   return newPosition;
 };
-/* export function moverDesdeCasillasEspeciales() {
-  const fichasPositionCheck = document.getElementsByClassName(`fichaJugador`);
-  //console.log(fichasPositionCheck);
-  /*  const prueba1 = document.getElementById(`ficha1`);
-   console.log(prueba1); */
-/*
-for (let i = 0; i < fichasPositionCheck.length; i++) {
-const element = fichasPositionCheck[i];
-console.log(element.id);
-
-const numeroFichaCasillaEspecial = parseInt(element.id.match(/\d/)[0]);
-console.log(numeroFichaCasillaEspecial);
-const padre = element.parentNode;
-switch (padre.id) {
-  case "2":
-    console.log(`Acción para ${element.id}`);
-    //let remove = false;
-    //positionPlayer1 = parseInt(positionPlayer1) + parseInt(numeroAleatorio);
-    moverFichaJugador(numeroFichaCasillaEspecial, 8, 6);
-    break;
-  case "5":
-    console.log(`Acción para ${element.id}`);
-    moverFichaJugador(numeroFichaCasillaEspecial, 8, 6);
-
-    break;
-  case "8":
-    console.log(`Acción para ${element.id}`);
-    moverFichaJugador(numeroFichaCasillaEspecial, 8, 6);
-
-    break;
-  case "12":
-    console.log(`Acción para ${element.id}`);
-    moverFichaJugador(numeroFichaCasillaEspecial, 8, 6);
-
-    break;
-  case "13":
-    console.log(`Acción para ${element}`);
-    moverFichaJugador(numeroFichaCasillaEspecial, 8, 6);
-
-    break;
-  case "17":
-    console.log(`Acción para ${element}`);
-    moverFichaJugador(numeroFichaCasillaEspecial, 8, 6);
-
-    break;
-  case "19":
-    console.log(`Acción para ${fichasPositionCheck[i]}`);
-    break;
-  case "5":
-    console.log(`Acción para ${fichasPositionCheck[i]}`);
-    break;
-  case "19":
-    console.log(`Acción para ${fichasPositionCheck[i]}`);
-    break;
-  case "22":
-    console.log(`Acción para ${fichasPositionCheck[i]}`);
-    break;
-  case "26":
-    console.log(`Acción para ${fichasPositionCheck[i]}`);
-    break;
-  case "28":
-    console.log(`Acción para ${fichasPositionCheck[i]}`);
-    break;
-  case "30":
-    console.log(`Acción para ${fichasPositionCheck[i]}`);
-    break;
-  case "34":
-    console.log("Acción para valor2");
-    break;
-  case "40":
-    console.log("Acción para valor2");
-    break;
-  case "41":
-    console.log("Acción para valor2");
-    break;
-  case "46":
-    console.log("Acción para valor2");
-    break;
-  case "48":
-    console.log("Acción para valor2");
-    break;
-  case "51":
-    console.log("Acción para valor2");
-    break;
-  case "55":
-    console.log("Acción para valor2");
-    break;
-  case "60":
-    console.log("Acción para valor2");
-    break;
-  case "63":
-    console.log("Acción para valor2");
-    break;
-  default:
-    console.log("Casilla normal");
-}
-}
-
-
-//console.log(padre);
-}; */
-/* export function crearFicha1() {
-  const ficha1 = document.createElement("div");
-  ficha1.id = "ficha1";
-  ficha1.className = "fichaJugador";
-  const positionFicha1 = 1;
-  const casillaInicial = document.getElementById("1");
-  casillaInicial.append(ficha1);
-} */
-
-/* case "1":
-      console.log(`Acción para ficha${n}`);
-      newPosition = 10;
-      break;
-    case "2":
-      console.log(`Acción para ficha${n}`);
-      newPosition = 10;
-      break;
-    case "3":
-      console.log(`Acción para ficha${n}`);
-      newPosition = 10;
-      break;
-    case "4":
-      console.log(`Acción para ficha${n}`);
-      newPosition = 10;
-      break;
-    case "5":
-      console.log(`Acción para ficha${n}`);
-      newPosition = 10;
-      break;
-    case "6":
-      console.log(`Acción para ficha${n}`);
-      newPosition = 10;
-      break; */

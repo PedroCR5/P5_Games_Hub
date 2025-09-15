@@ -44,16 +44,11 @@ printOca();
 createImputNumberPlayers();
 //Pintar los jugadores
 const numberPlayers = document.getElementById("jugadoresOca");
-/* numberPlayers.min = "1";
-numberPlayers.max = "4"; */
-let clavePlayerCurrent = "jugador1";
-/* const dicePlayer1 = document.querySelector("#1Dice");
-console.log(dicePlayer1); */
+export let clavePlayerCurrent = "jugador1";
 
-//dicePlayer1.classList = "";
+
 numberPlayers.addEventListener('input', () => {
   createPlayerToPlay();
-
   const playersDice = document.querySelectorAll('.jugadorDice');
   playersDice.forEach(dice => {
     dice.addEventListener('click', () => {
@@ -65,65 +60,28 @@ numberPlayers.addEventListener('input', () => {
       if ((dice.id == "1Dice") && (clavePlayerCurrent == "jugador1")) {
         positionPlayer1 = parseInt(positionPlayer1) + parseInt(numeroAleatorio);
         positionPlayer1 = moverFichaJugador(1, positionPlayer1, numeroAleatorio);
-        // moverDesdeCasillasEspeciales();
-        clavePlayerCurrent = "jugador2";
-        //console.log(clavePlayerCurrent);
+        if (positionPlayer1 == 8 || 12 || 13 || 5) {
+          clavePlayerCurrent = "jugador1";
+        } else {
+          clavePlayerCurrent = "jugador2";
+        }
       } else if ((dice.id == "2Dice") && (clavePlayerCurrent == "jugador2")) {
         positionPlayer2 = parseInt(positionPlayer2) + parseInt(numeroAleatorio);
         positionPlayer2 = moverFichaJugador(2, positionPlayer2, numeroAleatorio);
-        // moverDesdeCasillasEspeciales();
         clavePlayerCurrent = "jugador3";
       } else if ((dice.id == "3Dice") && (clavePlayerCurrent == "jugador3")) {
         positionPlayer3 = parseInt(positionPlayer3) + parseInt(numeroAleatorio);
         positionPlayer3 = moverFichaJugador(3, positionPlayer3, numeroAleatorio);
-        //moverDesdeCasillasEspeciales();
         clavePlayerCurrent = "jugador4";
       }
       else if ((dice.id == "4Dice") && (clavePlayerCurrent == "jugador4")) {
         positionPlayer4 = parseInt(positionPlayer4) + parseInt(numeroAleatorio);
         positionPlayer4 = moverFichaJugador(4, positionPlayer4, numeroAleatorio);
-        // moverDesdeCasillasEspeciales();
         clavePlayerCurrent = "jugador1";
       }
     });
   });
-
-
-
-
 });
-
-/* fichasPositionCheck.forEach(ficha => {
-  console.log("padre");
-}); */
-/* fichasPositionCheck.forEach(element => {
-  //const padre = element.parent.Node;
-  console.log("padre");
-
-}); */
-
-//crearFicha1();
-
-
-
-/* const casillaActual1 = document.getElementById(`${positionFicha1}`);
-casillaActual1.append(ficha1); */
-
-/* for (i = 0; i < inputInfoValue.value; i++) {
-  console.log("Hola");
-
-
-} */
-/* const player1 = document.createElement("button");
-const player2 = document.createElement("button");
-tresEnRayaPlayersDiv.append(player1);
-tresEnRayaPlayersDiv.append(player2);
-player1.className = "player1";
-player2.className = "player2";
-player1.textContent = "Jugador 1";
-player2.textContent = "Jugador 2"; */
-
-
 
 
 
