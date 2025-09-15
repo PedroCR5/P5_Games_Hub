@@ -1,4 +1,4 @@
-import { createImputNumberPlayers, createPlayerToPlay, moverDesdeCasillasEspeciales, moverFichaJugador, printOca } from './games/laOca/laOca';
+import { createImputNumberPlayers, createPlayerToPlay, moverFichaJugador, printOca } from './games/laOca/laOca';
 import { clickCasillaCheck, printTresEnRaya } from './games/tresEnRaya/tresEnRaya';
 import { crearEstructuraPpal } from './structure/structure';
 import './style.css'
@@ -64,25 +64,25 @@ numberPlayers.addEventListener('input', () => {
       //Ver quien tiene el turno y mover su ficha
       if ((dice.id == "1Dice") && (clavePlayerCurrent == "jugador1")) {
         positionPlayer1 = parseInt(positionPlayer1) + parseInt(numeroAleatorio);
-        moverFichaJugador(1, positionPlayer1, numeroAleatorio);
-        moverDesdeCasillasEspeciales();
+        positionPlayer1 = moverFichaJugador(1, positionPlayer1, numeroAleatorio);
+        // moverDesdeCasillasEspeciales();
         clavePlayerCurrent = "jugador2";
         //console.log(clavePlayerCurrent);
       } else if ((dice.id == "2Dice") && (clavePlayerCurrent == "jugador2")) {
         positionPlayer2 = parseInt(positionPlayer2) + parseInt(numeroAleatorio);
-        moverFichaJugador(2, positionPlayer2, numeroAleatorio)
-        moverDesdeCasillasEspeciales();
+        positionPlayer2 = moverFichaJugador(2, positionPlayer2, numeroAleatorio);
+        // moverDesdeCasillasEspeciales();
         clavePlayerCurrent = "jugador3";
       } else if ((dice.id == "3Dice") && (clavePlayerCurrent == "jugador3")) {
         positionPlayer3 = parseInt(positionPlayer3) + parseInt(numeroAleatorio);
-        moverFichaJugador(3, positionPlayer3, numeroAleatorio);
-        moverDesdeCasillasEspeciales();
+        positionPlayer3 = moverFichaJugador(3, positionPlayer3, numeroAleatorio);
+        //moverDesdeCasillasEspeciales();
         clavePlayerCurrent = "jugador4";
       }
       else if ((dice.id == "4Dice") && (clavePlayerCurrent == "jugador4")) {
         positionPlayer4 = parseInt(positionPlayer4) + parseInt(numeroAleatorio);
-        moverFichaJugador(4, positionPlayer4, numeroAleatorio);
-        moverDesdeCasillasEspeciales();
+        positionPlayer4 = moverFichaJugador(4, positionPlayer4, numeroAleatorio);
+        // moverDesdeCasillasEspeciales();
         clavePlayerCurrent = "jugador1";
       }
     });
