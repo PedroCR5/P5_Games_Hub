@@ -60,7 +60,7 @@ numberPlayers.addEventListener('input', () => {
       if ((dice.id == "1Dice") && (clavePlayerCurrent == "jugador1")) {
         positionPlayer1 = parseInt(positionPlayer1) + parseInt(numeroAleatorio);
         positionPlayer1 = moverFichaJugador(1, positionPlayer1, numeroAleatorio);
-        if (positionPlayer1 == 8 || 12 || 13 || 5) {
+        if (positionPlayer1 == (8 || 12 || 13 || 5)) {
           clavePlayerCurrent = "jugador1";
         } else {
           clavePlayerCurrent = "jugador2";

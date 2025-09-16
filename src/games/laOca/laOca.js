@@ -182,14 +182,26 @@ export function moverFichaJugador(n, position, numeroAleatorio) {
       break;
     case "5":
       console.log(`Acción para ficha${n}`);
+      setTimeout(() => {
+        const diceValue = document.querySelector(`#dadoValor`);
+        diceValue.textContent = `De oca a oca y tiro por que me toca`;
+      }, 1000);
       newPosition = 12;
       break;
     case "8":
       console.log(`Acción para ficha${n}`);
+      setTimeout(() => {
+        const diceValue = document.querySelector(`#dadoValor`);
+        diceValue.textContent = `De oca a oca y tiro por que me toca`;
+      }, 1000);
       newPosition = 13;
       break;
     case "12":
       console.log(`Acción para ficha${n}`);
+      setTimeout(() => {
+        const diceValue = document.querySelector(`#dadoValor`);
+        diceValue.textContent = `De oca a oca y tiro por que me toca`;
+      }, 1000);
       newPosition = 5;
       break;
     case "13":
