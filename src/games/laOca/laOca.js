@@ -1,7 +1,7 @@
 import { clavePlayerCurrent, positionPlayer1 } from '../../main';
 import './laOca.css';
 
-const casillasOcaTablero = [
+export const casillasOcaTablero = [
   { id: 1, tipo: "inicio" },
   { id: 2, tipo: "oca", destino: 8 },
   { id: 3, tipo: "normal" },
@@ -162,15 +162,24 @@ export function createPlayerToPlay() {
 
 export function moverFichaJugador(n, position, numeroAleatorio) {
   const casillaAnterior = parseInt(position) - parseInt(numeroAleatorio);;
-  console.log(casillaAnterior);
+  //console.log(casillaAnterior);
   const parentDiv = document.getElementById(casillaAnterior);
   const childDiv = document.getElementById(`ficha${n}`);
   parentDiv.removeChild(childDiv);
-  const casillaActual = document.getElementById(position);
+  //const casillaActual = document.getElementById(position);
   let newPosition = `${position}`;
-  console.log(newPosition);
+  //console.log(newPosition);
+  if (newPosition > 63) {
+    let diferencia = newPosition - 63;
+    newPosition = 63 - diferencia;
+  }
+  const result = casillasOcaTablero.find(obj => obj.id == newPosition);
+  if (result.destino) {
+    newPosition = parseInt(result.destino);
+  }
 
-  switch (newPosition) {
+
+  /* switch (newPosition) {
     case "2":
       console.log(`Acción para ficha${n}`);
       setTimeout(() => {
@@ -271,12 +280,16 @@ export function moverFichaJugador(n, position, numeroAleatorio) {
       console.log("Casilla normal");
     //clavePlayerCurrent = `jugador${n + 1}`;
 
-  }
-  console.log(newPosition);
+  } */
+  //console.log(newPosition);
   const casillaNewPosition = document.getElementById(newPosition);
   const ficha = document.createElement("div");
   ficha.id = `ficha${n}`;
   ficha.className = "fichaJugador";
   casillaNewPosition.append(ficha);
+  if (newPosition == 63) {
+    console.log(`El jugador${n} ha ganado`);
+    //Falta poner alert o aviso y parar la partida.
+  }
   return newPosition;
 };
