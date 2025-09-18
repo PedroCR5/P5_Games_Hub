@@ -114,6 +114,7 @@
   min-height: 100px;
   cursor: pointer;
 }
+
 .jugadorDiceCurrent {
   background-image: url(./assets/dice.png);
   background-repeat: no-repeat;

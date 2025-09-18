@@ -151,13 +151,18 @@ export function createPlayerToPlay() {
     //console.log(casillaInicial);
     //casillaInicial.innerHTML = "";
     casillaInicial.append(ficha1);
+
   }
+
+
+
   const diceGif = document.createElement("image");
   diceGif.id = `dados`;
   laOcaPlayersDiv.append(diceGif);
   const diceValue = document.createElement("number");
   diceValue.id = `dadoValor`;
   laOcaPlayersDiv.append(diceValue);
+
 }
 
 export function moverFichaJugador(n, position, numeroAleatorio) {
