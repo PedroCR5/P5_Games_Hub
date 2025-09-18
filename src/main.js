@@ -53,6 +53,12 @@ export let clavePlayerCurrent = "jugador1";
 
 numberPlayers.addEventListener('input', () => {
   createPlayerToPlay();
+  if (clavePlayerCurrent = "jugador1") {
+    console.log("estoy dentro");
+    let playersCurrentDice = document.getElementById("1Dice");
+    playersCurrentDice.className = "jugadorDiceCurrent";
+  };
+
   const playersDice = document.querySelectorAll('.jugadorDice');
   playersDice.forEach(dice => {
     dice.addEventListener('click', () => {
@@ -79,19 +85,38 @@ numberPlayers.addEventListener('input', () => {
           lostTurnPlayer1--;
         }
         clavePlayerCurrent = "jugador2";
+        //Cambiar la clase de los dados
+        let playersCurrentDice2 = document.getElementById("2Dice");
+        playersCurrentDice2.className = "jugadorDiceCurrent";
+        let playersCurrentDice1 = document.getElementById("1Dice");
+        playersCurrentDice1.className = "jugadorDice";
       } else if ((dice.id == "2Dice") && (clavePlayerCurrent == "jugador2")) {
         positionPlayer2 = parseInt(positionPlayer2) + parseInt(numeroAleatorio);
         positionPlayer2 = moverFichaJugador(2, positionPlayer2, numeroAleatorio);
         clavePlayerCurrent = "jugador3";
+        //Cambiar la clase de los dados
+        let playersCurrentDice3 = document.getElementById("3Dice");
+        playersCurrentDice3.className = "jugadorDiceCurrent";
+        let playersCurrentDice2 = document.getElementById("2Dice");
+        playersCurrentDice2.className = "jugadorDice";
       } else if ((dice.id == "3Dice") && (clavePlayerCurrent == "jugador3")) {
         positionPlayer3 = parseInt(positionPlayer3) + parseInt(numeroAleatorio);
         positionPlayer3 = moverFichaJugador(3, positionPlayer3, numeroAleatorio);
         clavePlayerCurrent = "jugador4";
+        //Cambiar la clase de los dados
+        let playersCurrentDice4 = document.getElementById("4Dice");
+        playersCurrentDice4.className = "jugadorDiceCurrent";
+        let playersCurrentDice3 = document.getElementById("3Dice");
+        playersCurrentDice3.className = "jugadorDice";
       }
       else if ((dice.id == "4Dice") && (clavePlayerCurrent == "jugador4")) {
         positionPlayer4 = parseInt(positionPlayer4) + parseInt(numeroAleatorio);
         positionPlayer4 = moverFichaJugador(4, positionPlayer4, numeroAleatorio);
-        clavePlayerCurrent = "jugador1";
+        clavePlayerCurrent = "jugador1"; //Cambiar la clase de los dados
+        let playersCurrentDice1 = document.getElementById("1Dice");
+        playersCurrentDice1.className = "jugadorDiceCurrent";
+        let playersCurrentDice4 = document.getElementById("2Dice");
+        playersCurrentDice4.className = "jugadorDice";
       }
     });
   });
