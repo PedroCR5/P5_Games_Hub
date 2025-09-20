@@ -78,18 +78,52 @@ numberPlayers.addEventListener('input', () => {
 
         let result = casillasOcaTablero.find(obj => obj.id == positionPlayer1);
         console.log(result);
+        //comprobar valor para turno oca
+        switch (result.id) {
+          case 2: result.id = 33;
+            console.log("El valor es 2, 3, 4 o 5.");
+            break;
+          case 3: result.id = 33;
+            console.log("El valor es 2, 3, 4 o 5.");
+            break;
 
-        if (result.id === (2 || 3 || 4 || 5)) {
-          clavePlayerCurrent = "jugador1";
-          console.log("hola");
+          case 4: result.id = 33;
+            console.log("El valor es 2, 3, 4 o 5.");
+            break;
 
-        } else {
-          clavePlayerCurrent = "jugador2";
-          let playersCurrentDice2 = document.getElementById("2Dice");
-          playersCurrentDice2.className = "jugadorDiceCurrent";
-          let playersCurrentDice1 = document.getElementById("1Dice");
-          playersCurrentDice1.className = "jugadorDice";
-        }
+          case 5: result.id = 33;
+
+            console.log("El valor es 2, 3, 4 o 5.");
+            break;
+
+          case 6: result.id = 33;
+
+            console.log("El valor es 2, 3, 4 o 5.");
+            break;
+
+          case 7: result.id = 33;
+
+            console.log("El valor es 2, 3, 4 o 5.");
+            break;
+          default:
+            console.log("El valor no es 2, 3, 4 ni 5.");
+        };
+        clavePlayerCurrent = "jugador2";
+        let playersCurrentDice2 = document.getElementById("2Dice");
+        playersCurrentDice2.className = "jugadorDiceCurrent";
+        let playersCurrentDice1 = document.getElementById("1Dice");
+        playersCurrentDice1.className = "jugadorDice";
+        /*  if (result.id === (2 || 3 || 4 || 5)) {
+           clavePlayerCurrent = "jugador1";
+           console.log("hola");
+ 
+         } else {
+           clavePlayerCurrent = "jugador2";
+           let playersCurrentDice2 = document.getElementById("2Dice");
+           playersCurrentDice2.className = "jugadorDiceCurrent";
+           let playersCurrentDice1 = document.getElementById("1Dice");
+           playersCurrentDice1.className = "jugadorDice";
+         } */
 
         /* 
         positionPlayer1 == (8 || 12 || 13 || 5)
