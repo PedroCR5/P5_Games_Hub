@@ -75,48 +75,59 @@ numberPlayers.addEventListener('input', () => {
         positionPlayer1 = parseInt(positionPlayer1) + parseInt(numeroAleatorio);
         positionPlayer1 = moverFichaJugador(1, positionPlayer1, numeroAleatorio);
         console.log("hola 1");
+        console.log(positionPlayer1);
 
-        let result = casillasOcaTablero.find(obj => obj.id == positionPlayer1);
+        /* let result = casillasOcaTablero.find(obj => obj.id == positionPlayer1);
         console.log(result);
+        let casillaNew1 = result.id; */
+        /*    let casillaNewPosition1 = {};
+           let ficha1 = {};
+           let parentDiv = {};
+           let childDiv = {}; */
+
         //comprobar valor para turno oca
-        switch (result.id) {
-          case 2: result.id = 33;
-            console.log("El valor es 2, 3, 4 o 5.");
+        switch (positionPlayer1) {
+
+          case 2:
+            positionPlayer1 = moverFichaJugador(1, 33, 31);
+            /* parentDiv = document.getElementById(positionPlayer1);
+            childDiv = document.getElementById(`ficha1`);
+            parentDiv.removeChild(childDiv);
+            casillaNew1 = 33;
+            casillaNewPosition1 = document.getElementById(casillaNew1);
+            ficha1 = document.createElement("div");
+            ficha1.id = `ficha1`;
+            ficha1.className = "fichaJugador";
+            casillaNewPosition1.append(ficha1); */
             break;
-          case 3: result.id = 33;
-            console.log("El valor es 2, 3, 4 o 5.");
+          case 3:
+            positionPlayer1 = moverFichaJugador(1, 33, 30);
             break;
-
-          case 4: result.id = 33;
-            console.log("El valor es 2, 3, 4 o 5.");
+          case 4:
+            positionPlayer1 = moverFichaJugador(1, 33, 29);
             break;
-
-          case 5: result.id = 33;
-
-            console.log("El valor es 2, 3, 4 o 5.");
+          case 5:
+            positionPlayer1 = moverFichaJugador(1, 33, 28);
             break;
-
-          case 6: result.id = 33;
-
-            console.log("El valor es 2, 3, 4 o 5.");
+          case 6:
+            positionPlayer1 = moverFichaJugador(1, 33, 27);
             break;
-
-          case 7: result.id = 33;
-
-            console.log("El valor es 2, 3, 4 o 5.");
+          case 7:
+            positionPlayer1 = moverFichaJugador(1, 33, 26);
             break;
           default:
             console.log("El valor no es 2, 3, 4 ni 5.");
+            clavePlayerCurrent = "jugador2";
+            let playersCurrentDice2 = document.getElementById("2Dice");
+            playersCurrentDice2.className = "jugadorDiceCurrent";
+            let playersCurrentDice1 = document.getElementById("1Dice");
+            playersCurrentDice1.className = "jugadorDice";
         };
-        clavePlayerCurrent = "jugador2";
-        let playersCurrentDice2 = document.getElementById("2Dice");
-        playersCurrentDice2.className = "jugadorDiceCurrent";
-        let playersCurrentDice1 = document.getElementById("1Dice");
-        playersCurrentDice1.className = "jugadorDice";
+
         /*  if (result.id === (2 || 3 || 4 || 5)) {
            clavePlayerCurrent = "jugador1";
            console.log("hola");
- 
+   
          } else {
            clavePlayerCurrent = "jugador2";
            let playersCurrentDice2 = document.getElementById("2Dice");

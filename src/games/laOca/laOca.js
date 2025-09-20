@@ -168,9 +168,9 @@ export function createPlayerToPlay() {
 export function moverFichaJugador(n, position, numeroAleatorio) {
   const casillaAnterior = parseInt(position) - parseInt(numeroAleatorio);;
   //console.log(casillaAnterior);
-  const parentDiv = document.getElementById(casillaAnterior);
-  const childDiv = document.getElementById(`ficha${n}`);
-  parentDiv.removeChild(childDiv);
+  const parentDivA = document.getElementById(casillaAnterior);
+  const childDivA = document.getElementById(`ficha${n}`);
+  parentDivA.removeChild(childDivA);
   //const casillaActual = document.getElementById(position);
   let newPosition = `${position}`;
   //console.log(newPosition);
