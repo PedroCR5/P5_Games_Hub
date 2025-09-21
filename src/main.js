@@ -27,12 +27,12 @@ cells.forEach(cell => {
 //// Dado random
 //// Fichas
 //// Cambio de turno
-//? Casillas especiales
+//? Casillas especiales perdida de turnos
 //? Jugador ganador
 //? Reiniciar partida
 //? localStorage puntuaciones
 //? Reset puntuaciones
-//? turno repetido de oca en oca
+//// turno repetido de oca en oca
 //// Señalar dado a tirar
 //// jugadores entre 1 y 4
 export let positionPlayer1 = "1";
@@ -74,107 +74,124 @@ numberPlayers.addEventListener('input', () => {
         //if (lostTurnPlayer1 == 0) {
         positionPlayer1 = parseInt(positionPlayer1) + parseInt(numeroAleatorio);
         positionPlayer1 = moverFichaJugador(1, positionPlayer1, numeroAleatorio);
-        console.log("hola 1");
-        console.log(positionPlayer1);
-
-        /* let result = casillasOcaTablero.find(obj => obj.id == positionPlayer1);
-        console.log(result);
-        let casillaNew1 = result.id; */
-        /*    let casillaNewPosition1 = {};
-           let ficha1 = {};
-           let parentDiv = {};
-           let childDiv = {}; */
-
+        /*   console.log("hola 1");
+          console.log(positionPlayer1); */
+        //Turnos perdidos
+        if (positionPlayer1 == 19) {
+          lostTurnPlayer1 = 1;
+        } else if (positionPlayer1 == 30) {
+          lostTurnPlayer1 = 3;
+        } else if (positionPlayer1 == 41) {
+          lostTurnPlayer1 = 2;
+        }
         //comprobar valor para turno oca
-        switch (positionPlayer1) {
-
-          case 2:
-            positionPlayer1 = moverFichaJugador(1, 33, 31);
-            /* parentDiv = document.getElementById(positionPlayer1);
-            childDiv = document.getElementById(`ficha1`);
-            parentDiv.removeChild(childDiv);
-            casillaNew1 = 33;
-            casillaNewPosition1 = document.getElementById(casillaNew1);
-            ficha1 = document.createElement("div");
-            ficha1.id = `ficha1`;
-            ficha1.className = "fichaJugador";
-            casillaNewPosition1.append(ficha1); */
-            break;
-          case 3:
-            positionPlayer1 = moverFichaJugador(1, 33, 30);
-            break;
-          case 4:
-            positionPlayer1 = moverFichaJugador(1, 33, 29);
-            break;
-          case 5:
-            positionPlayer1 = moverFichaJugador(1, 33, 28);
-            break;
-          case 6:
-            positionPlayer1 = moverFichaJugador(1, 33, 27);
-            break;
-          case 7:
-            positionPlayer1 = moverFichaJugador(1, 33, 26);
-            break;
-          default:
-            console.log("El valor no es 2, 3, 4 ni 5.");
-            clavePlayerCurrent = "jugador2";
-            let playersCurrentDice2 = document.getElementById("2Dice");
-            playersCurrentDice2.className = "jugadorDiceCurrent";
+        if (positionPlayer1 == 8 || positionPlayer1 == 12 || positionPlayer1 == 13 || positionPlayer1 == 5 || positionPlayer1 == 17 || positionPlayer1 == 22 || positionPlayer1 == 28 || positionPlayer1 == 48 || positionPlayer1 == 34 || positionPlayer1 == 40 || positionPlayer1 == 46 || positionPlayer1 == 51 || positionPlayer1 == 26 || positionPlayer1 == 60) {
+          clavePlayerCurrent = "jugador1";
+        } else {
+          if (lostTurnPlayer2 > 0) {
+            lostTurnPlayer2--;
+            clavePlayerCurrent = "jugador3";
+            let playersCurrentDice3 = document.getElementById("3Dice");
+            playersCurrentDice3.className = "jugadorDiceCurrent";
             let playersCurrentDice1 = document.getElementById("1Dice");
             playersCurrentDice1.className = "jugadorDice";
+          }
+          clavePlayerCurrent = "jugador2";
+          let playersCurrentDice2 = document.getElementById("2Dice");
+          playersCurrentDice2.className = "jugadorDiceCurrent";
+          let playersCurrentDice1 = document.getElementById("1Dice");
+          playersCurrentDice1.className = "jugadorDice";
         };
-
-        /*  if (result.id === (2 || 3 || 4 || 5)) {
-           clavePlayerCurrent = "jugador1";
-           console.log("hola");
-   
-         } else {
-           clavePlayerCurrent = "jugador2";
-           let playersCurrentDice2 = document.getElementById("2Dice");
-           playersCurrentDice2.className = "jugadorDiceCurrent";
-           let playersCurrentDice1 = document.getElementById("1Dice");
-           playersCurrentDice1.className = "jugadorDice";
-         } */
-
-        /* 
-        positionPlayer1 == (8 || 12 || 13 || 5)
-        if (result.turnosPerdidos) {
-       lostTurnPlayer1 = parseInt(result.turnosPerdidos);
-     } */
-        //}
-        /* else {
-          lostTurnPlayer1--;
-        } */
-        //clavePlayerCurrent = "jugador2";
-        //Cambiar la clase de los dados
-
       } else if ((dice.id == "2Dice") && (clavePlayerCurrent == "jugador2")) {
         positionPlayer2 = parseInt(positionPlayer2) + parseInt(numeroAleatorio);
         positionPlayer2 = moverFichaJugador(2, positionPlayer2, numeroAleatorio);
-        clavePlayerCurrent = "jugador3";
+        //Turnos perdidos
+        if (positionPlayer2 == 19) {
+          lostTurnPlayer2 = 1;
+        } else if (positionPlayer2 == 30) {
+          lostTurnPlayer2 = 3;
+        } else if (positionPlayer2 == 41) {
+          lostTurnPlayer2 = 2;
+        }
         //Cambiar la clase de los dados
-        let playersCurrentDice3 = document.getElementById("3Dice");
-        playersCurrentDice3.className = "jugadorDiceCurrent";
-        let playersCurrentDice2 = document.getElementById("2Dice");
-        playersCurrentDice2.className = "jugadorDice";
+        //comprobar valor para turno oca
+        if (positionPlayer2 == 8 || positionPlayer2 == 12 || positionPlayer2 == 13 || positionPlayer2 == 5 || positionPlayer2 == 17 || positionPlayer2 == 22 || positionPlayer2 == 28 || positionPlayer2 == 48 || positionPlayer2 == 34 || positionPlayer2 == 40 || positionPlayer2 == 46 || positionPlayer2 == 51 || positionPlayer2 == 26 || positionPlayer2 == 60) {
+          clavePlayerCurrent = "jugador2";
+        } else {
+          if (lostTurnPlayer3 > 0) {
+            lostTurnPlayer3--;
+            clavePlayerCurrent = "jugador4";
+            let playersCurrentDice4 = document.getElementById("4Dice");
+            playersCurrentDice4.className = "jugadorDiceCurrent";
+            let playersCurrentDice2 = document.getElementById("2Dice");
+            playersCurrentDice2.className = "jugadorDice";
+          }
+          clavePlayerCurrent = "jugador3";
+          let playersCurrentDice3 = document.getElementById("3Dice");
+          playersCurrentDice3.className = "jugadorDiceCurrent";
+          let playersCurrentDice2 = document.getElementById("2Dice");
+          playersCurrentDice2.className = "jugadorDice";
+        };
       } else if ((dice.id == "3Dice") && (clavePlayerCurrent == "jugador3")) {
         positionPlayer3 = parseInt(positionPlayer3) + parseInt(numeroAleatorio);
         positionPlayer3 = moverFichaJugador(3, positionPlayer3, numeroAleatorio);
-        clavePlayerCurrent = "jugador4";
+        //Turnos perdidos
+        if (positionPlayer3 == 19) {
+          lostTurnPlayer3 = 1;
+        } else if (positionPlayer3 == 30) {
+          lostTurnPlayer3 = 3;
+        } else if (positionPlayer3 == 41) {
+          lostTurnPlayer3 = 2;
+        }
         //Cambiar la clase de los dados
-        let playersCurrentDice4 = document.getElementById("4Dice");
-        playersCurrentDice4.className = "jugadorDiceCurrent";
-        let playersCurrentDice3 = document.getElementById("3Dice");
-        playersCurrentDice3.className = "jugadorDice";
+        //comprobar valor para turno oca
+        if (positionPlayer3 == 8 || positionPlayer3 == 12 || positionPlayer3 == 13 || positionPlayer3 == 5 || positionPlayer3 == 17 || positionPlayer3 == 22 || positionPlayer3 == 28 || positionPlayer3 == 48 || positionPlayer3 == 34 || positionPlayer3 == 40 || positionPlayer3 == 46 || positionPlayer3 == 51 || positionPlayer3 == 26 || positionPlayer3 == 60) {
+          clavePlayerCurrent = "jugador3";
+        } else {
+          if (lostTurnPlayer4 > 0) {
+            lostTurnPlayer4--;
+            clavePlayerCurrent = "jugador1";
+            let playersCurrentDice1 = document.getElementById("1Dice");
+            playersCurrentDice1.className = "jugadorDiceCurrent";
+            let playersCurrentDice3 = document.getElementById("3Dice");
+            playersCurrentDice3.className = "jugadorDice";
+          }
+          clavePlayerCurrent = "jugador4";
+          let playersCurrentDice4 = document.getElementById("4Dice");
+          playersCurrentDice4.className = "jugadorDiceCurrent";
+          let playersCurrentDice3 = document.getElementById("3Dice");
+          playersCurrentDice3.className = "jugadorDice";
+        };
       }
       else if ((dice.id == "4Dice") && (clavePlayerCurrent == "jugador4")) {
         positionPlayer4 = parseInt(positionPlayer4) + parseInt(numeroAleatorio);
         positionPlayer4 = moverFichaJugador(4, positionPlayer4, numeroAleatorio);
-        clavePlayerCurrent = "jugador1"; //Cambiar la clase de los dados
-        let playersCurrentDice1 = document.getElementById("1Dice");
-        playersCurrentDice1.className = "jugadorDiceCurrent";
-        let playersCurrentDice4 = document.getElementById("4Dice");
-        playersCurrentDice4.className = "jugadorDice";
+        //Turnos perdidos
+        if (positionPlayer4 == 19) {
+          lostTurnPlayer1 = 1;
+        } else if (positionPlayer4 == 30) {
+          lostTurnPlayer4 = 3;
+        } else if (positionPlayer4 == 41) {
+          lostTurnPlayer4 = 2;
+        }
+        //comprobar valor para turno oca
+        if (positionPlayer4 == 8 || positionPlayer4 == 12 || positionPlayer4 == 13 || positionPlayer4 == 5 || positionPlayer4 == 17 || positionPlayer4 == 22 || positionPlayer4 == 28 || positionPlayer4 == 48 || positionPlayer4 == 34 || positionPlayer4 == 40 || positionPlayer4 == 46 || positionPlayer4 == 51 || positionPlayer4 == 26 || positionPlayer4 == 60) {
+          clavePlayerCurrent = "jugador4";
+        } else {
+          if (lostTurnPlayer1 > 0) {
+            lostTurnPlayer1--;
+            clavePlayerCurrent = "jugador2";
+            let playersCurrentDice2 = document.getElementById("2Dice");
+            playersCurrentDice2.className = "jugadorDiceCurrent";
+            let playersCurrentDice4 = document.getElementById("4Dice");
+            playersCurrentDice4.className = "jugadorDice";
+          }
+          clavePlayerCurrent = "jugador1";
+          let playersCurrentDice1 = document.getElementById("1Dice");
+          playersCurrentDice1.className = "jugadorDiceCurrent";
+          let playersCurrentDice4 = document.getElementById("4Dice");
+          playersCurrentDice4.className = "jugadorDice";
+        };
       }
     });
   });
