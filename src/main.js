@@ -44,6 +44,16 @@ export let lostTurnPlayer2 = 0;
 export let lostTurnPlayer3 = 0;
 export let lostTurnPlayer4 = 0;
 
+
+let lostTurnPlayers = {
+  player1: 8, player2: 0, player3: 0, player4: 0,
+};
+console.log(lostTurnPlayers.player1);
+lostTurnPlayers.player1--;
+console.log(lostTurnPlayers.player1);
+
+
+
 printOca();
 //Hacer un input nº jugadores y luego con bucle crearlos (nombre, color)
 createImputNumberPlayers();
@@ -66,9 +76,9 @@ numberPlayers.addEventListener('input', () => {
       diceValue.textContent = `Te ha salido un ${numeroAleatorio}`;
       //Ver quien tiene el turno y mover su ficha
       if ((dice.id == "1Dice") && (clavePlayerCurrent == "jugador1")) {
-        console.log(lostTurnPlayer1);
+        //console.log(lostTurnPlayer1);
 
-        if (lostTurnPlayer1 == 0) {
+        if (lostTurnPlayers.player1 = 0) {
           positionPlayer1 = parseInt(positionPlayer1) + parseInt(numeroAleatorio);
           positionPlayer1 = moverFichaJugador(1, positionPlayer1, numeroAleatorio);
           /*   console.log("hola 1");
@@ -92,7 +102,15 @@ numberPlayers.addEventListener('input', () => {
             playersCurrentDice1.className = "jugadorDice";
           };
         } else {
-          console.log(lostTurnPlayer1 + 1);
+          console.log(lostTurnPlayers.player1);
+          lostTurnPlayers.player1--;
+
+          //let numero1 = lostTurnPlayer1 - 2;
+          //lostTurnPlayer1 == numero1
+          console.log(lostTurnPlayers.player1);
+          lostTurnPlayers.player1 = 4;
+
+          console.log(lostTurnPlayers.player1);
 
           //lostTurnPlayer1 = lostTurnPlayer1;
           clavePlayerCurrent = "jugador2";
@@ -100,12 +118,12 @@ numberPlayers.addEventListener('input', () => {
           playersCurrentDice2.className = "jugadorDiceCurrent";
           let playersCurrentDice1 = document.getElementById("1Dice");
           playersCurrentDice1.className = "jugadorDice";
-          const cambio = lostTurnPlayer1 - 1;
-          return cambio;
+          //const cambio = lostTurnPlayer1 - 1;
+          return //cambio;
         }
-        console.log(cambio);
+        //console.log(cambio);
 
-        console.log(lostTurnPlayer1);
+        console.log(lostTurnPlayers.player1);
 
       } else if ((dice.id == "2Dice") && (clavePlayerCurrent == "jugador2")) {
         positionPlayer2 = parseInt(positionPlayer2) + parseInt(numeroAleatorio);
