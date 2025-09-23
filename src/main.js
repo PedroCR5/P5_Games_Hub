@@ -1,4 +1,4 @@
-import { createImputNumberPlayers, createPlayerToPlay, moverFichaJugador, printOca, casillasOcaTablero } from './games/laOca/laOca';
+import { createImputNumberPlayers, createPlayerToPlay, moverFichaJugador, printOca, casillasOcaTablero, lostTurnPlayer1 } from './games/laOca/laOca';
 import { clickCasillaCheck, printTresEnRaya } from './games/tresEnRaya/tresEnRaya';
 import { crearEstructuraPpal } from './structure/structure';
 import './style.css'
@@ -39,10 +39,10 @@ export let positionPlayer1 = "1";
 export let positionPlayer2 = "1";
 export let positionPlayer3 = "1";
 export let positionPlayer4 = "1";
-export let lostTurnPlayer1 = "0";
-export let lostTurnPlayer2 = "0";
-export let lostTurnPlayer3 = "0";
-export let lostTurnPlayer4 = "0";
+//export let lostTurnPlayer1 = "8";
+export let lostTurnPlayer2 = 0;
+export let lostTurnPlayer3 = 0;
+export let lostTurnPlayer4 = 0;
 
 printOca();
 //Hacer un input nº jugadores y luego con bucle crearlos (nombre, color)
@@ -57,11 +57,6 @@ numberPlayers.addEventListener('input', () => {
   createPlayerToPlay();
   let playersCurrentDice = document.getElementById("1Dice");
   playersCurrentDice.className = "jugadorDice jugadorDiceCurrent";
-  /*  if (clavePlayerCurrent = "jugador1") {
-     console.log("estoy dentro");
-     let playersCurrentDice = document.getElementById("1Dice");
-     playersCurrentDice.className = "jugadorDiceCurrent";
-   }; */
   const playersDice = document.querySelectorAll('.jugadorDice');
   playersDice.forEach(dice => {
     dice.addEventListener('click', () => {
@@ -71,37 +66,47 @@ numberPlayers.addEventListener('input', () => {
       diceValue.textContent = `Te ha salido un ${numeroAleatorio}`;
       //Ver quien tiene el turno y mover su ficha
       if ((dice.id == "1Dice") && (clavePlayerCurrent == "jugador1")) {
-        //if (lostTurnPlayer1 == 0) {
-        positionPlayer1 = parseInt(positionPlayer1) + parseInt(numeroAleatorio);
-        positionPlayer1 = moverFichaJugador(1, positionPlayer1, numeroAleatorio);
-        /*   console.log("hola 1");
-          console.log(positionPlayer1); */
-        //Turnos perdidos
-        if (positionPlayer1 == 19) {
-          lostTurnPlayer1 = 1;
-        } else if (positionPlayer1 == 30) {
-          lostTurnPlayer1 = 3;
-        } else if (positionPlayer1 == 41) {
-          lostTurnPlayer1 = 2;
-        }
-        //comprobar valor para turno oca
-        if (positionPlayer1 == 8 || positionPlayer1 == 12 || positionPlayer1 == 13 || positionPlayer1 == 5 || positionPlayer1 == 17 || positionPlayer1 == 22 || positionPlayer1 == 28 || positionPlayer1 == 48 || positionPlayer1 == 34 || positionPlayer1 == 40 || positionPlayer1 == 46 || positionPlayer1 == 51 || positionPlayer1 == 26 || positionPlayer1 == 60) {
-          clavePlayerCurrent = "jugador1";
-        } else {
-          if (lostTurnPlayer2 > 0) {
-            lostTurnPlayer2--;
-            clavePlayerCurrent = "jugador3";
-            let playersCurrentDice3 = document.getElementById("3Dice");
-            playersCurrentDice3.className = "jugadorDiceCurrent";
+        console.log(lostTurnPlayer1);
+
+        if (lostTurnPlayer1 == 0) {
+          positionPlayer1 = parseInt(positionPlayer1) + parseInt(numeroAleatorio);
+          positionPlayer1 = moverFichaJugador(1, positionPlayer1, numeroAleatorio);
+          /*   console.log("hola 1");
+            console.log(positionPlayer1); */
+          //Turnos perdidos
+          if (positionPlayer1 == 19) {
+            lostTurnPlayer1 = 1;
+          } else if (positionPlayer1 == 30) {
+            lostTurnPlayer1 = 3;
+          } else if (positionPlayer1 == 41) {
+            lostTurnPlayer1 = 2;
+          }
+          //comprobar valor para turno oca
+          if (positionPlayer1 == 8 || positionPlayer1 == 12 || positionPlayer1 == 13 || positionPlayer1 == 5 || positionPlayer1 == 17 || positionPlayer1 == 22 || positionPlayer1 == 28 || positionPlayer1 == 48 || positionPlayer1 == 34 || positionPlayer1 == 40 || positionPlayer1 == 46 || positionPlayer1 == 51 || positionPlayer1 == 26 || positionPlayer1 == 60) {
+            clavePlayerCurrent = "jugador1";
+          } else {
+            clavePlayerCurrent = "jugador2";
+            let playersCurrentDice2 = document.getElementById("2Dice");
+            playersCurrentDice2.className = "jugadorDiceCurrent";
             let playersCurrentDice1 = document.getElementById("1Dice");
             playersCurrentDice1.className = "jugadorDice";
-          }
+          };
+        } else {
+          console.log(lostTurnPlayer1 + 1);
+
+          //lostTurnPlayer1 = lostTurnPlayer1;
           clavePlayerCurrent = "jugador2";
           let playersCurrentDice2 = document.getElementById("2Dice");
           playersCurrentDice2.className = "jugadorDiceCurrent";
           let playersCurrentDice1 = document.getElementById("1Dice");
           playersCurrentDice1.className = "jugadorDice";
-        };
+          const cambio = lostTurnPlayer1 - 1;
+          return cambio;
+        }
+        console.log(cambio);
+
+        console.log(lostTurnPlayer1);
+
       } else if ((dice.id == "2Dice") && (clavePlayerCurrent == "jugador2")) {
         positionPlayer2 = parseInt(positionPlayer2) + parseInt(numeroAleatorio);
         positionPlayer2 = moverFichaJugador(2, positionPlayer2, numeroAleatorio);
@@ -118,14 +123,14 @@ numberPlayers.addEventListener('input', () => {
         if (positionPlayer2 == 8 || positionPlayer2 == 12 || positionPlayer2 == 13 || positionPlayer2 == 5 || positionPlayer2 == 17 || positionPlayer2 == 22 || positionPlayer2 == 28 || positionPlayer2 == 48 || positionPlayer2 == 34 || positionPlayer2 == 40 || positionPlayer2 == 46 || positionPlayer2 == 51 || positionPlayer2 == 26 || positionPlayer2 == 60) {
           clavePlayerCurrent = "jugador2";
         } else {
-          if (lostTurnPlayer3 > 0) {
-            lostTurnPlayer3--;
-            clavePlayerCurrent = "jugador4";
-            let playersCurrentDice4 = document.getElementById("4Dice");
-            playersCurrentDice4.className = "jugadorDiceCurrent";
-            let playersCurrentDice2 = document.getElementById("2Dice");
-            playersCurrentDice2.className = "jugadorDice";
-          }
+          /*  if (lostTurnPlayer3 > 0) {
+             lostTurnPlayer3--;
+             clavePlayerCurrent = "jugador4";
+             let playersCurrentDice4 = document.getElementById("4Dice");
+             playersCurrentDice4.className = "jugadorDiceCurrent";
+             let playersCurrentDice2 = document.getElementById("2Dice");
+             playersCurrentDice2.className = "jugadorDice";
+           } */
           clavePlayerCurrent = "jugador3";
           let playersCurrentDice3 = document.getElementById("3Dice");
           playersCurrentDice3.className = "jugadorDiceCurrent";
@@ -148,14 +153,14 @@ numberPlayers.addEventListener('input', () => {
         if (positionPlayer3 == 8 || positionPlayer3 == 12 || positionPlayer3 == 13 || positionPlayer3 == 5 || positionPlayer3 == 17 || positionPlayer3 == 22 || positionPlayer3 == 28 || positionPlayer3 == 48 || positionPlayer3 == 34 || positionPlayer3 == 40 || positionPlayer3 == 46 || positionPlayer3 == 51 || positionPlayer3 == 26 || positionPlayer3 == 60) {
           clavePlayerCurrent = "jugador3";
         } else {
-          if (lostTurnPlayer4 > 0) {
-            lostTurnPlayer4--;
-            clavePlayerCurrent = "jugador1";
-            let playersCurrentDice1 = document.getElementById("1Dice");
-            playersCurrentDice1.className = "jugadorDiceCurrent";
-            let playersCurrentDice3 = document.getElementById("3Dice");
-            playersCurrentDice3.className = "jugadorDice";
-          }
+          /*   if (lostTurnPlayer4 > 0) {
+              lostTurnPlayer4--;
+              clavePlayerCurrent = "jugador1";
+              let playersCurrentDice1 = document.getElementById("1Dice");
+              playersCurrentDice1.className = "jugadorDiceCurrent";
+              let playersCurrentDice3 = document.getElementById("3Dice");
+              playersCurrentDice3.className = "jugadorDice";
+            } */
           clavePlayerCurrent = "jugador4";
           let playersCurrentDice4 = document.getElementById("4Dice");
           playersCurrentDice4.className = "jugadorDiceCurrent";
@@ -178,14 +183,14 @@ numberPlayers.addEventListener('input', () => {
         if (positionPlayer4 == 8 || positionPlayer4 == 12 || positionPlayer4 == 13 || positionPlayer4 == 5 || positionPlayer4 == 17 || positionPlayer4 == 22 || positionPlayer4 == 28 || positionPlayer4 == 48 || positionPlayer4 == 34 || positionPlayer4 == 40 || positionPlayer4 == 46 || positionPlayer4 == 51 || positionPlayer4 == 26 || positionPlayer4 == 60) {
           clavePlayerCurrent = "jugador4";
         } else {
-          if (lostTurnPlayer1 > 0) {
-            lostTurnPlayer1--;
-            clavePlayerCurrent = "jugador2";
-            let playersCurrentDice2 = document.getElementById("2Dice");
-            playersCurrentDice2.className = "jugadorDiceCurrent";
-            let playersCurrentDice4 = document.getElementById("4Dice");
-            playersCurrentDice4.className = "jugadorDice";
-          }
+          /*   if (lostTurnPlayer1 > 0) {
+              lostTurnPlayer1--;
+              clavePlayerCurrent = "jugador2";
+              let playersCurrentDice2 = document.getElementById("2Dice");
+              playersCurrentDice2.className = "jugadorDiceCurrent";
+              let playersCurrentDice4 = document.getElementById("4Dice");
+              playersCurrentDice4.className = "jugadorDice";
+            } */
           clavePlayerCurrent = "jugador1";
           let playersCurrentDice1 = document.getElementById("1Dice");
           playersCurrentDice1.className = "jugadorDiceCurrent";

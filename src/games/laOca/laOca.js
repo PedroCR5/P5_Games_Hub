@@ -1,5 +1,6 @@
 import { clavePlayerCurrent, positionPlayer1 } from '../../main';
 import './laOca.css';
+export var lostTurnPlayer1 = 8 + 1;
 
 export const casillasOcaTablero = [
   { id: 1, tipo: "inicio" },
