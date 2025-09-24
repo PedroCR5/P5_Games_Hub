@@ -44,13 +44,87 @@ export let lostTurnPlayer2 = 0;
 export let lostTurnPlayer3 = 0;
 export let lostTurnPlayer4 = 0;
 
+function prueba() {
+  let var1 = "1";
+  let var2 = 1;
+  var var3 = "1";
+  var var4 = 1;
+  const var5 = "1";
+  const var6 = 1;
+  console.log(var1);
+  console.log(var2);
+  console.log(var3);
+  console.log(var4);
+  console.log(var5);
+  console.log(var6);
+  var1 = "2" + 1;
+  var2 = 2 + 1;
+  var3 = "2" + 1;
+  var4 = 2 + 1;
+
+  console.log(var1);
+  console.log(var2);
+  console.log(var3);
+  console.log(var4);
+  console.log(var5);
+  console.log(var6);
+  var1++
+  var2++
+  var3++
+  var4++
+  function cambio() {
+    console.log("primero");
+
+    var1 += 5
+    var2 += 5
+    var3 += 5
+    var4 += 5
+    console.log(var1);
+    console.log(var2);
+    console.log(var3);
+    console.log(var4);
+    var1 -= 2
+    var2 -= 2
+    var3 -= 2
+    var4 -= 2
+    console.log(var1);
+    console.log(var2);
+    console.log(var3);
+    console.log(var4);
+    console.log("último");
+
+  }
+  cambio()
+  console.log(var1);
+  console.log(var2);
+  console.log(var3);
+  console.log(var4);
+  var1 += 5
+  var2 += 5
+  var3 += 5
+  var4 += 5
+  console.log(var1);
+  console.log(var2);
+  console.log(var3);
+  console.log(var4);
+  var1 -= 2
+  var2 -= 2
+  var3 -= 2
+  var4 -= 2
+  console.log(var1);
+  console.log(var2);
+  console.log(var3);
+  console.log(var4);
+}
+
+
 
 let lostTurnPlayers = {
-  player1: 8, player2: 0, player3: 0, player4: 0,
+  player1: 0, player2: 0, player3: 0, player4: 0,
 };
-console.log(lostTurnPlayers.player1);
-lostTurnPlayers.player1--;
-console.log(lostTurnPlayers.player1);
+//console.log(lostTurnPlayers.player1);
+//lostTurnPlayers.player1--;
+//console.log(lostTurnPlayers.player1);
 
 
 
@@ -65,11 +139,14 @@ export let clavePlayerCurrent = "jugador1";
 
 numberPlayers.addEventListener('input', () => {
   createPlayerToPlay();
+  //lostTurnPlayers.player1--;
+  console.log(lostTurnPlayers.player1);
   let playersCurrentDice = document.getElementById("1Dice");
   playersCurrentDice.className = "jugadorDice jugadorDiceCurrent";
   const playersDice = document.querySelectorAll('.jugadorDice');
   playersDice.forEach(dice => {
     dice.addEventListener('click', () => {
+
       // Generar un número aleatorio entre 1 y 6
       const numeroAleatorio = Math.floor(Math.random() * 6) + 1;
       const diceValue = document.querySelector(`#dadoValor`);
@@ -77,19 +154,20 @@ numberPlayers.addEventListener('input', () => {
       //Ver quien tiene el turno y mover su ficha
       if ((dice.id == "1Dice") && (clavePlayerCurrent == "jugador1")) {
         //console.log(lostTurnPlayer1);
-
-        if (lostTurnPlayers.player1 = 0) {
+        //lostTurnPlayers.player1--;
+        console.log(lostTurnPlayers.player1);
+        if (lostTurnPlayers.player1 == 0) {
           positionPlayer1 = parseInt(positionPlayer1) + parseInt(numeroAleatorio);
           positionPlayer1 = moverFichaJugador(1, positionPlayer1, numeroAleatorio);
           /*   console.log("hola 1");
             console.log(positionPlayer1); */
           //Turnos perdidos
           if (positionPlayer1 == 19) {
-            lostTurnPlayer1 = 1;
+            lostTurnPlayers.player1 = 1;
           } else if (positionPlayer1 == 30) {
-            lostTurnPlayer1 = 3;
+            lostTurnPlayers.player1 = 3;
           } else if (positionPlayer1 == 41) {
-            lostTurnPlayer1 = 2;
+            lostTurnPlayers.player1 = 2;
           }
           //comprobar valor para turno oca
           if (positionPlayer1 == 8 || positionPlayer1 == 12 || positionPlayer1 == 13 || positionPlayer1 == 5 || positionPlayer1 == 17 || positionPlayer1 == 22 || positionPlayer1 == 28 || positionPlayer1 == 48 || positionPlayer1 == 34 || positionPlayer1 == 40 || positionPlayer1 == 46 || positionPlayer1 == 51 || positionPlayer1 == 26 || positionPlayer1 == 60) {
@@ -102,15 +180,15 @@ numberPlayers.addEventListener('input', () => {
             playersCurrentDice1.className = "jugadorDice";
           };
         } else {
-          console.log(lostTurnPlayers.player1);
+          //console.log(lostTurnPlayers.player1);
           lostTurnPlayers.player1--;
 
           //let numero1 = lostTurnPlayer1 - 2;
           //lostTurnPlayer1 == numero1
-          console.log(lostTurnPlayers.player1);
-          lostTurnPlayers.player1 = 4;
+          //console.log(lostTurnPlayers.player1);
+          //lostTurnPlayers.player1 = 4;
 
-          console.log(lostTurnPlayers.player1);
+          //console.log(lostTurnPlayers.player1);
 
           //lostTurnPlayer1 = lostTurnPlayer1;
           clavePlayerCurrent = "jugador2";
@@ -130,11 +208,11 @@ numberPlayers.addEventListener('input', () => {
         positionPlayer2 = moverFichaJugador(2, positionPlayer2, numeroAleatorio);
         //Turnos perdidos
         if (positionPlayer2 == 19) {
-          lostTurnPlayer2 = 1;
+          lostTurnPlayers.player2 = 1;
         } else if (positionPlayer2 == 30) {
-          lostTurnPlayer2 = 3;
+          lostTurnPlayers.player2 = 3;
         } else if (positionPlayer2 == 41) {
-          lostTurnPlayer2 = 2;
+          lostTurnPlayers.player2 = 2;
         }
         //Cambiar la clase de los dados
         //comprobar valor para turno oca
@@ -160,11 +238,11 @@ numberPlayers.addEventListener('input', () => {
         positionPlayer3 = moverFichaJugador(3, positionPlayer3, numeroAleatorio);
         //Turnos perdidos
         if (positionPlayer3 == 19) {
-          lostTurnPlayer3 = 1;
+          lostTurnPlayers.player3 = 1;
         } else if (positionPlayer3 == 30) {
-          lostTurnPlayer3 = 3;
+          lostTurnPlayers.player3 = 3;
         } else if (positionPlayer3 == 41) {
-          lostTurnPlayer3 = 2;
+          lostTurnPlayers.player3 = 2;
         }
         //Cambiar la clase de los dados
         //comprobar valor para turno oca
@@ -191,11 +269,11 @@ numberPlayers.addEventListener('input', () => {
         positionPlayer4 = moverFichaJugador(4, positionPlayer4, numeroAleatorio);
         //Turnos perdidos
         if (positionPlayer4 == 19) {
-          lostTurnPlayer1 = 1;
+          lostTurnPlayers.player4 = 1;
         } else if (positionPlayer4 == 30) {
-          lostTurnPlayer4 = 3;
+          lostTurnPlayers.player4 = 3;
         } else if (positionPlayer4 == 41) {
-          lostTurnPlayer4 = 2;
+          lostTurnPlayers.player4 = 2;
         }
         //comprobar valor para turno oca
         if (positionPlayer4 == 8 || positionPlayer4 == 12 || positionPlayer4 == 13 || positionPlayer4 == 5 || positionPlayer4 == 17 || positionPlayer4 == 22 || positionPlayer4 == 28 || positionPlayer4 == 48 || positionPlayer4 == 34 || positionPlayer4 == 40 || positionPlayer4 == 46 || positionPlayer4 == 51 || positionPlayer4 == 26 || positionPlayer4 == 60) {
