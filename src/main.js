@@ -1,4 +1,4 @@
-import { createImputNumberPlayers, createPlayerToPlay, moverFichaJugador, printOca, casillasOcaTablero, lostTurnPlayer1 } from './games/laOca/laOca';
+import { createImputNumberPlayers, createPlayerToPlay, moverFichaJugador, printOca, casillasOcaTablero } from './games/laOca/laOca';
 import { clickCasillaCheck, printTresEnRaya } from './games/tresEnRaya/tresEnRaya';
 import { crearEstructuraPpal } from './structure/structure';
 import './style.css'
@@ -40,13 +40,9 @@ export let positionPlayer2 = "1";
 export let positionPlayer3 = "1";
 export let positionPlayer4 = "1";
 
-
 let lostTurnPlayers = {
   player1: 0, player2: 0, player3: 0, player4: 0,
 };
-
-
-
 
 printOca();
 //Hacer un input nº jugadores y luego con bucle crearlos (nombre, color)
@@ -57,7 +53,7 @@ export let clavePlayerCurrent = "jugador1";
 
 numberPlayers.addEventListener('input', () => {
   createPlayerToPlay();
-  console.log(lostTurnPlayers.player1);
+  // console.log(lostTurnPlayers.player1);
   let playersCurrentDice = document.getElementById("1Dice");
   playersCurrentDice.className = "jugadorDice jugadorDiceCurrent";
   const playersDice = document.querySelectorAll('.jugadorDice');
@@ -208,9 +204,6 @@ numberPlayers.addEventListener('input', () => {
     });
   });
 });
-
-
-
 
 
 //! Memory
