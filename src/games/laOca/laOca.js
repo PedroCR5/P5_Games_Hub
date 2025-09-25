@@ -1,6 +1,5 @@
 import { clavePlayerCurrent, positionPlayer1 } from '../../main';
 import './laOca.css';
-export var lostTurnPlayer1 = 8 + 1;
 
 export const casillasOcaTablero = [
   { id: 1, tipo: "inicio" },
@@ -184,109 +183,6 @@ export function moverFichaJugador(n, position, numeroAleatorio) {
     newPosition = parseInt(result.destino);
   }
 
-
-  /* switch (newPosition) {
-    case "2":
-      console.log(`Acción para ficha${n}`);
-      setTimeout(() => {
-        const diceValue = document.querySelector(`#dadoValor`);
-        diceValue.textContent = `De oca a oca y tiro por que me toca`;
-      }, 1000);
-      newPosition = 8;
-      //clavePlayerCurrent = `jugador${n}`;
-      break;
-    case "5":
-      console.log(`Acción para ficha${n}`);
-      setTimeout(() => {
-        const diceValue = document.querySelector(`#dadoValor`);
-        diceValue.textContent = `De oca a oca y tiro por que me toca`;
-      }, 1000);
-      newPosition = 12;
-      break;
-    case "8":
-      console.log(`Acción para ficha${n}`);
-      setTimeout(() => {
-        const diceValue = document.querySelector(`#dadoValor`);
-        diceValue.textContent = `De oca a oca y tiro por que me toca`;
-      }, 1000);
-      newPosition = 13;
-      break;
-    case "12":
-      console.log(`Acción para ficha${n}`);
-      setTimeout(() => {
-        const diceValue = document.querySelector(`#dadoValor`);
-        diceValue.textContent = `De oca a oca y tiro por que me toca`;
-      }, 1000);
-      newPosition = 5;
-      break;
-    case "13":
-      console.log(`Acción para ficha${n}`);
-      newPosition = 17;
-      break;
-    case "17":
-      console.log(`Acción para ficha${n}`);
-      newPosition = 22;
-      break;
-    case "19":
-      console.log(`Acción para ficha${n}`);
-      turnosPerdidos = 1;
-      break;
-    case "22":
-      console.log(`Acción para ficha${n}`);
-      newPosition = 28;
-      break;
-    case "26":
-      console.log(`Acción para ficha${n}`);
-      newPosition = 48;
-      break;
-    case "28":
-      console.log(`Acción para ficha${n}`);
-      newPosition = 34;
-      break;
-    case "30":
-      console.log(`Acción para ficha${n}`);
-      turnosPerdidos = 2;
-      break;
-    case "34":
-      console.log(`Acción para ficha${n}`);
-      newPosition = 40;
-      break;
-    case "40":
-      console.log(`Acción para ficha${n}`);
-      newPosition = 46;
-      break;
-    case "41":
-      console.log(`Acción para ficha${n}`);
-      newPosition = 30;
-      break;
-    case "46":
-      console.log(`Acción para ficha${n}`);
-      newPosition = 51;
-      break;
-    case "48":
-      console.log(`Acción para ficha${n}`);
-      newPosition = 26;
-      break;
-    case "51":
-      console.log(`Acción para ficha${n}`);
-      newPosition = 60;
-      break;
-    case "55":
-      console.log(`Acción para ficha${n}`);
-      newPosition = 1;
-      break;
-    case "60":
-      console.log(`Acción para ficha${n}`);
-      newPosition = 63;
-      break;
-    case "63":
-      console.log(`Ha ganado el jugador con ficha${n}`);
-      break;
-    default:
-      console.log("Casilla normal");
-    //clavePlayerCurrent = `jugador${n + 1}`;
-
-  } */
   //console.log(newPosition);
   const casillaNewPosition = document.getElementById(newPosition);
   const ficha = document.createElement("div");
