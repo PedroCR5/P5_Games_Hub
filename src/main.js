@@ -213,3 +213,4 @@ numberPlayers.addEventListener('input', () => {
 //? Reiniciar partida
 //? localStorage puntuaciones
 //? Reset puntuaciones
+
