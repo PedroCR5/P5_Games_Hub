@@ -215,6 +215,7 @@ numberPlayers.addEventListener('input', () => {
 //? Reiniciar partida
 //? localStorage puntuaciones
 //? Reset puntuaciones
+//? Cartas tamaño
 
 //import { aceptNotification } from './src/components/modal/modal';
 export const accesKey = 'ulcAHukAVcmsmE3YQCJcVOoI_rtjQjdVJzrx7QnswEI';
