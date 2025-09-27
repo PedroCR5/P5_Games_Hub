@@ -22,7 +22,9 @@ export function createCards(imagesList) {
     const upImg = document.createElement("img");
     cardDiv.className = "cardDiv";
     imgImageDiv.className = "imgImageDiv";
-    imgImageDiv.src = image.urls.small;
+    console.log(image);
+
+    imgImageDiv.src = image.urls.regular;
     imgImageDiv.alt = image.alt_description;
     imgImageDiv.loading = "lazy";
     imgImageDiv.style.borderColor = randomColorImg;
