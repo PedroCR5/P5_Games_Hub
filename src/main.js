@@ -230,7 +230,7 @@ modalButton.addEventListener("click", aceptNotification); */
 //Traer información inicial de la API y pintarla
 getImages('cat');
 //Voy a infoAPI.js para recoger la info y pinto las Cards en Card.js.
-document.getElementById('word').addEventListener('keydown', function (event) {
+/* document.getElementById('word').addEventListener('keydown', function (event) {
   if (event.key === 'Enter') {
     const valorInput = event.target.value;
     if (valorInput === '') {
@@ -242,8 +242,8 @@ document.getElementById('word').addEventListener('keydown', function (event) {
       event.target.value = '';
     }
   }
-});
+}); */
 // Pinchar en icono Pinterest para refrescar la búsqueda inicial de gatos
-document.querySelector(`.iconePinterest`).onclick = function () {
+/* document.querySelector(`.iconePinterest`).onclick = function () {
   getImages('cat');
-};
+}; */
