@@ -11,7 +11,9 @@
   max-height: fit-content; */
 
   flex-direction: column;
-  margin: var(--rtc-margin-xs);
+  margin: var(--rtc-margin-s);
+  margin: 30px;
+  gap: 20px;
   /* height: 100%; */
   padding: var(--rtc-padding-s);
   /*  position: relative; */
@@ -22,12 +24,21 @@
   justify-content: center;
 }
 .imgImageDiv {
+  padding: var(--rtc-padding-s);
+
   border: solid;
   position: center;
-  height: fit-content;
-  width: 100%;
+  height: auto;
+  width: 90%;
   /*  size: contain; */
   border-radius: var(--rtc-border-radius-xs);
+  overflow-y: auto;
+  overflow-x: auto;
+}
+.notSee {
+  background-color: red;
+  background-image: url(./assets/dice.png);
+  z-index: -1;
 }
 .initialIconsBox {
   display: flex;

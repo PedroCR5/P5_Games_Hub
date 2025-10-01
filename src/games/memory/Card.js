@@ -17,7 +17,7 @@ export function createCards(imagesList) {
     const cardDiv = document.createElement("div");
     const imgImageDiv = document.createElement("img");
     cardDiv.className = "cardDiv";
-    imgImageDiv.className = "imgImageDiv";
+    imgImageDiv.className = "imgImageDiv notSee";
     console.log(image);
     imgImageDiv.src = image.urls.regular;
     imgImageDiv.alt = image.alt_description;

@@ -216,6 +216,8 @@ numberPlayers.addEventListener('input', () => {
 //? localStorage puntuaciones
 //? Reset puntuaciones
 //? Cartas tamaño
+//? colocacion cartas
+//? dar la vuelta a las cartas
 
 //import { aceptNotification } from './src/components/modal/modal';
 export const accesKey = 'ulcAHukAVcmsmE3YQCJcVOoI_rtjQjdVJzrx7QnswEI';
