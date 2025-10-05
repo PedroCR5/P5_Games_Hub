@@ -19,6 +19,7 @@ export function createCards(imagesList) {
     cardDiv.className = "cardDiv";
     imgImageDiv.className = "imgImageDiv notSee";
     console.log(image);
+    imgImageDiv.id = image.id;
     imgImageDiv.src = image.urls.regular;
     imgImageDiv.alt = image.alt_description;
     imgImageDiv.loading = "lazy";
@@ -33,8 +34,9 @@ export function createCards(imagesList) {
     const cardDiv = document.createElement("div");
     const imgImageDiv = document.createElement("img");
     cardDiv.className = "cardDiv";
-    imgImageDiv.className = "imgImageDiv";
-    console.log(image);
+    imgImageDiv.className = "imgImageDiv notSee";
+    //console.log(image);
+    imgImageDiv.id = image.id;
     imgImageDiv.src = image.urls.regular;
     imgImageDiv.alt = image.alt_description;
     imgImageDiv.loading = "lazy";
@@ -43,4 +45,59 @@ export function createCards(imagesList) {
     const initialIconsBox = document.createElement("div");
     cardDiv.appendChild(imgImageDiv);
   });
-}
+  let allCardDivs = { cla: "0" };
+
+  allCardDivs = document.querySelectorAll('.cardDiv');
+  console.log("hola antes");
+  //console.log(`${allCardDivs}`);
+  console.log(allCardDivs);
+  let counterCards = 0;
+  let idCard = 0;
+  allCardDivs.forEach(cardClicked => {
+    cardClicked.addEventListener('click', () => {
+      console.log("hola después");
+      const imgCambioClase = cardClicked.querySelector('img');
+
+      if (counterCards == 0) {
+        console.log(imgCambioClase);
+        imgCambioClase.className = "imgImageDiv";
+        counterCards++;
+        console.log(imgCambioClase.id);
+        idCard = imgCambioClase.id;
+
+      } else if (counterCards == 1) {
+        if (idCard == imgCambioClase.id) {
+          console.log(imgCambioClase);
+          imgCambioClase.className = "imgImageDiv";
+          console.log("mismo id");
+          counterCards = 0;
+          console.log(counterCards);
+
+        }
+        else {
+          imgCambioClase.className = "imgImageDiv";
+          setTimeout(() => {
+            console.log(`${idCard} esta es`);
+
+            imgCambioClase.className = 'imgImageDiv notSee';
+            let paraOcultarCard = document.getElementById(`${idCard}`);
+            console.log(paraOcultarCard);
+            paraOcultarCard.className = 'imgImageDiv notSee';
+
+          }, 2000);
+
+
+
+        }
+      }
+
+
+
+
+
+
+
+
+    })
+  })
+};

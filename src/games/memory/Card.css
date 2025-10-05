@@ -22,6 +22,7 @@
   width: 150px;
   background-color: grey;
   justify-content: center;
+  cursor: pointer;
 }
 .imgImageDiv {
   padding: var(--rtc-padding-s);

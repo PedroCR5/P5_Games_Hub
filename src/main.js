@@ -210,12 +210,13 @@ numberPlayers.addEventListener('input', () => {
 
 //! Memory
 //? Tema de cartas imput
-//? Las 10/20 cartas
+//// Las 10/20 cartas
 //? Puntos
+//? Poner las cartas aleatorias
 //? Reiniciar partida
 //? localStorage puntuaciones
 //? Reset puntuaciones
-//? Cartas tamaño
+//// Cartas tamaño
 //? colocacion cartas
 //? dar la vuelta a las cartas
 
@@ -223,7 +224,7 @@ numberPlayers.addEventListener('input', () => {
 export const accesKey = 'ulcAHukAVcmsmE3YQCJcVOoI_rtjQjdVJzrx7QnswEI';
 export const endPoint = 'https://api.unsplash.com/search/photos';
 //Variables
-let firstSearchWord = 'nada de nada';
+//let firstSearchWord = 'nada de nada';
 
 // Pinto el HTML
 pintarMemory();
