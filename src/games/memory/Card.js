@@ -7,14 +7,27 @@ function getRandomColor() {
   const b = Math.floor(Math.random() * 256);
   return `rgb(${r}, ${g}, ${b})`;
 }
+// Número para colocación de cartas
+export function getRandomPositionCard() {
+  const positionCard = Math.floor(Math.random() * 20);
+  let posicionesOcupadas = {};
+  /*  if (posicionesOcupadas.includes(positionCard)) {
+     getRandomPositionCard();
+   }
+   posicionesOcupadas.add(positionCard) */
+  return `${positionCard}`;
+}
 // Función crear cartas
 export function createCards(imagesList) {
   document.querySelector("#memoryTable").innerHTML = ` `;
   // Pinto todas las cartas
+  let posicionesOcupadas = {};
   imagesList.forEach(image => {
+    let cardPositionID = getRandomPositionCard();
     let randomColorImg = getRandomColor();
     let divContainerCards = document.querySelector("#memoryTable");
     const cardDiv = document.createElement("div");
+    cardDiv.id = cardPositionID;
     const imgImageDiv = document.createElement("img");
     cardDiv.className = "cardDiv";
     imgImageDiv.className = "imgImageDiv notSee";
@@ -47,6 +60,12 @@ export function createCards(imagesList) {
   });
   let allCardDivs = { cla: "0" };
   allCardDivs = document.querySelectorAll('.cardDiv');
+  /*   function shuffleArray(mezclar) {
+      mezclar.sort(() => Math.random() - 0.5);
+    }
+  
+    shuffleArray(allCardDivs);
+    console.log(allCardDivs); */
   console.log("hola antes");
   //console.log(`${allCardDivs}`);
   console.log(allCardDivs);
