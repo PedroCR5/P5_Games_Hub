@@ -251,3 +251,4 @@ getImages('cat');
 /* document.querySelector(`.iconePinterest`).onclick = function () {
   getImages('cat');
 }; */
+export let currentPlayerMemory = "player1";
