@@ -66,6 +66,18 @@ export function createCards(imagesList) {
   
     shuffleArray(allCardDivs);
     console.log(allCardDivs); */
+
+  /*  function fisherYatesShuffle(arr) {
+ for (var i = arr.length - 1; i > 0; i--) {
+   var j = Math.floor(Math.random() * (i + 1));  // random index
+   [arr[i], arr[j]] = [arr[j], arr[i]];          // swap
+ }
+}
+
+var tmpArray = [1, 3, 5];
+fisherYatesShuffle(tmpArray);
+console.log(tmpArray); */
+
   console.log("hola antes");
   //console.log(`${allCardDivs}`);
   console.log(allCardDivs);
