@@ -116,3 +116,16 @@
   transform: scale(2.5);
   transition: 0.5s;
 }
+
+.cursor-text {
+  position: absolute;
+  pointer-events: none; /* Evita interferir con clics */
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  transform: translate(-50%, -50%); /* Centra el texto respecto al cursor */
+  z-index: 1000;
+}

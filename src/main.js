@@ -232,7 +232,7 @@ pintarMemory();
 /* const modalButton = document.querySelector(".tryAgain");
 modalButton.addEventListener("click", aceptNotification); */
 //Traer información inicial de la API y pintarla
-getImages('cat');
+getImages('dog');
 //Voy a infoAPI.js para recoger la info y pinto las Cards en Card.js.
 /* document.getElementById('word').addEventListener('keydown', function (event) {
   if (event.key === 'Enter') {
@@ -252,3 +252,20 @@ getImages('cat');
   getImages('cat');
 }; */
 export let currentPlayerMemory = "player1";
+// Selecciona el elemento que seguirá al cursor
+const cursorText = document.getElementById('cursorText');
+
+// Evento para mover el texto con el cursor
+document.addEventListener('mousemove', (event) => {
+  // Actualiza la posición del texto
+  cursorText.style.left = `${event.pageX}px`;
+  cursorText.style.top = `${event.pageY + 50}px`;
+});
+// Opcional: Mostrar/ocultar el texto al entrar/salir del área
+/* document.addEventListener('mouseenter', () => {
+  cursorText.style.display = 'block';
+}); */
+/* 
+document.addEventListener('mouseleave', () => {
+  cursorText.style.display = 'none';
+}) */
