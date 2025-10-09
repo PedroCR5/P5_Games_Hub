@@ -14,5 +14,6 @@ export function pintarMemory() {
   player1.textContent = "Jugador 1";
   //player2.textContent = "Jugador 2";
   //<div id="cursorText" class="cursor-text">Tu Nombre</div>
+
 }
 

@@ -88,35 +88,39 @@ console.log(tmpArray); */
     cardClicked.addEventListener('click', () => {
       //console.log("hola después");
       const imgCambioClase = cardClicked.querySelector('img');
-      if (counterCards == 0) {
-        //console.log(imgCambioClase);
-        imgCambioClase.className = "imgImageDiv";
-        counterCards++;
-        //console.log(imgCambioClase.id);
-        idCard = imgCambioClase.id;
-      } else if (counterCards == 1) {
-        imgCambioClase.className = "imgImageDiv";
-        if (idCard == imgCambioClase.id) {
+      if (imgCambioClase.className === 'imgImageDiv') {
+        console.log("hola");
+        if (counterCards == 0) {
           //console.log(imgCambioClase);
-          //console.log("mismo id");
-          counterCards = 0;
-          //console.log(counterCards);
-          aciertosPlayer1++;
-          console.log(aciertosPlayer1);
-
-        }
-        else {
           imgCambioClase.className = "imgImageDiv";
-          setTimeout(() => {
-            //console.log(`${idCard} esta es`);
-            imgCambioClase.className = 'imgImageDiv notSee';
-            let paraOcultarCard = document.getElementById(`${idCard}`);
-            //console.log(paraOcultarCard);
-            paraOcultarCard.className = 'imgImageDiv notSee';
-          }, 2000);
-          counterCards = 0;
+          counterCards++;
+          //console.log(imgCambioClase.id);
+          idCard = imgCambioClase.id;
+        } else if (counterCards == 1) {
+          imgCambioClase.className = "imgImageDiv";
+          if (idCard == imgCambioClase.id) {
+            //console.log(imgCambioClase);
+            //console.log("mismo id");
+            counterCards = 0;
+            //console.log(counterCards);
+            aciertosPlayer1++;
+            console.log(aciertosPlayer1);
+
+          }
+          else {
+            imgCambioClase.className = "imgImageDiv";
+            setTimeout(() => {
+              //console.log(`${idCard} esta es`);
+              imgCambioClase.className = 'imgImageDiv notSee';
+              let paraOcultarCard = document.getElementById(`${idCard}`);
+              //console.log(paraOcultarCard);
+              paraOcultarCard.className = 'imgImageDiv notSee';
+            }, 2000);
+            counterCards = 0;
+          }
         }
       }
+
     })
   })
 };

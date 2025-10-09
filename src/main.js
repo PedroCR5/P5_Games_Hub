@@ -209,7 +209,7 @@ numberPlayers.addEventListener('input', () => {
 
 
 //! Memory
-//? Tema de cartas imput
+//// Tema de cartas imput
 //// Las 10/20 cartas
 //? Puntos
 //? Poner las cartas aleatorias
@@ -218,7 +218,7 @@ numberPlayers.addEventListener('input', () => {
 //? Reset puntuaciones
 //// Cartas tamaño
 //? colocacion cartas
-//? dar la vuelta a las cartas
+//// dar la vuelta a las cartas
 
 //import { aceptNotification } from './src/components/modal/modal';
 export const accesKey = 'ulcAHukAVcmsmE3YQCJcVOoI_rtjQjdVJzrx7QnswEI';
@@ -228,29 +228,11 @@ export const endPoint = 'https://api.unsplash.com/search/photos';
 
 // Pinto el HTML
 pintarMemory();
-// Aceptar la notificación de busqueda errónea
-/* const modalButton = document.querySelector(".tryAgain");
-modalButton.addEventListener("click", aceptNotification); */
 //Traer información inicial de la API y pintarla
 getImages('dog');
 //Voy a infoAPI.js para recoger la info y pinto las Cards en Card.js.
-/* document.getElementById('word').addEventListener('keydown', function (event) {
-  if (event.key === 'Enter') {
-    const valorInput = event.target.value;
-    if (valorInput === '') {
-      getImages(`cat`);
-      event.target.value = '';
-    }
-    else {
-      getImages(`${valorInput}`);
-      event.target.value = '';
-    }
-  }
-}); */
+
 // Pinchar en icono Pinterest para refrescar la búsqueda inicial de gatos
-/* document.querySelector(`.iconePinterest`).onclick = function () {
-  getImages('cat');
-}; */
 export let currentPlayerMemory = "player1";
 // Selecciona el elemento que seguirá al cursor
 const cursorText = document.getElementById('cursorText');
@@ -262,10 +244,15 @@ document.addEventListener('mousemove', (event) => {
   cursorText.style.top = `${event.pageY + 50}px`;
 });
 // Opcional: Mostrar/ocultar el texto al entrar/salir del área
-/* document.addEventListener('mouseenter', () => {
+const zoneMemory = document.getElementById('memoryTable')
+zoneMemory.addEventListener('mouseenter', () => {
   cursorText.style.display = 'block';
-}); */
-/* 
-document.addEventListener('mouseleave', () => {
+  console.log("entrando");
+
+});
+
+zoneMemory.addEventListener('mouseleave', () => {
   cursorText.style.display = 'none';
-}) */
+  console.log("saliendo");
+
+})
