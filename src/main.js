@@ -235,24 +235,39 @@ getImages('dog');
 // Pinchar en icono Pinterest para refrescar la búsqueda inicial de gatos
 export let currentPlayerMemory = "player1";
 // Selecciona el elemento que seguirá al cursor
-const cursorText = document.getElementById('cursorText');
+const cursorText1 = document.getElementById('cursorText1');
+const cursorText2 = document.getElementById('cursorText2');
 
-// Evento para mover el texto con el cursor
-document.addEventListener('mousemove', (event) => {
-  // Actualiza la posición del texto
-  cursorText.style.left = `${event.pageX}px`;
-  cursorText.style.top = `${event.pageY + 50}px`;
-});
-// Opcional: Mostrar/ocultar el texto al entrar/salir del área
-const zoneMemory = document.getElementById('memoryTable')
-zoneMemory.addEventListener('mouseenter', () => {
-  cursorText.style.display = 'block';
-  console.log("entrando");
-
-});
-
-zoneMemory.addEventListener('mouseleave', () => {
-  cursorText.style.display = 'none';
-  console.log("saliendo");
-
-})
+if (currentPlayerMemory == "player1") {
+  // Evento para mover el texto con el cursor
+  document.addEventListener('mousemove', (event) => {
+    // Actualiza la posición del texto
+    cursorText1.style.left = `${event.pageX}px`;
+    cursorText1.style.top = `${event.pageY + 50}px`;
+  });
+  // Opcional: Mostrar/ocultar el texto al entrar/salir del área
+  const zoneMemory = document.getElementById('memoryTable')
+  zoneMemory.addEventListener('mouseenter', () => {
+    cursorText1.style.display = 'block';
+  });
+  zoneMemory.addEventListener('mouseleave', () => {
+    cursorText1.style.display = 'none';
+  })
+  cursorText2.style.display = 'none';
+} else {
+  // Evento para mover el texto con el cursor
+  document.addEventListener('mousemove', (event) => {
+    // Actualiza la posición del texto
+    cursorText2.style.left = `${event.pageX}px`;
+    cursorText2.style.top = `${event.pageY + 50}px`;
+  });
+  // Opcional: Mostrar/ocultar el texto al entrar/salir del área
+  const zoneMemory = document.getElementById('memoryTable')
+  zoneMemory.addEventListener('mouseenter', () => {
+    cursorText2.style.display = 'block';
+  });
+  zoneMemory.addEventListener('mouseleave', () => {
+    cursorText2.style.display = 'none';
+  })
+  cursorText1.style.display = 'none';
+}
