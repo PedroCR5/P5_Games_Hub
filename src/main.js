@@ -233,7 +233,7 @@ getImages('dog');
 //Voy a infoAPI.js para recoger la info y pinto las Cards en Card.js.
 
 // Pinchar en icono Pinterest para refrescar la búsqueda inicial de gatos
-export let currentPlayerMemory = "player1";
+export var currentPlayerMemory = "player1";
 // Selecciona el elemento que seguirá al cursor
 const cursorText1 = document.getElementById('cursorText1');
 const cursorText2 = document.getElementById('cursorText2');
@@ -271,3 +271,5 @@ if (currentPlayerMemory == "player1") {
   })
   cursorText1.style.display = 'none';
 }
+console.log(currentPlayerMemory);
+

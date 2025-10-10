@@ -1,5 +1,8 @@
 //import { createButton } from "./Button";
+import { currentPlayerMemory } from "../../main";
 import "./Card.css";
+let aVerQuienJuega;
+aVerQuienJuega = currentPlayerMemory;
 // Color
 function getRandomColor() {
   const r = Math.floor(Math.random() * 256);
@@ -88,8 +91,10 @@ console.log(tmpArray); */
     cardClicked.addEventListener('click', () => {
       //console.log("hola después");
       const imgCambioClase = cardClicked.querySelector('img');
-      if (imgCambioClase.className === 'imgImageDiv') {
-        console.log("hola");
+      //console.log("hola después");
+
+      if (imgCambioClase.className = 'imgImageDiv') {
+        //console.log("hola");
         if (counterCards == 0) {
           //console.log(imgCambioClase);
           imgCambioClase.className = "imgImageDiv";
@@ -104,8 +109,7 @@ console.log(tmpArray); */
             counterCards = 0;
             //console.log(counterCards);
             aciertosPlayer1++;
-            console.log(aciertosPlayer1);
-
+            //console.log(aciertosPlayer1);
           }
           else {
             imgCambioClase.className = "imgImageDiv";
@@ -117,9 +121,17 @@ console.log(tmpArray); */
               paraOcultarCard.className = 'imgImageDiv notSee';
             }, 2000);
             counterCards = 0;
+            console.log(currentPlayerMemory);
+
+            /* if (currentPlayerMemory = "player1") {
+              currentPlayerMemory = "player2";
+            } else {
+              currentPlayerMemory = "player1";
+            } */
           }
         }
       }
+      //console.log("hola después");
 
     })
   })
