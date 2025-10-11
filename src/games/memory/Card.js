@@ -1,8 +1,8 @@
 //import { createButton } from "./Button";
-import { currentPlayerMemory } from "../../main";
+//import { currentPlayerMemory } from "../../main";
 import "./Card.css";
 let aVerQuienJuega;
-aVerQuienJuega = currentPlayerMemory;
+//aVerQuienJuega = currentPlayerMemory;
 // Color
 function getRandomColor() {
   const r = Math.floor(Math.random() * 256);
@@ -20,6 +20,8 @@ export function getRandomPositionCard() {
    posicionesOcupadas.add(positionCard) */
   return `${positionCard}`;
 }
+export let currentPlayerMemory = "player1";
+
 // Función crear cartas
 export function createCards(imagesList) {
   document.querySelector("#memoryTable").innerHTML = ` `;
@@ -123,11 +125,11 @@ console.log(tmpArray); */
             counterCards = 0;
             console.log(currentPlayerMemory);
 
-            /* if (currentPlayerMemory = "player1") {
+            if (currentPlayerMemory = "player1") {
               currentPlayerMemory = "player2";
             } else {
               currentPlayerMemory = "player1";
-            } */
+            }
           }
         }
       }

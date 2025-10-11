@@ -233,43 +233,42 @@ getImages('dog');
 //Voy a infoAPI.js para recoger la info y pinto las Cards en Card.js.
 
 // Pinchar en icono Pinterest para refrescar la búsqueda inicial de gatos
-export var currentPlayerMemory = "player1";
 // Selecciona el elemento que seguirá al cursor
 const cursorText1 = document.getElementById('cursorText1');
 const cursorText2 = document.getElementById('cursorText2');
 
-if (currentPlayerMemory == "player1") {
-  // Evento para mover el texto con el cursor
-  document.addEventListener('mousemove', (event) => {
-    // Actualiza la posición del texto
-    cursorText1.style.left = `${event.pageX}px`;
-    cursorText1.style.top = `${event.pageY + 50}px`;
-  });
-  // Opcional: Mostrar/ocultar el texto al entrar/salir del área
-  const zoneMemory = document.getElementById('memoryTable')
-  zoneMemory.addEventListener('mouseenter', () => {
-    cursorText1.style.display = 'block';
-  });
-  zoneMemory.addEventListener('mouseleave', () => {
-    cursorText1.style.display = 'none';
-  })
-  cursorText2.style.display = 'none';
-} else {
-  // Evento para mover el texto con el cursor
-  document.addEventListener('mousemove', (event) => {
-    // Actualiza la posición del texto
-    cursorText2.style.left = `${event.pageX}px`;
-    cursorText2.style.top = `${event.pageY + 50}px`;
-  });
-  // Opcional: Mostrar/ocultar el texto al entrar/salir del área
-  const zoneMemory = document.getElementById('memoryTable')
-  zoneMemory.addEventListener('mouseenter', () => {
-    cursorText2.style.display = 'block';
-  });
-  zoneMemory.addEventListener('mouseleave', () => {
-    cursorText2.style.display = 'none';
-  })
+//if (currentPlayerMemory == "player1") {
+// Evento para mover el texto con el cursor
+document.addEventListener('mousemove', (event) => {
+  // Actualiza la posición del texto
+  cursorText1.style.left = `${event.pageX}px`;
+  cursorText1.style.top = `${event.pageY + 50}px`;
+});
+// Opcional: Mostrar/ocultar el texto al entrar/salir del área
+const zoneMemory = document.getElementById('memoryTable')
+zoneMemory.addEventListener('mouseenter', () => {
+  cursorText1.style.display = 'block';
+});
+zoneMemory.addEventListener('mouseleave', () => {
   cursorText1.style.display = 'none';
-}
-console.log(currentPlayerMemory);
+})
+cursorText2.style.display = 'none';
+//} else {
+// Evento para mover el texto con el cursor
+document.addEventListener('mousemove', (event) => {
+  // Actualiza la posición del texto
+  cursorText2.style.left = `${event.pageX}px`;
+  cursorText2.style.top = `${event.pageY + 50}px`;
+});
+// Opcional: Mostrar/ocultar el texto al entrar/salir del área
+//const zoneMemory = document.getElementById('memoryTable')
+zoneMemory.addEventListener('mouseenter', () => {
+  cursorText2.style.display = 'block';
+});
+zoneMemory.addEventListener('mouseleave', () => {
+  cursorText2.style.display = 'none';
+})
+cursorText1.style.display = 'none';
+//}
+//console.log(currentPlayerMemory);
 
