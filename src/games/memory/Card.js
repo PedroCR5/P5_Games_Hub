@@ -1,7 +1,8 @@
 //import { createButton } from "./Button";
 //import { currentPlayerMemory } from "../../main";
 import "./Card.css";
-let aVerQuienJuega;
+import { currentPlayerMemory } from "./memory";
+//let aVerQuienJuega;
 //aVerQuienJuega = currentPlayerMemory;
 // Color
 function getRandomColor() {
@@ -20,13 +21,12 @@ export function getRandomPositionCard() {
    posicionesOcupadas.add(positionCard) */
   return `${positionCard}`;
 }
-export let currentPlayerMemory = "player1";
 
 // Función crear cartas
 export function createCards(imagesList) {
   document.querySelector("#memoryTable").innerHTML = ` `;
   // Pinto todas las cartas
-  let posicionesOcupadas = {};
+  //let posicionesOcupadas = {};
   imagesList.forEach(image => {
     let cardPositionID = getRandomPositionCard();
     let randomColorImg = getRandomColor();
@@ -82,7 +82,33 @@ export function createCards(imagesList) {
 var tmpArray = [1, 3, 5];
 fisherYatesShuffle(tmpArray);
 console.log(tmpArray); */
+  if (currentPlayerMemory == "player1") {
+    console.log(`${currentPlayerMemory}1`);
 
+    player1.textContent = "Jugador 11";
+
+  } else if (currentPlayerMemory == "player2") {
+    player1.textContent = "Jugador 2";
+
+  }
+  if (currentPlayerMemory = "player1") {
+    console.log("es el player1");
+    document.addEventListener('mousemove', (event) => {
+      // Actualiza la posición del texto
+      cursorText1.style.left = `${event.pageX}px`;
+      cursorText1.style.top = `${event.pageY + 50}px`;
+    });
+    // Opcional: Mostrar/ocultar el texto al entrar/salir del área
+    const zoneMemory = document.getElementById('memoryTable')
+    zoneMemory.addEventListener('mouseenter', () => {
+      cursorText1.style.display = 'block';
+    });
+    zoneMemory.addEventListener('mouseleave', () => {
+      cursorText1.style.display = 'none';
+    })
+    //cursorText2.style.display = 'none';
+  }
+  //console.log("hola después");
   console.log("hola antes");
   //console.log(`${allCardDivs}`);
   console.log(allCardDivs);
@@ -94,7 +120,6 @@ console.log(tmpArray); */
       //console.log("hola después");
       const imgCambioClase = cardClicked.querySelector('img');
       //console.log("hola después");
-
       if (imgCambioClase.className = 'imgImageDiv') {
         //console.log("hola");
         if (counterCards == 0) {
@@ -125,16 +150,63 @@ console.log(tmpArray); */
             counterCards = 0;
             console.log(currentPlayerMemory);
 
-            if (currentPlayerMemory = "player1") {
+            if (currentPlayerMemory == "player1") {
+              //console.log(currentPlayerMemory);
               currentPlayerMemory = "player2";
-            } else {
+              //console.log(currentPlayerMemory);
+
+            } else if (currentPlayerMemory == "player2") {
+              //console.log(currentPlayerMemory);
+
               currentPlayerMemory = "player1";
+              //console.log(currentPlayerMemory);
+
             }
           }
         }
       }
-      //console.log("hola después");
 
-    })
-  })
+    });
+
+  });
+
+
+
+  // Pinchar en icono Pinterest para refrescar la búsqueda inicial de gatos
+  // Selecciona el elemento que seguirá al cursor
+  /* const cursorText1 = document.getElementById('cursorText1');
+  const cursorText2 = document.getElementById('cursorText2'); */
+
+
+  //if (currentPlayerMemory == "player1") {
+  // Evento para mover el texto con el cursor
+  /* else {
+   console.log("es el player2");
+   const memoryPlayersDiv = document.querySelector(`#memoryPlayers`);
+   player1.textContent = "Jugador 2";
+   const player2 = document.createElement("div");
+   memoryPlayersDiv.append(player2);
+   player2.className = "player2 cursor-text";
+   player2.id = "cursorText2";
+   player2.textContent = "Jugador 2";
+   //} else {
+   // Evento para mover el texto con el cursor
+   document.addEventListener('mousemove', (event) => {
+     // Actualiza la posición del texto
+     cursorText2.style.left = `${event.pageX}px`;
+     cursorText2.style.top = `${event.pageY + 50}px`;
+   });
+   // Opcional: Mostrar/ocultar el texto al entrar/salir del área
+   //const zoneMemory = document.getElementById('memoryTable')
+   zoneMemory.addEventListener('mouseenter', () => {
+     cursorText2.style.display = 'block';
+   });
+   zoneMemory.addEventListener('mouseleave', () => {
+     cursorText2.style.display = 'none';
+   })
+   //cursorText1.style.display = 'none';
+   //}
+   //console.log(currentPlayerMemory);
+ } */
+
 };
