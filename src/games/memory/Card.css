@@ -129,3 +129,10 @@
   transform: translate(-50%, -50%); /* Centra el texto respecto al cursor */
   z-index: 1000;
 }
+.player1,
+.player2 {
+  display: block;
+}
+.notPlayer {
+  display: none;
+}

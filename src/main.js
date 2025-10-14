@@ -211,20 +211,19 @@ numberPlayers.addEventListener('input', () => {
 //! Memory
 //// Tema de cartas imput
 //// Las 10/20 cartas
-//? Puntos
+//// Puntos
 //? Poner las cartas aleatorias
 //? Reiniciar partida
 //? localStorage puntuaciones
 //? Reset puntuaciones
 //// Cartas tamaño
 //? colocacion cartas
+//? No pulsar en carta dada la vuelta
 //// dar la vuelta a las cartas
 
-//import { aceptNotification } from './src/components/modal/modal';
 export const accesKey = 'ulcAHukAVcmsmE3YQCJcVOoI_rtjQjdVJzrx7QnswEI';
 export const endPoint = 'https://api.unsplash.com/search/photos';
 //Variables
-//let firstSearchWord = 'nada de nada';
 
 // Pinto el HTML
 pintarMemory();
