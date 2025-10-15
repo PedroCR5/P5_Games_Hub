@@ -15,9 +15,6 @@ export function pintarMemory() {
   player2.className = "notPlayer";
   player2.id = "cursorText2";
   player2.innerText = "Jugador 2";
-
-
   //<div id="cursorText" class="cursor-text">Tu Nombre</div>
-
 }
 

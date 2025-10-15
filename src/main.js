@@ -230,6 +230,3 @@ pintarMemory();
 //Traer información inicial de la API y pintarla
 getImages('dog');
 //Voy a infoAPI.js para recoger la info y pinto las Cards en Card.js.
-
-
-
