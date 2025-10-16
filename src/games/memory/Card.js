@@ -56,6 +56,10 @@ export function createCards(imagesList) {
   //Meto todas las cartas en allCardDivs
   let allCardDivs = { cla: "0" };
   allCardDivs = document.querySelectorAll('.cardDiv');
+  console.log(allCardDivs);
+
+
+
   //Cursor con Jugador 1 al inicio
   document.addEventListener('mousemove', (event) => {
     // Jugador 1 sigue al cursor
