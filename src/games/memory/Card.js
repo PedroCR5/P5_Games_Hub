@@ -1,64 +1,31 @@
 import "./Card.css";
 let currentPlayerMemory = "player1";
-/* function getRandomColor() {
-  const r = Math.floor(Math.random() * 256);
-  const g = Math.floor(Math.random() * 256);
-  const b = Math.floor(Math.random() * 256);
-  return `rgb(${r}, ${g}, ${b})`;
-} */
-// Número para colocación de cartas
-export function getRandomPositionCard() {
-  const positionCard = Math.floor(Math.random() * 20);
-  let posicionesOcupadas = {};
-  /*  if (posicionesOcupadas.includes(positionCard)) {
-     getRandomPositionCard();
-   }
-   posicionesOcupadas.add(positionCard) */
-  return `${positionCard}`;
-}
-
+let cardFirst = 0;
+let cardSecond = 0;
 // Función crear cartas
 export function createCards(imagesList) {
   document.querySelector("#memoryTable").innerHTML = ` `;
+  let j = 101;
   // Pinto todas las cartas
   imagesList.forEach(image => {
-    let cardPositionID = getRandomPositionCard();
-    //let randomColorImg = getRandomColor();
-    let divContainerCards = document.querySelector("#memoryTable");
-    const cardDiv = document.createElement("div");
-    cardDiv.id = cardPositionID;
-    const imgImageDiv = document.createElement("img");
-    cardDiv.className = "cardDiv";
-    imgImageDiv.className = "imgImageDiv notSee";
-    imgImageDiv.id = image.id;
-    imgImageDiv.src = image.urls.regular;
-    imgImageDiv.alt = image.alt_description;
-    imgImageDiv.loading = "lazy";
-    //imgImageDiv.style.borderColor = randomColorImg;
-    divContainerCards.appendChild(cardDiv);
-    cardDiv.appendChild(imgImageDiv);
-  });
-  imagesList.forEach(image => {
-    //let randomColorImg = getRandomColor();
     let divContainerCards = document.querySelector("#memoryTable");
     const cardDiv = document.createElement("div");
     const imgImageDiv = document.createElement("img");
     cardDiv.className = "cardDiv";
+    imgImageDiv.id = j;
+    j++;
     imgImageDiv.className = "imgImageDiv notSee";
-    imgImageDiv.id = image.id;
     imgImageDiv.src = image.urls.regular;
     imgImageDiv.alt = image.alt_description;
     imgImageDiv.loading = "lazy";
-    //imgImageDiv.style.borderColor = randomColorImg;
     divContainerCards.appendChild(cardDiv);
     cardDiv.appendChild(imgImageDiv);
   });
   //Meto todas las cartas en allCardDivs
   let allCardDivs = { cla: "0" };
   allCardDivs = document.querySelectorAll('.cardDiv');
-  console.log(allCardDivs);
-
-
+  //console.log(allCardDivs);
+  //console.log("a ver");
 
   //Cursor con Jugador 1 al inicio
   document.addEventListener('mousemove', (event) => {
@@ -85,16 +52,18 @@ export function createCards(imagesList) {
       const imgCambioClase = cardClicked.querySelector('img');
       const el1 = document.getElementById("cursorText1");
       const el2 = document.getElementById("cursorText2");
-      if (imgCambioClase.className = 'imgImageDiv') {
+      if (imgCambioClase.className = '"imgImageDiv notSee"') {
         //Verificamos si es la primera carta que se levanta (counterCards=0) o la segunda (counterCards=1)
         if (counterCards == 0) {
           imgCambioClase.className = "imgImageDiv";
-          counterCards++;
           idCard = imgCambioClase.id;
+          counterCards++;
+          cardFirst = imgCambioClase.alt;
         } else if (counterCards == 1) {
           imgCambioClase.className = "imgImageDiv";
+          cardSecond = imgCambioClase.alt;
           //Si las dos cartas son iguales reseteamos el counterCards y sumamos un acierto al jugador.
-          if (idCard == imgCambioClase.id) {
+          if (cardFirst == cardSecond) {
             counterCards = 0;
             //Sumamos el acierto al jugador correspondiente
             if (currentPlayerMemory == "player1") {
@@ -122,7 +91,7 @@ export function createCards(imagesList) {
             setTimeout(() => {
               imgCambioClase.className = 'imgImageDiv notSee';
               let paraOcultarCard = document.getElementById(`${idCard}`);
-              paraOcultarCard.className = 'imgImageDiv notSee';
+              paraOcultarCard.className = "imgImageDiv notSee";
               //Cambiamos el turno al jugador 2
               if (currentPlayerMemory == "player1") {
                 currentPlayerMemory = "player2";
@@ -136,7 +105,7 @@ export function createCards(imagesList) {
               }
               //Esto es para que Jugador 1 esté con el cursor solo cuando el cursor está en el tablero.
               if (currentPlayerMemory == "player1") {
-                console.log("es el player1");
+                //console.log("es el player1");
                 document.addEventListener('mousemove', (event) => {
                   cursorText1.style.left = `${event.pageX}px`;
                   cursorText1.style.top = `${event.pageY + 50}px`;
@@ -150,7 +119,7 @@ export function createCards(imagesList) {
                 })
               } else if (currentPlayerMemory == "player2") {
                 //Esto es para que Jugador 1 esté con el cursor solo cuando el cursor está en el tablero.
-                console.log("es el player2");
+                //console.log("es el player2");
                 document.addEventListener('mousemove', (event) => {
                   cursorText2.style.left = `${event.pageX}px`;
                   cursorText2.style.top = `${event.pageY + 50}px`;
@@ -163,7 +132,7 @@ export function createCards(imagesList) {
                   cursorText2.style.display = 'none';
                 })
               }
-            }, 2000);
+            }, 1000);
             // Reseteamos el contador de cartas
             counterCards = 0;
           }

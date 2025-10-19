@@ -212,14 +212,16 @@ numberPlayers.addEventListener('input', () => {
 //// Tema de cartas imput
 //// Las 10/20 cartas
 //// Puntos
-//? Poner las cartas aleatorias
+//// Poner las cartas aleatorias
 //? Reiniciar partida
 //? localStorage puntuaciones
 //? Reset puntuaciones
 //// Cartas tamaño
-//? colocacion cartas
+//// colocacion cartas
 //? No pulsar en carta dada la vuelta
 //// dar la vuelta a las cartas
+//? Doble click falla
+//? Mirar si pulso en tres cartas antes de que pase el segundo
 
 export const accesKey = 'ulcAHukAVcmsmE3YQCJcVOoI_rtjQjdVJzrx7QnswEI';
 export const endPoint = 'https://api.unsplash.com/search/photos';
