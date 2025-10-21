@@ -49,11 +49,18 @@ export function createCards(imagesList) {
   let idCard = 0;
   let cardFirstID = 0;
   let cardSecondID = 0;
+  let checkClickCard = "bien";
   //Cuando se hace click en una carta ejecuto unas cuantas cosas
   allCardDivs.forEach(cardClicked => {
     cardClicked.addEventListener('click', () => {
+      console.log(checkClickCard);
+
+      if (checkClickCard === "bien") {
+        console.log("hola ok");
+
+      }
       pulsarOtroCard = 0;
-      console.log("click");
+      //console.log("click");
 
 
       //if (pulsarOtroCard) {
@@ -64,12 +71,12 @@ export function createCards(imagesList) {
       const el1 = document.getElementById("cursorText1");
       const el2 = document.getElementById("cursorText2");
       if ((imgCambioClase.className = "imgImageDiv notSee")/*  && (pulsarOtroCard = 1) */) {
-        console.log("hola");
+        //console.log("hola");
 
         //Verificamos si es la primera carta que se levanta (counterCards=0) o la segunda (counterCards=1)
         if ((counterCards == 0) & (imgCambioClase.className == "imgImageDiv notSee")) {
           //console.log(`Pulsar 0: ${pulsarOtroCard}`);
-          console.log("hola 1");
+          //console.log("hola 1");
 
           imgCambioClase.className = "imgImageDiv";
           idCard = imgCambioClase.id;
@@ -77,7 +84,9 @@ export function createCards(imagesList) {
           cardFirst = imgCambioClase.alt;
           cardFirstID = imgCambioClase.id;
         } else if ((counterCards == 1) & (imgCambioClase.className == "imgImageDiv notSee")) {
-          console.log("hola 2");
+          //console.log("hola 2");
+          checkClickCard = "adios";
+          console.log(checkClickCard);
 
           pulsarOtroCard = 0;
           //console.log(`Pulsar 1: ${pulsarOtroCard}`);
@@ -160,7 +169,9 @@ export function createCards(imagesList) {
                 zoneMemory.addEventListener('mouseleave', () => {
                   cursorText2.style.display = 'none';
                 })
+
               }
+              checkClickCard = "bien";
             }, 1000);
             // Reseteamos el contador de cartas
             counterCards = 0;
