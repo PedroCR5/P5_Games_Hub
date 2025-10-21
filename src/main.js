@@ -218,15 +218,13 @@ numberPlayers.addEventListener('input', () => {
 //? Reset puntuaciones
 //// Cartas tamaño
 //// colocacion cartas
-//? No pulsar en carta dada la vuelta
+//// No pulsar en carta dada la vuelta
 //// dar la vuelta a las cartas
-//? Doble click falla
-//? Mirar si pulso en tres cartas antes de que pase el segundo
+//// Doble click falla
+//// Mirar si pulso en tres cartas antes de que pase el segundo
 
 export const accesKey = 'ulcAHukAVcmsmE3YQCJcVOoI_rtjQjdVJzrx7QnswEI';
 export const endPoint = 'https://api.unsplash.com/search/photos';
-//Variables
-
 // Pinto el HTML
 pintarMemory();
 //Traer información inicial de la API y pintarla
