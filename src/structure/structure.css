@@ -1,0 +1,14 @@
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  margin: var(--pf-margin-m);
+  padding: var(--pf-padding-m);
+  gap: var(--pf-gap-m);
+}
+.buttonNavGames {
+  font-size: large;
+  margin: var(--pf-margin-m);
+  padding: var(--pf-padding-m);
+  gap: var(--pf-gap-m);
+  border-radius: 50%;
+}

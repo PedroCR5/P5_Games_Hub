@@ -1,11 +1,11 @@
 import "./Card.css";
-let currentPlayerMemory = "player1";
+let currentPlayerMemory = "player1"; //Jugador que le toca
 let cardFirst = 0;
 let cardSecond = 0;
 // Función crear cartas
 export function createCards(imagesList) {
   document.querySelector("#memoryTable").innerHTML = ` `;
-  let j = 101;
+  let j = 101;  // Variable j para crear IDs en las cartas
   // Pinto todas las cartas
   imagesList.forEach(image => {
     let divContainerCards = document.querySelector("#memoryTable");
@@ -22,7 +22,7 @@ export function createCards(imagesList) {
     cardDiv.appendChild(imgImageDiv);
   });
   //Meto todas las cartas en allCardDivs
-  let allCardDivs = { cla: "0" };
+  let allCardDivs = { cards: "0" };
   allCardDivs = document.querySelectorAll('.cardDiv');
   //Cursor con Jugador 1 al inicio
   document.addEventListener('mousemove', (event) => {
@@ -45,8 +45,7 @@ export function createCards(imagesList) {
   let idCard = 0;
   let cardFirstID = 0;
   let cardSecondID = 0;
-  // Variable para permitir o destapar otra carta
-  let checkClickCard = "bien";
+  let checkClickCard = "bien";  // Variable para permitir destapar otra carta
   allCardDivs.forEach(cardClicked => {
     //Cuando se hace click en una carta se ejecuta todo
     cardClicked.addEventListener('click', () => {
@@ -63,19 +62,13 @@ export function createCards(imagesList) {
             counterCards++;
             cardFirst = imgCambioClase.alt;
             cardFirstID = imgCambioClase.id;
-            console.log("primero");
-
           } else if (counterCards == 1) {
             checkClickCard = "adios";
             imgCambioClase.className = "imgImageDiv";
             cardSecond = imgCambioClase.alt;
             cardSecondID = imgCambioClase.id;
-            //Si las dos cartas son iguales reseteamos el counterCards y sumamos un acierto al jugador.
-            console.log("segundo");
-
+            //Si las dos cartas son iguales, pero no es la misma ID, reseteamos el counterCards y sumamos un acierto al jugador.
             if ((cardFirst == cardSecond) && (cardFirstID !== cardSecondID)) {
-              console.log("es el mismo");
-
               counterCards = 0;
               //Sumamos el acierto al jugador correspondiente
               if (currentPlayerMemory == "player1") {
@@ -107,13 +100,13 @@ export function createCards(imagesList) {
                 imgCambioClase.className = 'imgImageDiv notSee';
                 let paraOcultarCard = document.getElementById(`${idCard}`);
                 paraOcultarCard.className = "imgImageDiv notSee";
-                //Cambiamos el turno al jugador 2
+                //Cambiamos el turno al jugador 2 si era el 1
                 if (currentPlayerMemory == "player1") {
                   currentPlayerMemory = "player2";
                   el1.className = "notPlayer";
                   el2.className = "player2 cursor-text";
                 } else {
-                  //Cambiamos el turno al jugador 1
+                  //Cambiamos el turno al jugador 1 si era el 2
                   currentPlayerMemory = "player1";
                   el2.className = "notPlayer";
                   el1.className = "player1 cursor-text";

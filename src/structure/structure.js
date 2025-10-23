@@ -7,6 +7,7 @@ export function crearEstructuraPpal() {
   gamesInfo.forEach(e => {
     const divGame = document.createElement("button");
     divGame.id = `${e}Select`;
+    divGame.className = `buttonNavGames`;
     navGames.append(divGame);
     divGame.textContent = `${e}`
     const game = document.createElement("section");
