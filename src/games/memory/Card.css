@@ -18,8 +18,8 @@
   padding: var(--rtc-padding-s);
   /*  position: relative; */
   /* margin-top: -25px; */
-  height: 200px;
-  width: 150px;
+  height: 80%;
+  width: 70%;
   background-color: grey;
   justify-content: center;
   cursor: pointer;

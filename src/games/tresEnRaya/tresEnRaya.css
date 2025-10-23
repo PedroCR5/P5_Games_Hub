@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: baseline;
-  display: none;
+  /*  display: none; */
 }
 #tresEnRayaPlayers {
   display: flex;

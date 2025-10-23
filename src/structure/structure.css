@@ -1,6 +1,22 @@
 nav {
   display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
   justify-content: space-evenly;
+  margin: var(--pf-margin-m);
+  padding: var(--pf-padding-m);
+  gap: var(--pf-gap-m);
+}
+#titleNav {
+  font-size: xx-large;
+  scale: 2;
+}
+#divNav {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: space-around;
   margin: var(--pf-margin-m);
   padding: var(--pf-padding-m);
   gap: var(--pf-gap-m);
@@ -11,4 +27,18 @@ nav {
   padding: var(--pf-padding-m);
   gap: var(--pf-gap-m);
   border-radius: 50%;
+}
+.gameTitle {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: space-around;
+  margin: var(--pf-margin-m);
+  padding: var(--pf-padding-m);
+  gap: var(--pf-gap-m);
+}
+#tresEnRaya,
+#laOca,
+#memory {
+  scale: 0.3;
 }
