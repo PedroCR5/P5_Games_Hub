@@ -27,6 +27,7 @@ nav {
   padding: var(--pf-padding-m);
   gap: var(--pf-gap-m);
   border-radius: 50%;
+  cursor: pointer;
 }
 .gameTitle {
   display: flex;
@@ -40,5 +41,27 @@ nav {
 #tresEnRaya,
 #laOca,
 #memory {
-  scale: 0.3;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+.divNavGames {
+  display: flex;
+  flex-direction: column;
+}
+.imgNavGames {
+  max-width: 300px;
+  min-width: 150px;
+  max-height: 300px;
+  min-height: 150px;
+}
+.returnToNav {
+  /*   display: flex;
+  align-items: center; */
+  width: 30%;
+  margin: var(--pf-margin-s);
+  padding: var(--pf-padding-s);
+  gap: var(--pf-gap-s);
+  border-radius: 50%;
+  cursor: pointer;
 }

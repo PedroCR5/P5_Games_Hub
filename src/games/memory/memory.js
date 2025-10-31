@@ -5,6 +5,8 @@ export function pintarMemory() {
 
   memoryTable.innerHTML = "";
   const memoryPlayersDiv = document.querySelector(`#memoryPlayers`);
+  memoryPlayersDiv.innerHTML = "";
+
   const player1 = document.createElement("div");
   memoryPlayersDiv.append(player1);
   player1.className = "player1 cursor-text";

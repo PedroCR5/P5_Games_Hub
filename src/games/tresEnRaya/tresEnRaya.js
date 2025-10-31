@@ -1,6 +1,7 @@
 import './tresEnRaya.css';
 export const printTresEnRaya = () => {
   const tresEnRayaTable = document.querySelector(`#tresEnRayaTable`);
+  tresEnRayaTable.innerHTML = "";
   const arrayTresEnRaya = [
     [[""], [""], [""]],
     [[""], [""], [""]],
@@ -15,6 +16,7 @@ export const printTresEnRaya = () => {
     }
   }
   const tresEnRayaPlayersDiv = document.querySelector(`#tresEnRayaPlayers`);
+  tresEnRayaPlayersDiv.innerHTML = "";
   const player1 = document.createElement("button");
   const player2 = document.createElement("button");
   tresEnRayaPlayersDiv.append(player1);
@@ -26,7 +28,6 @@ export const printTresEnRaya = () => {
 };
 
 export function clickCasillaCheck(cell, player) {
-
   console.log("Cell clicked!");
   if (cell.classList.contains('cruz') || cell.classList.contains('circulo')) {
     console.log("Cell already occupied!");
