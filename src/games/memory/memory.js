@@ -17,6 +17,10 @@ export function pintarMemory() {
   player2.className = "notPlayer";
   player2.id = "cursorText2";
   player2.innerText = "Jugador 2";
+  let anteriorGanadorMemory = localStorage.getItem("ganadorMemory");
+  const ultimoGanador = document.createElement("h4");
+  memoryTable.append(ultimoGanador);
+  ultimoGanador.innerHTML = `El último ganador ha sido el ${anteriorGanadorMemory}`;
   //<div id="cursorText" class="cursor-text">Tu Nombre</div>
 }
 

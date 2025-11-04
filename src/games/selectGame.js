@@ -1,5 +1,7 @@
+import { gameMemory, gameTresEnRaya } from "../main";
+import { gameOca } from "./laOca/laOca";
+//import { gameMemory } from "./memory/memory";
 export function selectGameToPlay() {
-
 
   let tresEnRayaClickAJugar = document.getElementById("tresEnRayaSelect");
   tresEnRayaClickAJugar.addEventListener('click', () => {

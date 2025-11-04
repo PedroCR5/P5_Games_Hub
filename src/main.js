@@ -8,7 +8,7 @@ import { returnToChangeTheGame, selectGameToPlay } from './games/selectGame';
 //? Guardar ganadores el local storage y ponerlo en la nav
 crearEstructuraPpal()
 //! Juego Tres en Raya
-function gameTresEnRaya() {
+export function gameTresEnRaya() {
   printTresEnRaya();
   // Poner cruz o círculo al hacer click en la casilla
   let player = "1";
@@ -29,7 +29,7 @@ gameOca();
 //? localStorage ganador
 export const accesKey = 'ulcAHukAVcmsmE3YQCJcVOoI_rtjQjdVJzrx7QnswEI';
 export const endPoint = 'https://api.unsplash.com/search/photos';
-function gameMemory() {
+export function gameMemory() {
   // Pinto el HTML
   pintarMemory();
   //Traer información inicial de la API y pintarla

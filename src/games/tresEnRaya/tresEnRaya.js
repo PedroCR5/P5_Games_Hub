@@ -7,7 +7,6 @@ export const printTresEnRaya = () => {
     [[""], [""], [""]],
     [[``], [""], [""]]
   ];
-  tresEnRayaTable.innerHTML = "";
   for (const fila of arrayTresEnRaya) {
     for (const columna of fila) {
       const divCasilla = document.createElement("div");
@@ -15,6 +14,10 @@ export const printTresEnRaya = () => {
       tresEnRayaTable.append(divCasilla);
     }
   }
+  let anteriorGanadorTresEnRaya = localStorage.getItem("ganadorTresEnRaya");
+  const ultimoGanador = document.createElement("h4");
+  tresEnRayaTable.append(ultimoGanador);
+  ultimoGanador.innerHTML = `El último ganador ha sido el ${anteriorGanadorTresEnRaya}`;
   const tresEnRayaPlayersDiv = document.querySelector(`#tresEnRayaPlayers`);
   tresEnRayaPlayersDiv.innerHTML = "";
   const player1 = document.createElement("button");
@@ -50,12 +53,15 @@ export function clickCasillaCheck(cell, player) {
   ) {
     setTimeout(() => {
       alert("Ha ganado el Jugador 1");
+      localStorage.setItem("ganadorTresEnRaya", "Jugador 1");
     }, 500);
   }
   else if ((infoGanador[0] === "circulo" & infoGanador[1] === "circulo" & infoGanador[2] === 'circulo') || (infoGanador[3] === "circulo" & infoGanador[4] === "circulo" & infoGanador[5] === 'circulo') || (infoGanador[6] === "circulo" & infoGanador[7] === "circulo" & infoGanador[8] === 'circulo') || (infoGanador[0] === "circulo" & infoGanador[3] === "circulo" & infoGanador[6] === 'circulo') || (infoGanador[1] === "circulo" & infoGanador[4] === "circulo" & infoGanador[7] === 'circulo') || (infoGanador[2] === "circulo" & infoGanador[5] === "circulo" & infoGanador[8] === 'circulo') || (infoGanador[0] === "circulo" & infoGanador[4] === "circulo" & infoGanador[8] === 'circulo') || (infoGanador[2] === "circulo" & infoGanador[4] === "circulo" & infoGanador[6] === 'circulo')
   ) {
     setTimeout(() => {
       alert("Ha ganado el Jugador 2");
+      localStorage.setItem("ganadorTresEnRaya", "Jugador 2");
+
     }, 500);
   }
   return player;

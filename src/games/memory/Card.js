@@ -85,8 +85,12 @@ export function createCards(imagesList) {
                 console.log("Juego acabado");
                 if (aciertosPlayer1 > aciertosPlayer2) {
                   console.log("Gana el jugador 1");
+                  localStorage.setItem("ganadorMemory", "Jugador 1");
+
                 } else if (aciertosPlayer1 < aciertosPlayer2) {
                   console.log("Gana el jugador 2");
+                  localStorage.setItem("ganadorMemory", "Jugador 2");
+
                 } else {
                   console.log("Empate");
                 }
