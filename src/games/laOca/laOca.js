@@ -105,7 +105,12 @@ export const printOca = () => {
       counter++
     }
   }
-
+  let anteriorGanadorTresEnRaya = localStorage.getItem("ganadorTresEnRaya");
+  const ultimoGanador = document.createElement("h4");
+  laOcaTable.append(ultimoGanador);
+  if (anteriorGanadorTresEnRaya != null) {
+    ultimoGanador.innerHTML = `El último ganador ha sido el ${anteriorGanadorTresEnRaya}`;
+  };
 };
 export function createImputNumberPlayers() {
   const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);

@@ -17,7 +17,9 @@ export const printTresEnRaya = () => {
   let anteriorGanadorTresEnRaya = localStorage.getItem("ganadorTresEnRaya");
   const ultimoGanador = document.createElement("h4");
   tresEnRayaTable.append(ultimoGanador);
-  ultimoGanador.innerHTML = `El último ganador ha sido el ${anteriorGanadorTresEnRaya}`;
+  if (anteriorGanadorTresEnRaya != null) {
+    ultimoGanador.innerHTML = `El último ganador ha sido el ${anteriorGanadorTresEnRaya}`;
+  };
   const tresEnRayaPlayersDiv = document.querySelector(`#tresEnRayaPlayers`);
   tresEnRayaPlayersDiv.innerHTML = "";
   const player1 = document.createElement("button");
