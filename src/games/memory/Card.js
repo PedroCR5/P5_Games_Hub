@@ -1,5 +1,5 @@
 import "./Card.css";
-let currentPlayerMemory = "player1"; //Jugador que le toca
+let currentPlayerMemory = "player1"; // Jugador que le toca
 let cardFirst = 0;
 let cardSecond = 0;
 // Función crear cartas
@@ -86,11 +86,9 @@ export function createCards(imagesList) {
                 if (aciertosPlayer1 > aciertosPlayer2) {
                   console.log("Gana el jugador 1");
                   localStorage.setItem("ganadorMemory", "Jugador 1");
-
                 } else if (aciertosPlayer1 < aciertosPlayer2) {
                   console.log("Gana el jugador 2");
                   localStorage.setItem("ganadorMemory", "Jugador 2");
-
                 } else {
                   console.log("Empate");
                 }
@@ -154,12 +152,11 @@ export function createCards(imagesList) {
     });
   });
   let divContainerCards = document.querySelector("#memoryTable");
-
+  // Indicamos cual fue el último ganador
   let anteriorGanadorMemory = localStorage.getItem("ganadorMemory");
   const ultimoGanadorMemory = document.createElement("h4");
   divContainerCards.append(ultimoGanadorMemory);
   if (anteriorGanadorMemory != null) {
     ultimoGanadorMemory.innerHTML = `El último ganador ha sido el ${anteriorGanadorMemory}`;
   };
-
 };

@@ -5,7 +5,6 @@ import { pintarMemory } from './games/memory/memory';
 import { getImages } from './games/memory/infoAPI';
 import { gameOca } from './games/laOca/laOca';
 import { returnToChangeTheGame, selectGameToPlay } from './games/selectGame';
-//? Guardar ganadores el local storage y ponerlo en la nav
 crearEstructuraPpal()
 //! Juego Tres en Raya
 export function gameTresEnRaya() {
@@ -20,24 +19,18 @@ export function gameTresEnRaya() {
   });
 };
 gameTresEnRaya();
-//? localStorage puntuaciones
 //! Juego la Oca
 //? Jugador ganador
-//? localStorage puntuaciones
 gameOca();
+//?Falta poner alert o aviso y parar la partida.
 //! Memory
-//? localStorage ganador
+//?Falta poner alert o aviso.
 export const accesKey = 'ulcAHukAVcmsmE3YQCJcVOoI_rtjQjdVJzrx7QnswEI';
 export const endPoint = 'https://api.unsplash.com/search/photos';
 export function gameMemory() {
-  // Pinto el HTML
-  pintarMemory();
-  //Traer información inicial de la API y pintarla
-  getImages('dog');
-  //Voy a infoAPI.js para recoger la info y pinto las Cards en Card.js.
+  pintarMemory();  // Pinto el HTML
+  getImages('dog');//Voy a infoAPI.js para recoger la info y pinto las Cards en Card.js.
 };
 gameMemory();
-// Click para seleccionar le juego
-selectGameToPlay();
-// Click para volver a la pantalla inicial y resetear la partida jugada
-returnToChangeTheGame();
+selectGameToPlay();// Click para seleccionar le juego
+returnToChangeTheGame();// Click para volver a la pantalla inicial y resetear la partida jugada

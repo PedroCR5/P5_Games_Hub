@@ -40,7 +40,6 @@ export function crearEstructuraPpal() {
     title.className = `gameTitle`;
     title.id = `${e}Title`;
     game.appendChild(title);
-
     const gameContainer = document.createElement("div");
     gameContainer.id = `${e}Container`;
     const gameTable = document.createElement("div");
@@ -50,8 +49,8 @@ export function crearEstructuraPpal() {
     game.appendChild(gameContainer);
     gameContainer.appendChild(gameTable);
     gameContainer.appendChild(gamePlayers);
-
   });
+  // Los 3 juegos en la pantalla principal
   const tresEnRayaSelectGame = document.getElementById("tresEnRayaSelect");
   tresEnRayaSelectGame.innerText = "Jugar al tres en raya";
   const tresEnRayaSelectGameImg = document.getElementById("tresEnRayaSelectImg");
@@ -70,5 +69,4 @@ export function crearEstructuraPpal() {
   laOcaTitle.innerText = "JUGAR A LA OCA";
   const memoryTitle = document.getElementById("memoryTitle");
   memoryTitle.innerText = "JUGAR AL MEMORY";
-
 };

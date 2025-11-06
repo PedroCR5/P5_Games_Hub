@@ -1,4 +1,5 @@
 import './laOca.css';
+// Posición de salida para los 4 jugadores
 export let positionPlayer1 = "1";
 export let positionPlayer2 = "1";
 export let positionPlayer3 = "1";
@@ -69,7 +70,7 @@ export const casillasOcaTablero = [
   { id: 62, tipo: "normal" },
   { id: 63, tipo: "meta" }
 ];
-
+// Pinto el tablero
 export const printOca = () => {
   const laOcaTable = document.querySelector(`#laOcaTable`);
   const arrayOca = [
@@ -82,34 +83,24 @@ export const printOca = () => {
     ["", "", "", "", "", "", "", "", ""],
   ];
   laOcaTable.innerHTML = "";
-  let counter = "0";
+  let counter = "0"; // Voy a usar esto para pintar las casillas.
   for (const fila of arrayOca) {
     for (const columna of fila) {
       const divCasilla = document.createElement("div");
       const datoCasilla = casillasOcaTablero[counter];
       divCasilla.className = `casillaOca ${datoCasilla.tipo}`;
       divCasilla.id = `${datoCasilla.id}`;
-      //Pasar a otra casilla
-      if (datoCasilla.tipo === "oca") { };
-      if (datoCasilla.tipo === "puente") { };
-      if (datoCasilla.tipo === "dados") { };
-      if (datoCasilla.tipo === "meta") { };
-      //Perder turnos 
-      if (datoCasilla.tipo === "posada") { };
-      if (datoCasilla.tipo === "carcel") { };
-      if (datoCasilla.tipo === "laberinto") { };
-      if (datoCasilla.tipo === "calavera") { };
       divCasilla.textContent = counter + 1;
-      //console.log(counter);
       laOcaTable.append(divCasilla);
       counter++
     }
   }
-  let anteriorGanadorTresEnRaya = localStorage.getItem("ganadorTresEnRaya");
-  const ultimoGanador = document.createElement("h4");
-  laOcaTable.append(ultimoGanador);
-  if (anteriorGanadorTresEnRaya != null) {
-    ultimoGanador.innerHTML = `El último ganador ha sido el ${anteriorGanadorTresEnRaya}`;
+  // Pongo al final del tablero el último ganador de la Oca.
+  let anteriorGanadorOca = localStorage.getItem("ganadorOca");
+  const ultimoGanadorOca = document.createElement("h4");
+  laOcaTable.append(ultimoGanadorOca);
+  if (anteriorGanadorOca != null) {
+    ultimoGanadorOca.innerHTML = `El último ganador ha sido el ${anteriorGanadorOca}`;
   };
 };
 export function createImputNumberPlayers() {
@@ -119,23 +110,18 @@ export function createImputNumberPlayers() {
   numberPlayers.type = 'number';
   numberPlayers.min = "1";
   numberPlayers.max = "4";
-
   numberPlayers.id = "jugadoresOca";
   numberPlayers.placeholder = "Número de jugadores";
   numberPlayers.type = "number";
   laOcaPlayersDiv.append(numberPlayers);
   const playersList = document.createElement("ul");
   playersList.id = "playerListId";
-  //console.log(playersList);
   laOcaPlayersDiv.append(playersList);
-
 }
 export function createPlayerToPlay() {
   const playersList = document.getElementById(`playerListId`);
   const numberPlayers = document.getElementById("jugadoresOca");
   const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);
-  // console.log(playersList);
-
   playersList.innerHTML = "";
   let i = 0;
   for (i; i < numberPlayers.value; i++) {
@@ -153,37 +139,26 @@ export function createPlayerToPlay() {
     playerDice.className = `jugadorDice`;
     playerName.textContent = `Jugador ${i + 1}`;
     //Pintamos la ficha en la posición inicial
-
     const ficha1 = document.createElement("div");
     ficha1.id = `ficha${i + 1}`;
     ficha1.className = "fichaJugador";
     const casillaInicial = document.getElementById("1");
-    //console.log(casillaInicial);
-    //casillaInicial.innerHTML = "";
     casillaInicial.append(ficha1);
-
   }
-
-
-
+  // Creo los dados que indican el jugador al que le toca
   const diceGif = document.createElement("image");
   diceGif.id = `dados`;
   laOcaPlayersDiv.append(diceGif);
   const diceValue = document.createElement("number");
   diceValue.id = `dadoValor`;
   laOcaPlayersDiv.append(diceValue);
-
 }
-
 export function moverFichaJugador(n, position, numeroAleatorio) {
   const casillaAnterior = parseInt(position) - parseInt(numeroAleatorio);;
-  //console.log(casillaAnterior);
   const parentDivA = document.getElementById(casillaAnterior);
   const childDivA = document.getElementById(`ficha${n}`);
   parentDivA.removeChild(childDivA);
-  //const casillaActual = document.getElementById(position);
   let newPosition = `${position}`;
-  //console.log(newPosition);
   if (newPosition > 63) {
     let diferencia = newPosition - 63;
     newPosition = 63 - diferencia;
@@ -192,8 +167,6 @@ export function moverFichaJugador(n, position, numeroAleatorio) {
   if (result.destino) {
     newPosition = parseInt(result.destino);
   }
-
-  //console.log(newPosition);
   const casillaNewPosition = document.getElementById(newPosition);
   const ficha = document.createElement("div");
   ficha.id = `ficha${n}`;
@@ -201,15 +174,21 @@ export function moverFichaJugador(n, position, numeroAleatorio) {
   casillaNewPosition.append(ficha);
   if (newPosition == 63) {
     console.log(`El jugador${n} ha ganado`);
-    //Falta poner alert o aviso y parar la partida.
+    if (n = 1) {
+      localStorage.setItem("ganadorOca", "Jugador 1");
+    } else if (n = 2) {
+      localStorage.setItem("ganadorOca", "Jugador 2");
+    } else if (n = 3) {
+      localStorage.setItem("ganadorOca", "Jugador 3");
+    } else if (n = 4) {
+      localStorage.setItem("ganadorOca", "Jugador 4");
+    }
   }
   return newPosition;
 };
-
 export function gameOca() {
   document.getElementById("laOcaTable").innerHTML = "";
   document.getElementById("laOcaPlayers").innerHTML = "";
-
   positionPlayer1 = "1";
   positionPlayer2 = "1";
   positionPlayer3 = "1";
@@ -218,30 +197,23 @@ export function gameOca() {
   let lostTurnPlayers = {
     player1: 0, player2: 0, player3: 0, player4: 0,
   };
-
   printOca();
-  //Hacer un input nº jugadores y luego con bucle crearlos (nombre, color)
-  createImputNumberPlayers();
+  createImputNumberPlayers();  //Hacer un input nº jugadores y luego con bucle crearlos 
   //Pintar los jugadores
   const numberPlayers = document.getElementById("jugadoresOca");
   numberPlayers.addEventListener('input', () => {
     createPlayerToPlay();
-    // console.log(lostTurnPlayers.player1);
     let playersCurrentDice = document.getElementById("1Dice");
     playersCurrentDice.className = "jugadorDice jugadorDiceCurrent";
     const playersDice = document.querySelectorAll('.jugadorDice');
     playersDice.forEach(dice => {
       dice.addEventListener('click', () => {
-
         // Generar un número aleatorio entre 1 y 6
         const numeroAleatorio = Math.floor(Math.random() * 6) + 1;
         const diceValue = document.querySelector(`#dadoValor`);
         diceValue.textContent = `Te ha salido un ${numeroAleatorio}`;
-        //Ver quien tiene el turno y mover su ficha
+        //Ver quien tiene el turno y mover su ficha, además comprobamos que no tiene que esperar turnos sin jugar
         if ((dice.id == "1Dice") && (clavePlayerCurrent == "jugador1")) {
-          //console.log(lostTurnPlayer1);
-          //lostTurnPlayers.player1--;
-          console.log(lostTurnPlayers.player1);
           if (lostTurnPlayers.player1 == 0) {
             positionPlayer1 = parseInt(positionPlayer1) + parseInt(numeroAleatorio);
             positionPlayer1 = moverFichaJugador(1, positionPlayer1, numeroAleatorio);
@@ -253,7 +225,7 @@ export function gameOca() {
             } else if (positionPlayer1 == 41) {
               lostTurnPlayers.player1 = 2;
             }
-            //comprobar valor para turno oca
+            // Comprobar posición para cambiar el turno al siguiente jugador
             if (positionPlayer1 == 8 || positionPlayer1 == 12 || positionPlayer1 == 13 || positionPlayer1 == 5 || positionPlayer1 == 17 || positionPlayer1 == 22 || positionPlayer1 == 28 || positionPlayer1 == 48 || positionPlayer1 == 34 || positionPlayer1 == 40 || positionPlayer1 == 46 || positionPlayer1 == 51 || positionPlayer1 == 26 || positionPlayer1 == 60) {
               clavePlayerCurrent = "jugador1";
             } else {
@@ -270,12 +242,10 @@ export function gameOca() {
             playersCurrentDice2.className = "jugadorDiceCurrent";
             let playersCurrentDice1 = document.getElementById("1Dice");
             playersCurrentDice1.className = "jugadorDice";
-            return //cambio;
+            return;
           }
-
         } else if ((dice.id == "2Dice") && (clavePlayerCurrent == "jugador2")) {
           if (lostTurnPlayers.player2 == 0) {
-
             positionPlayer2 = parseInt(positionPlayer2) + parseInt(numeroAleatorio);
             positionPlayer2 = moverFichaJugador(2, positionPlayer2, numeroAleatorio);
             //Turnos perdidos
@@ -286,8 +256,7 @@ export function gameOca() {
             } else if (positionPlayer2 == 41) {
               lostTurnPlayers.player2 = 2;
             }
-            //Cambiar la clase de los dados
-            //comprobar valor para turno oca
+            // Comprobar posición para cambiar el turno al siguiente jugador
             if (positionPlayer2 == 8 || positionPlayer2 == 12 || positionPlayer2 == 13 || positionPlayer2 == 5 || positionPlayer2 == 17 || positionPlayer2 == 22 || positionPlayer2 == 28 || positionPlayer2 == 48 || positionPlayer2 == 34 || positionPlayer2 == 40 || positionPlayer2 == 46 || positionPlayer2 == 51 || positionPlayer2 == 26 || positionPlayer2 == 60) {
               clavePlayerCurrent = "jugador2";
             } else {
@@ -304,7 +273,7 @@ export function gameOca() {
             playersCurrentDice3.className = "jugadorDiceCurrent";
             let playersCurrentDice2 = document.getElementById("2Dice");
             playersCurrentDice2.className = "jugadorDice";
-            return //cambio;
+            return;
           }
         } else if ((dice.id == "3Dice") && (clavePlayerCurrent == "jugador3")) {
           if (lostTurnPlayers.player3 == 0) {
@@ -318,13 +287,10 @@ export function gameOca() {
             } else if (positionPlayer3 == 41) {
               lostTurnPlayers.player3 = 2;
             }
-            //Cambiar la clase de los dados
-            //comprobar valor para turno oca
+            // Comprobar posición para cambiar el turno al siguiente jugador
             if (positionPlayer3 == 8 || positionPlayer3 == 12 || positionPlayer3 == 13 || positionPlayer3 == 5 || positionPlayer3 == 17 || positionPlayer3 == 22 || positionPlayer3 == 28 || positionPlayer3 == 48 || positionPlayer3 == 34 || positionPlayer3 == 40 || positionPlayer3 == 46 || positionPlayer3 == 51 || positionPlayer3 == 26 || positionPlayer3 == 60) {
               clavePlayerCurrent = "jugador3";
-
             } else {
-
               clavePlayerCurrent = "jugador4";
               let playersCurrentDice4 = document.getElementById("4Dice");
               playersCurrentDice4.className = "jugadorDiceCurrent";
@@ -338,12 +304,11 @@ export function gameOca() {
             playersCurrentDice4.className = "jugadorDiceCurrent";
             let playersCurrentDice3 = document.getElementById("3Dice");
             playersCurrentDice3.className = "jugadorDice";
-            return //cambio;
+            return;
           }
         }
         else if ((dice.id == "4Dice") && (clavePlayerCurrent == "jugador4")) {
           if (lostTurnPlayers.player4 == 0) {
-
             positionPlayer4 = parseInt(positionPlayer4) + parseInt(numeroAleatorio);
             positionPlayer4 = moverFichaJugador(4, positionPlayer4, numeroAleatorio);
             //Turnos perdidos
@@ -354,7 +319,7 @@ export function gameOca() {
             } else if (positionPlayer4 == 41) {
               lostTurnPlayers.player4 = 2;
             }
-            //comprobar valor para turno oca
+            // Comprobar posición para cambiar el turno al siguiente jugador
             if (positionPlayer4 == 8 || positionPlayer4 == 12 || positionPlayer4 == 13 || positionPlayer4 == 5 || positionPlayer4 == 17 || positionPlayer4 == 22 || positionPlayer4 == 28 || positionPlayer4 == 48 || positionPlayer4 == 34 || positionPlayer4 == 40 || positionPlayer4 == 46 || positionPlayer4 == 51 || positionPlayer4 == 26 || positionPlayer4 == 60) {
               clavePlayerCurrent = "jugador4";
             } else {
@@ -371,7 +336,7 @@ export function gameOca() {
             playersCurrentDice1.className = "jugadorDiceCurrent";
             let playersCurrentDice4 = document.getElementById("4Dice");
             playersCurrentDice4.className = "jugadorDice";
-            return //cambio;
+            return
           }
         }
       });

@@ -1,8 +1,6 @@
 import { gameMemory, gameTresEnRaya } from "../main";
 import { gameOca } from "./laOca/laOca";
-//import { gameMemory } from "./memory/memory";
-export function selectGameToPlay() {
-
+export function selectGameToPlay() { // Entrar en el juego al pulsar en la pantalla principal
   let tresEnRayaClickAJugar = document.getElementById("tresEnRayaSelect");
   tresEnRayaClickAJugar.addEventListener('click', () => {
     document.getElementById("tresEnRaya").style.display = "flex";
@@ -19,8 +17,7 @@ export function selectGameToPlay() {
     document.getElementById("divNav").style.display = "none";
   });
 };
-
-export function returnToChangeTheGame() {
+export function returnToChangeTheGame() { // Volver a la pantalla principal para cambiar de juego o reiniciar el mismo
   let tresEnRayaClickOtroJuego = document.getElementById("tresEnRayaReturnToNav");
   tresEnRayaClickOtroJuego.addEventListener('click', () => {
     document.getElementById("tresEnRaya").style.display = "none";

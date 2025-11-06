@@ -14,12 +14,14 @@ export const printTresEnRaya = () => {
       tresEnRayaTable.append(divCasilla);
     }
   }
+  // Indicar el último ganador del juego.
   let anteriorGanadorTresEnRaya = localStorage.getItem("ganadorTresEnRaya");
   const ultimoGanador = document.createElement("h4");
   tresEnRayaTable.append(ultimoGanador);
   if (anteriorGanadorTresEnRaya != null) {
     ultimoGanador.innerHTML = `El último ganador ha sido el ${anteriorGanadorTresEnRaya}`;
   };
+  // Pintar los dos jugadores
   const tresEnRayaPlayersDiv = document.querySelector(`#tresEnRayaPlayers`);
   tresEnRayaPlayersDiv.innerHTML = "";
   const player1 = document.createElement("button");
@@ -31,8 +33,7 @@ export const printTresEnRaya = () => {
   player1.textContent = "Jugador 1";
   player2.textContent = "Jugador 2";
 };
-
-export function clickCasillaCheck(cell, player) {
+export function clickCasillaCheck(cell, player) { // Al hacer click se pone círculo o cruz
   console.log("Cell clicked!");
   if (cell.classList.contains('cruz') || cell.classList.contains('circulo')) {
     console.log("Cell already occupied!");
@@ -51,6 +52,7 @@ export function clickCasillaCheck(cell, player) {
   arrayTresEnRayaCheck.forEach(element => {
     infoGanador.push(element.className);
   });
+  // Comprobar las combinaciones que hacen un tres en raya
   if ((infoGanador[0] === "cruz" & infoGanador[1] === "cruz" & infoGanador[2] === 'cruz') || (infoGanador[3] === "cruz" & infoGanador[4] === "cruz" & infoGanador[5] === 'cruz') || (infoGanador[6] === "cruz" & infoGanador[7] === "cruz" & infoGanador[8] === 'cruz') || (infoGanador[0] === "cruz" & infoGanador[3] === "cruz" & infoGanador[6] === 'cruz') || (infoGanador[1] === "cruz" & infoGanador[4] === "cruz" & infoGanador[7] === 'cruz') || (infoGanador[2] === "cruz" & infoGanador[5] === "cruz" & infoGanador[8] === 'cruz') || (infoGanador[0] === "cruz" & infoGanador[4] === "cruz" & infoGanador[8] === 'cruz') || (infoGanador[2] === "cruz" & infoGanador[4] === "cruz" & infoGanador[6] === 'cruz')
   ) {
     setTimeout(() => {
@@ -63,12 +65,7 @@ export function clickCasillaCheck(cell, player) {
     setTimeout(() => {
       alert("Ha ganado el Jugador 2");
       localStorage.setItem("ganadorTresEnRaya", "Jugador 2");
-
     }, 500);
   }
   return player;
-}
-
-//<a href="https://www.flaticon.es/iconos-gratis/cerca" title="cerca iconos">Cerca iconos creados por Pixel perfect - Flaticon</a>
-//<a href="https://www.flaticon.es/iconos-gratis/circulo" title="circulo iconos">Circulo iconos creados por Designspace Team - Flaticon</a>
-//<a href="https://www.flaticon.es/iconos-gratis/cerca" title="cerca iconos">Cerca iconos creados por Pixel perfect - Flaticon</a>
+};

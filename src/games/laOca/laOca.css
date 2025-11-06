@@ -53,8 +53,6 @@
 }
 .meta {
   background-image: url(./assets/terminar.png);
-  /*  min-width: 200px;
-  min-height: 200px; */
 }
 .carcel {
   background-image: url(./assets/carcel.png);
@@ -68,14 +66,6 @@
 .calavera {
   background-image: url(./assets/calavera.png);
 }
-/* #dados {
-  background-image: url(./assets/dice.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  min-width: 50px;
-  min-height: 100px;
-  cursor: pointer;
-} */
 #dados:hover {
   scale: 1.1;
 }
@@ -84,7 +74,6 @@
   width: 130px;
   display: flex;
   justify-content: center;
-  /*   border-radius: 50%; */
 }
 
 .ficha {
