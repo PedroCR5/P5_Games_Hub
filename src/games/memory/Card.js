@@ -84,10 +84,10 @@ export function createCards(imagesList) {
               if (aciertosPlayer1 + aciertosPlayer2 == 10) {
                 console.log("Juego acabado");
                 if (aciertosPlayer1 > aciertosPlayer2) {
-                  console.log("Gana el jugador 1");
+                  alert("Ha ganado el Jugador 1");
                   localStorage.setItem("ganadorMemory", "Jugador 1");
                 } else if (aciertosPlayer1 < aciertosPlayer2) {
-                  console.log("Gana el jugador 2");
+                  alert("Ha ganado el Jugador 2");
                   localStorage.setItem("ganadorMemory", "Jugador 2");
                 } else {
                   console.log("Empate");

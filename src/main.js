@@ -20,9 +20,7 @@ export function gameTresEnRaya() {
 };
 gameTresEnRaya();
 //! Juego la Oca
-//? Jugador ganador
 gameOca();
-//?Falta poner alert o aviso y parar la partida.
 //! Memory
 //?Falta poner alert o aviso.
 export const accesKey = 'ulcAHukAVcmsmE3YQCJcVOoI_rtjQjdVJzrx7QnswEI';

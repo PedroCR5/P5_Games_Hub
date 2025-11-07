@@ -1,6 +1,8 @@
 import './tresEnRaya.css';
 export const printTresEnRaya = () => {
   const tresEnRayaTable = document.querySelector(`#tresEnRayaTable`);
+  const tresEnRayaContainer = document.querySelector(`#tresEnRayaContainer`);
+
   tresEnRayaTable.innerHTML = "";
   const arrayTresEnRaya = [
     [[""], [""], [""]],
@@ -16,10 +18,15 @@ export const printTresEnRaya = () => {
   }
   // Indicar el último ganador del juego.
   let anteriorGanadorTresEnRaya = localStorage.getItem("ganadorTresEnRaya");
-  const ultimoGanador = document.createElement("h4");
-  tresEnRayaTable.append(ultimoGanador);
+  let checkUltimoGanadorTresEnRaya = document.getElementById("ultimoGanadorTresEnRaya");
+  if (checkUltimoGanadorTresEnRaya == null) {
+    const ultimoGanadorTresEnRaya = document.createElement("h4");
+    ultimoGanadorTresEnRaya.id = "ultimoGanadorTresEnRaya";
+    tresEnRayaContainer.append(ultimoGanadorTresEnRaya);
+  }
   if (anteriorGanadorTresEnRaya != null) {
-    ultimoGanador.innerHTML = `El último ganador ha sido el ${anteriorGanadorTresEnRaya}`;
+    let checkUltimoGanadorTresEnRaya = document.getElementById("ultimoGanadorTresEnRaya");
+    checkUltimoGanadorTresEnRaya.innerHTML = `El último ganador ha sido el ${anteriorGanadorTresEnRaya}`;
   };
   // Pintar los dos jugadores
   const tresEnRayaPlayersDiv = document.querySelector(`#tresEnRayaPlayers`);
@@ -30,8 +37,8 @@ export const printTresEnRaya = () => {
   tresEnRayaPlayersDiv.append(player2);
   player1.className = "player1";
   player2.className = "player2";
-  player1.textContent = "Jugador 1";
-  player2.textContent = "Jugador 2";
+  player1.textContent = "Jugador 1 ❌";
+  player2.textContent = "Jugador 2 ⭕";
 };
 export function clickCasillaCheck(cell, player) { // Al hacer click se pone círculo o cruz
   console.log("Cell clicked!");

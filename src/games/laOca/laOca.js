@@ -173,14 +173,17 @@ export function moverFichaJugador(n, position, numeroAleatorio) {
   ficha.className = "fichaJugador";
   casillaNewPosition.append(ficha);
   if (newPosition == 63) {
-    console.log(`El jugador${n} ha ganado`);
     if (n = 1) {
+      alert("Ha ganado el Jugador 1");
       localStorage.setItem("ganadorOca", "Jugador 1");
     } else if (n = 2) {
+      alert("Ha ganado el Jugador 2");
       localStorage.setItem("ganadorOca", "Jugador 2");
     } else if (n = 3) {
+      alert("Ha ganado el Jugador 3");
       localStorage.setItem("ganadorOca", "Jugador 3");
     } else if (n = 4) {
+      alert("Ha ganado el Jugador 4");
       localStorage.setItem("ganadorOca", "Jugador 4");
     }
   }
