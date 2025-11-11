@@ -106,12 +106,16 @@ export function createCards(imagesList) {
                 if (currentPlayerMemory == "player1") {
                   currentPlayerMemory = "player2";
                   el1.className = "notPlayer";
+                  el1.innerHTML = "";
                   el2.className = "player2 cursor-text";
+                  el2.innerHTML = "Jugador 2";
                 } else {
                   //Cambiamos el turno al jugador 1 si era el 2
                   currentPlayerMemory = "player1";
                   el2.className = "notPlayer";
+                  el2.innerHTML = "";
                   el1.className = "player1 cursor-text";
+                  el1.innerHTML = "Jugador 1";
                 }
                 //Esto es para que Jugador 1 esté con el cursor solo cuando el cursor está en el tablero.
                 if (currentPlayerMemory == "player1") {

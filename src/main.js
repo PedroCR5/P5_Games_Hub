@@ -22,7 +22,6 @@ gameTresEnRaya();
 //! Juego la Oca
 gameOca();
 //! Memory
-//?Falta poner alert o aviso.
 export const accesKey = 'ulcAHukAVcmsmE3YQCJcVOoI_rtjQjdVJzrx7QnswEI';
 export const endPoint = 'https://api.unsplash.com/search/photos';
 export function gameMemory() {

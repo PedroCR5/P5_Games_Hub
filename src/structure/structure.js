@@ -6,11 +6,12 @@ export function crearEstructuraPpal() {
   appInfo.append(navGames);
   const titleNav = document.createElement("h1");
   navGames.append(titleNav);
-  titleNav.innerText = "Games Hub";
+  titleNav.innerText = "🎲♦️🎲 Games  Hub 🎲♦️🎲";
   titleNav.id = "titleNav";
   const pNav = document.createElement("p");
   navGames.append(pNav);
-  pNav.innerText = "Aquí están tus juegos favoritos, elige a cual quieres jugar.";
+  pNav.innerText = "¡¡Aquí están tus juegos favoritos, elige a cual quieres jugar!!";
+  pNav.id = "pInitialNav";
   const divNav = document.createElement("div");
   divNav.id = "divNav";
   navGames.append(divNav);
@@ -52,15 +53,15 @@ export function crearEstructuraPpal() {
   });
   // Los 3 juegos en la pantalla principal
   const tresEnRayaSelectGame = document.getElementById("tresEnRayaSelect");
-  tresEnRayaSelectGame.innerText = "Jugar al tres en raya";
+  tresEnRayaSelectGame.innerText = "JUGAR AL TRES EN RAYA";
   const tresEnRayaSelectGameImg = document.getElementById("tresEnRayaSelectImg");
   tresEnRayaSelectGameImg.src = `assets/TresEnRayaFoto.png`;
   const laOcaSelectGame = document.getElementById("laOcaSelect");
-  laOcaSelectGame.innerText = "Jugar a la Oca";
+  laOcaSelectGame.innerText = "JUGAR A LA OCA";
   const laOcaSelectGameImg = document.getElementById("laOcaSelectImg");
   laOcaSelectGameImg.src = `assets/OcaFoto.png`;
   const memorySelectGame = document.getElementById("memorySelect");
-  memorySelectGame.innerText = "Jugar al memory";
+  memorySelectGame.innerText = "JUGAR AL MEMORY";
   const memorySelectGameImg = document.getElementById("memorySelectImg");
   memorySelectGameImg.src = `assets/MemoryFoto.png`;
   const tresEnRayaTitleGame = document.getElementById("tresEnRayaTitle");

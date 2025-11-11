@@ -7,6 +7,7 @@ nav {
   margin: var(--pf-margin-m);
   padding: var(--pf-padding-m);
   gap: var(--pf-gap-m);
+  background-color: var(--pf-bgColor1);
 }
 #titleNav {
   font-size: xx-large;
@@ -21,6 +22,12 @@ nav {
   padding: var(--pf-padding-m);
   gap: var(--pf-gap-m);
 }
+#pInitialNav {
+  margin: var(--pf-margin-m);
+  padding: var(--pf-padding-m);
+  gap: var(--pf-gap-m);
+  font-size: x-large;
+}
 .buttonNavGames {
   font-size: large;
   margin: var(--pf-margin-m);
@@ -28,6 +35,7 @@ nav {
   gap: var(--pf-gap-m);
   border-radius: 50%;
   cursor: pointer;
+  background-color: var(--pf-bgColor4);
 }
 .gameTitle {
   display: flex;
@@ -54,6 +62,7 @@ nav {
   min-width: 150px;
   max-height: 300px;
   min-height: 150px;
+  filter: blur(1px);
 }
 .returnToNav {
   /*   display: flex;
