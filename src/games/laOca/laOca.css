@@ -125,7 +125,13 @@
   margin: 1px;
   border-radius: 50%;
 }
-
+/* #ficha1 {
+  width: 30px;
+  height: 30px;
+  background-color: blue;
+  border-radius: 50%;
+  display: flex;
+} */
 #ficha1 {
   border: 5px darkblue solid;
   background-color: blue;

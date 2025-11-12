@@ -16,7 +16,17 @@ export function pintarMemory() {
   player2.innerText = "Jugador 2";
   // Recupero el último ganador para ponerlo debajo del tablero
   let anteriorGanadorMemory = localStorage.getItem("ganadorMemory");
-  const ultimoGanador = document.createElement("h4");
-  memoryTable.append(ultimoGanador);
-  ultimoGanador.innerHTML = `El último ganador ha sido el ${anteriorGanadorMemory}`;
+  /*   const ultimoGanador = document.createElement("h4");
+    memoryTable.append(ultimoGanador); */
+  //ultimoGanador.innerHTML = `El último ganador ha sido el ${anteriorGanadorMemory}`;
+  if (anteriorGanadorMemory == null) {
+    const ultimoGanador = document.createElement("h6");
+    ultimoGanador.id = "ultimoGanadorMemory";
+    let titleMemory = document.getElementById("memoryTitle")
+    titleMemory.append(ultimoGanador);
+  }
+  if (anteriorGanadorMemory != null) {
+    let anteriorGanadorMemory = document.getElementById("ultimoGanadorMemory");
+    anteriorGanadorMemory.innerHTML = `[El último ganador ha sido el ${anteriorGanadorMemory}]`;
+  };
 };

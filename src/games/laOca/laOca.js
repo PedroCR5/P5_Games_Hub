@@ -96,11 +96,17 @@ export const printOca = () => {
     }
   }
   // Pongo al final del tablero el último ganador de la Oca.
+
   let anteriorGanadorOca = localStorage.getItem("ganadorOca");
-  const ultimoGanadorOca = document.createElement("h4");
-  laOcaTable.append(ultimoGanadorOca);
+  if (anteriorGanadorOca == null) {
+    const ultimoGanadorOca = document.createElement("h6");
+    ultimoGanadorOca.id = "ultimoGanadorOca";
+    let titleOca = document.getElementById("laOcaTitle")
+    titleOca.append(ultimoGanadorOca);
+  }
   if (anteriorGanadorOca != null) {
-    ultimoGanadorOca.innerHTML = `El último ganador ha sido el ${anteriorGanadorOca}`;
+    let checkUltimoGanadorOca = document.getElementById("ultimoGanadorOca");
+    checkUltimoGanadorOca.innerHTML = `[El último ganador ha sido el ${anteriorGanadorOca}]`;
   };
 };
 export function createImputNumberPlayers() {
