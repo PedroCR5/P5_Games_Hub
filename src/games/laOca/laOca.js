@@ -104,9 +104,9 @@ export const printOca = () => {
     let titleOca = document.getElementById("laOcaTitle")
     titleOca.append(ultimoGanadorOca);
   }
-  if (anteriorGanadorOca != null) {
+  if (anteriorGanadorOca !== null) {
     let checkUltimoGanadorOca = document.getElementById("ultimoGanadorOca");
-    checkUltimoGanadorOca.innerHTML = `[El último ganador ha sido el ${anteriorGanadorOca}]`;
+    checkUltimoGanadorOca.innerHTML = `El último ganador ha sido el ${anteriorGanadorOca}`;
   };
 };
 export function createImputNumberPlayers() {

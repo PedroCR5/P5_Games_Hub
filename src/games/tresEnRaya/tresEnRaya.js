@@ -21,8 +21,9 @@ export const printTresEnRaya = () => {
   let checkUltimoGanadorTresEnRaya = document.getElementById("ultimoGanadorTresEnRaya");
   if (checkUltimoGanadorTresEnRaya == null) {
     const ultimoGanadorTresEnRaya = document.createElement("h4");
+    let titleMemory = document.getElementById("tresEnRayaTitle")
     ultimoGanadorTresEnRaya.id = "ultimoGanadorTresEnRaya";
-    tresEnRayaContainer.append(ultimoGanadorTresEnRaya);
+    titleMemory.append(ultimoGanadorTresEnRaya);
   }
   if (anteriorGanadorTresEnRaya != null) {
     let checkUltimoGanadorTresEnRaya = document.getElementById("ultimoGanadorTresEnRaya");
