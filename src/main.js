@@ -31,4 +31,3 @@ export function gameMemory() {
 gameMemory();
 selectGameToPlay();// Click para seleccionar le juego
 returnToChangeTheGame();// Click para volver a la pantalla inicial y resetear la partida jugada
-//? 3 en raya fallo

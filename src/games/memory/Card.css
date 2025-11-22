@@ -2,6 +2,8 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: auto;
+  align-items: center;
+  justify-items: center;
 }
 
 .cardDiv {
@@ -12,14 +14,15 @@
 
   flex-direction: column;
   margin: var(--rtc-margin-s);
-  margin: 30px;
-  gap: 20px;
+  margin: 10px;
+  gap: 10px;
+
   /* height: 100%; */
   padding: var(--rtc-padding-s);
   /*  position: relative; */
   /* margin-top: -25px; */
-  height: 80%;
-  width: 70%;
+  height: 70%;
+  width: 60%;
   background-color: grey;
   justify-content: center;
   cursor: pointer;
@@ -60,61 +63,6 @@
 }
 .cardDiv:hover > .imgPersonRound {
   z-index: 1;
-}
-.cameraLikesContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.likes,
-.camera {
-  font-size: medium;
-  height: auto;
-  max-width: 10%;
-  min-width: 30px;
-}
-.likesNumber,
-.cameraNumber {
-  font-size: small;
-  font-weight: bold;
-}
-.upImg {
-  display: flex;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  width: 30px;
-  height: 30px;
-}
-.name {
-  display: flex;
-  justify-content: center;
-  font-weight: bold;
-  font-size: large;
-}
-.date {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  font-weight: bold;
-}
-.upImg:hover {
-  transform: translate(-0.5em, -0.1em) scale(1.05);
-  transition: 0.3s;
-}
-.imgPersonRound {
-  cursor: pointer;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border: solid;
-  border-radius: var(--rtc-border-radius-m);
-  max-width: 20%;
-  border-width: 5px;
-  margin-top: -10%;
-}
-.imgPersonRound:hover {
-  transform: scale(2.5);
-  transition: 0.5s;
 }
 
 .cursor-text {
