@@ -110,7 +110,6 @@ export const printOca = () => {
   } */
   if (anteriorGanadorOca !== null) {
     console.log("si no es null Oca");
-
     let checkUltimoGanadorOca = document.getElementById("ultimoGanadorlaOca");
     checkUltimoGanadorOca.innerHTML = `El último ganador ha sido el ${anteriorGanadorOca}`;
   };
@@ -135,6 +134,8 @@ export function createPlayerToPlay() {
   const numberPlayers = document.getElementById("jugadoresOca");
   const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);
   playersList.innerHTML = "";
+  
+
   if (numberPlayers.value > 4) {
     numberPlayers.value = 4;
   }
@@ -153,6 +154,9 @@ export function createPlayerToPlay() {
     playerName.className = `jugadorName`;
     playerDice.className = `jugadorDice`;
     playerName.textContent = `Jugador ${i + 1}`;
+    //Borramos las fichas que haya
+    
+    
     //Pintamos la ficha en la posición inicial
     const ficha1 = document.createElement("div");
     ficha1.id = `ficha${i + 1}`;
@@ -216,10 +220,18 @@ export function gameOca() {
     player1: 0, player2: 0, player3: 0, player4: 0,
   };
   printOca();
+
   createImputNumberPlayers();  //Hacer un input nº jugadores y luego con bucle crearlos 
   //Pintar los jugadores
   const numberPlayers = document.getElementById("jugadoresOca");
   numberPlayers.addEventListener('input', () => {
+    const dadoAnterior = document.getElementById("dadoValor");
+    if (dadoAnterior) {dadoAnterior.remove(); }; 
+    let j=0;
+    for(j;j<4;j++){
+      const elemento = document.getElementById(`ficha${j + 1}`);
+      if (elemento) {elemento.remove(); };
+    }
     createPlayerToPlay();
     let playersCurrentDice = document.getElementById("1Dice");
     playersCurrentDice.className = "jugadorDice jugadorDiceCurrent";

@@ -31,5 +31,4 @@ export function gameMemory() {
 gameMemory();
 selectGameToPlay();// Click para seleccionar le juego
 returnToChangeTheGame();// Click para volver a la pantalla inicial y resetear la partida jugada
-//? falla la oca con 1 ,2 ,3 ó mas de 4 jugadores
-//? cada vez que digo num players tiene que resetear las fichas
+//? La Oca. Si son menos de 4 jugadores se me pilla.
