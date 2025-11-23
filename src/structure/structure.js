@@ -41,6 +41,12 @@ export function crearEstructuraPpal() {
     title.className = `gameTitle`;
     title.id = `${e}Title`;
     game.appendChild(title);
+    const ultimoGanador = document.createElement("h4");
+    ultimoGanador.id = `ultimoGanador${e}`;
+    console.log(`estoy en ${e} `);
+    console.log(ultimoGanador);
+    ultimoGanador.className = "ultimosGanadores"
+
     const gameContainer = document.createElement("div");
     gameContainer.id = `${e}Container`;
     const gameTable = document.createElement("div");
@@ -50,6 +56,10 @@ export function crearEstructuraPpal() {
     game.appendChild(gameContainer);
     gameContainer.appendChild(gameTable);
     gameContainer.appendChild(gamePlayers);
+    //game.appendChild(ultimoGanador);
+    //const nuevoParrafo = document.createElement("p");
+    //nuevoParrafo.textContent = "Este es otro párrafo añadido con createElement.";
+    title.insertAdjacentElement("afterend", ultimoGanador);
   });
   // Los 3 juegos en la pantalla principal
   const tresEnRayaSelectGame = document.getElementById("tresEnRayaSelect");

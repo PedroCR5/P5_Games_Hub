@@ -98,14 +98,20 @@ export const printOca = () => {
   // Pongo al final del tablero el último ganador de la Oca.
 
   let anteriorGanadorOca = localStorage.getItem("ganadorOca");
-  if (anteriorGanadorOca == null) {
+  console.log(anteriorGanadorOca);
+
+  /* if (anteriorGanadorOca == null) {
+    console.log("si es null Oca");
+
     const ultimoGanadorOca = document.createElement("h6");
     ultimoGanadorOca.id = "ultimoGanadorOca";
     let titleOca = document.getElementById("laOcaTitle")
     titleOca.append(ultimoGanadorOca);
-  }
+  } */
   if (anteriorGanadorOca !== null) {
-    let checkUltimoGanadorOca = document.getElementById("ultimoGanadorOca");
+    console.log("si no es null Oca");
+
+    let checkUltimoGanadorOca = document.getElementById("ultimoGanadorlaOca");
     checkUltimoGanadorOca.innerHTML = `El último ganador ha sido el ${anteriorGanadorOca}`;
   };
 };
@@ -129,6 +135,9 @@ export function createPlayerToPlay() {
   const numberPlayers = document.getElementById("jugadoresOca");
   const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);
   playersList.innerHTML = "";
+  if (numberPlayers.value > 4) {
+    numberPlayers.value = 4;
+  }
   let i = 0;
   for (i; i < numberPlayers.value; i++) {
     const playerLi = document.createElement("li");

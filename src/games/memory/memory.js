@@ -21,14 +21,15 @@ export function pintarMemory() {
   /*   const ultimoGanador = document.createElement("h4");
     memoryTable.append(ultimoGanador); */
   //ultimoGanador.innerHTML = `El último ganador ha sido el ${anteriorGanadorMemory}`;
-  if (anteriorGanadorMemory == null) {
+
+  /* if (anteriorGanadorMemory == null) {
     const ultimoGanador = document.createElement("h6");
     ultimoGanador.id = "ultimoGanadorMemory";
     let titleMemory = document.getElementById("memoryTitle")
     titleMemory.append(ultimoGanador);
-  }
-  if (anteriorGanadorMemory !== null) {
-    let checkAnteriorGanadorMemory = document.getElementById("ultimoGanadorMemory");
+  } */
+  if (anteriorGanadorMemory != null) {
+    let checkAnteriorGanadorMemory = document.getElementById("ultimoGanadormemory");
     checkAnteriorGanadorMemory.innerHTML = `El último ganador ha sido el ${anteriorGanadorMemory}`;
   };
 };
