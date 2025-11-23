@@ -1,4 +1,4 @@
-import "./Card.css";
+import "./memory.css";
 let currentPlayerMemory = "player1"; // Jugador que le toca
 let cardFirst = 0;
 let cardSecond = 0;

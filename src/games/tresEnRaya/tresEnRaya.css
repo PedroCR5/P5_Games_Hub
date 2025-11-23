@@ -3,7 +3,6 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: baseline;
-  /* display: none; */
 }
 #tresEnRayaPlayers {
   display: flex;
@@ -19,7 +18,6 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
 }
-
 .casilla,
 .circulo,
 .cruz {

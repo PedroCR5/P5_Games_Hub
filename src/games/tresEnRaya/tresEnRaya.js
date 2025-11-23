@@ -18,13 +18,6 @@ export const printTresEnRaya = () => {
   }
   // Indicar el último ganador del juego.
   let anteriorGanadorTresEnRaya = localStorage.getItem("ganadorTresEnRaya");
-  //let checkUltimoGanadorTresEnRaya = document.getElementById("ultimoGanadortresEnRaya");
-  /*  if (checkUltimoGanadorTresEnRaya == null) {
-     const ultimoGanadorTresEnRaya = document.createElement("h4");
-     let titleMemory = document.getElementById("tresEnRayaTitle")
-     ultimoGanadorTresEnRaya.id = "ultimoGanadorTresEnRaya";
-     titleMemory.append(ultimoGanadorTresEnRaya);
-   } */
   if (anteriorGanadorTresEnRaya != null) {
     let checkUltimoGanadorTresEnRaya = document.getElementById("ultimoGanadortresEnRaya");
     checkUltimoGanadorTresEnRaya.innerHTML = `El último ganador ha sido el ${anteriorGanadorTresEnRaya}`;
@@ -74,5 +67,4 @@ export function clickCasillaCheck(cell, player) { // Al hacer click se pone cír
     }
   }
   return player;
-
 };

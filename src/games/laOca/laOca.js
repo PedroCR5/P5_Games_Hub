@@ -96,18 +96,8 @@ export const printOca = () => {
     }
   }
   // Pongo al final del tablero el último ganador de la Oca.
-
   let anteriorGanadorOca = localStorage.getItem("ganadorOca");
   console.log(anteriorGanadorOca);
-
-  /* if (anteriorGanadorOca == null) {
-    console.log("si es null Oca");
-
-    const ultimoGanadorOca = document.createElement("h6");
-    ultimoGanadorOca.id = "ultimoGanadorOca";
-    let titleOca = document.getElementById("laOcaTitle")
-    titleOca.append(ultimoGanadorOca);
-  } */
   if (anteriorGanadorOca !== null) {
     console.log("si no es null Oca");
     let checkUltimoGanadorOca = document.getElementById("ultimoGanadorlaOca");
@@ -134,8 +124,6 @@ export function createPlayerToPlay() {
   const numberPlayers = document.getElementById("jugadoresOca");
   const laOcaPlayersDiv = document.querySelector(`#laOcaPlayers`);
   playersList.innerHTML = "";
-  
-
   if (numberPlayers.value > 4) {
     numberPlayers.value = 4;
   }
@@ -154,9 +142,6 @@ export function createPlayerToPlay() {
     playerName.className = `jugadorName`;
     playerDice.className = `jugadorDice`;
     playerName.textContent = `Jugador ${i + 1}`;
-    //Borramos las fichas que haya
-    
-    
     //Pintamos la ficha en la posición inicial
     const ficha1 = document.createElement("div");
     ficha1.id = `ficha${i + 1}`;
@@ -220,17 +205,17 @@ export function gameOca() {
     player1: 0, player2: 0, player3: 0, player4: 0,
   };
   printOca();
-
   createImputNumberPlayers();  //Hacer un input nº jugadores y luego con bucle crearlos 
   //Pintar los jugadores
   const numberPlayers = document.getElementById("jugadoresOca");
   numberPlayers.addEventListener('input', () => {
+    //Si pulsamos de nuevo en número de jugadores, borrramos la partida para empezar una nueva.
     const dadoAnterior = document.getElementById("dadoValor");
-    if (dadoAnterior) {dadoAnterior.remove(); }; 
-    let j=0;
-    for(j;j<4;j++){
+    if (dadoAnterior) { dadoAnterior.remove(); };
+    let j = 0;
+    for (j; j < 4; j++) {
       const elemento = document.getElementById(`ficha${j + 1}`);
-      if (elemento) {elemento.remove(); };
+      if (elemento) { elemento.remove(); };
     }
     createPlayerToPlay();
     let playersCurrentDice = document.getElementById("1Dice");
@@ -259,11 +244,17 @@ export function gameOca() {
             if (positionPlayer1 == 8 || positionPlayer1 == 12 || positionPlayer1 == 13 || positionPlayer1 == 5 || positionPlayer1 == 17 || positionPlayer1 == 22 || positionPlayer1 == 28 || positionPlayer1 == 48 || positionPlayer1 == 34 || positionPlayer1 == 40 || positionPlayer1 == 46 || positionPlayer1 == 51 || positionPlayer1 == 26 || positionPlayer1 == 60) {
               clavePlayerCurrent = "jugador1";
             } else {
-              clavePlayerCurrent = "jugador2";
-              let playersCurrentDice2 = document.getElementById("2Dice");
-              playersCurrentDice2.className = "jugadorDiceCurrent";
               let playersCurrentDice1 = document.getElementById("1Dice");
               playersCurrentDice1.className = "jugadorDice";
+              if (playersDice.length > 1) {
+                clavePlayerCurrent = "jugador2";
+                let playersCurrentDice2 = document.getElementById("2Dice");
+                playersCurrentDice2.className = "jugadorDiceCurrent";
+              } else {
+                clavePlayerCurrent = "jugador1";
+                let playersCurrentDice1 = document.getElementById("1Dice");
+                playersCurrentDice1.className = "jugadorDiceCurrent";
+              }
             };
           } else {
             lostTurnPlayers.player1--;
@@ -290,9 +281,15 @@ export function gameOca() {
             if (positionPlayer2 == 8 || positionPlayer2 == 12 || positionPlayer2 == 13 || positionPlayer2 == 5 || positionPlayer2 == 17 || positionPlayer2 == 22 || positionPlayer2 == 28 || positionPlayer2 == 48 || positionPlayer2 == 34 || positionPlayer2 == 40 || positionPlayer2 == 46 || positionPlayer2 == 51 || positionPlayer2 == 26 || positionPlayer2 == 60) {
               clavePlayerCurrent = "jugador2";
             } else {
-              clavePlayerCurrent = "jugador3";
-              let playersCurrentDice3 = document.getElementById("3Dice");
-              playersCurrentDice3.className = "jugadorDiceCurrent";
+              if (playersDice.length > 2) {
+                clavePlayerCurrent = "jugador3";
+                let playersCurrentDice3 = document.getElementById("3Dice");
+                playersCurrentDice3.className = "jugadorDiceCurrent";
+              } else {
+                clavePlayerCurrent = "jugador1";
+                let playersCurrentDice1 = document.getElementById("1Dice");
+                playersCurrentDice1.className = "jugadorDiceCurrent";
+              }
               let playersCurrentDice2 = document.getElementById("2Dice");
               playersCurrentDice2.className = "jugadorDice";
             };
@@ -321,9 +318,15 @@ export function gameOca() {
             if (positionPlayer3 == 8 || positionPlayer3 == 12 || positionPlayer3 == 13 || positionPlayer3 == 5 || positionPlayer3 == 17 || positionPlayer3 == 22 || positionPlayer3 == 28 || positionPlayer3 == 48 || positionPlayer3 == 34 || positionPlayer3 == 40 || positionPlayer3 == 46 || positionPlayer3 == 51 || positionPlayer3 == 26 || positionPlayer3 == 60) {
               clavePlayerCurrent = "jugador3";
             } else {
-              clavePlayerCurrent = "jugador4";
-              let playersCurrentDice4 = document.getElementById("4Dice");
-              playersCurrentDice4.className = "jugadorDiceCurrent";
+              if (playersDice.length == 4) {
+                clavePlayerCurrent = "jugador4";
+                let playersCurrentDice4 = document.getElementById("4Dice");
+                playersCurrentDice4.className = "jugadorDiceCurrent";
+              } else {
+                clavePlayerCurrent = "jugador1";
+                let playersCurrentDice1 = document.getElementById("1Dice");
+                playersCurrentDice1.className = "jugadorDiceCurrent";
+              }
               let playersCurrentDice3 = document.getElementById("3Dice");
               playersCurrentDice3.className = "jugadorDice";
             };
