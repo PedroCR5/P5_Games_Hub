@@ -77,3 +77,4 @@ export function crearEstructuraPpal() {
   const memoryTitle = document.getElementById("memoryTitle");
   memoryTitle.innerText = "JUGAR AL MEMORY";
 };
+

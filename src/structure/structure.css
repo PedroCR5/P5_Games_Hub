@@ -80,3 +80,39 @@ nav {
   margin: var(--pf-margin-s);
   padding: var(--pf-padding-s);
 }
+
+@media screen and (min-width: 615px) and (max-width: 900px) {
+  #titleNav {
+    scale: 1.2;
+  }
+  #pInitialNav {
+    font-size: medium;
+  }
+  .buttonNavGames {
+    scale: 0.7;
+  }
+  .divNavGames {
+    scale: 0.8;
+  }
+}
+
+@media screen and (max-width: 615px) {
+  #titleNav {
+    scale: 0.7;
+  }
+  #pInitialNav {
+    font-size: small;
+  }
+  #divNav {
+    margin: 0;
+    padding: 0;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .divNavGames {
+    scale: 0.5;
+  }
+  .imgNavGames {
+    display: none;
+  }
+}
