@@ -10,8 +10,18 @@ nav {
   background-color: var(--pf-bgColor1);
 }
 #titleNav {
+  /*  font-size: xx-large;
+  scale: 2; */
+}
+#titleNavDiv {
+  display: flex;
+  flex-direction: row;
+}
+.titleNavAll {
   font-size: xx-large;
-  scale: 2;
+  scale: 1.5;
+  margin: var(--pf-margin-s);
+  padding: var(--pf-padding-l);
 }
 #divNav {
   display: flex;
@@ -81,12 +91,18 @@ nav {
   padding: var(--pf-padding-s);
 }
 
-@media screen and (min-width: 615px) and (max-width: 900px) {
-  #titleNav {
+@media screen and (min-width: 650px) and (max-width: 900px) {
+  .titleNavAll {
     scale: 1.2;
+    padding: var(--pf-padding-s);
+  }
+  #titleNavBefore,
+  #titleNavAfter {
+    scale: 0.7;
   }
   #pInitialNav {
     font-size: medium;
+    padding: 0;
   }
   .buttonNavGames {
     scale: 0.7;
@@ -96,12 +112,16 @@ nav {
   }
 }
 
-@media screen and (max-width: 615px) {
+@media screen and (max-width: 650px) {
+  nav {
+    padding: 0;
+  }
   #titleNav {
     scale: 0.7;
   }
   #pInitialNav {
     font-size: small;
+    padding: 0;
   }
   #divNav {
     margin: 0;
@@ -113,6 +133,10 @@ nav {
     scale: 0.5;
   }
   .imgNavGames {
+    display: none;
+  }
+  #titleNavBefore,
+  #titleNavAfter {
     display: none;
   }
 }
