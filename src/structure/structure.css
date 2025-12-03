@@ -163,7 +163,22 @@ nav {
     padding: 0;
     border-radius: 0%;
     scale: 1;
+    font-size: 0;
   }
+  #tresEnRayaReturnToNav::before {
+    content: 'VOLVER';
+    font-family: var(--pf-highlight-font);
+    font-size: 32px;
+  }
+  #tresEnRayaTitle {
+    margin: 0;
+    padding: 0;
+    padding-top: var(--pf-margin-m);
+  }
+  #ultimoGanadortresEnRaya {
+    font-size: large;
+  }
+
   #laOca {
     scale: 0.2;
   }
