@@ -155,12 +155,12 @@ export function createCards(imagesList) {
       }
     });
   });
-  let divContainerCards = document.querySelector("#memoryTable");
-  // Indicamos cual fue el último ganador
-  let anteriorGanadorMemory = localStorage.getItem("ganadorMemory");
-  const ultimoGanadorMemory = document.createElement("h4");
-  divContainerCards.append(ultimoGanadorMemory);
-  if (anteriorGanadorMemory != null) {
-    ultimoGanadorMemory.innerHTML = `El último ganador ha sido el ${anteriorGanadorMemory}`;
-  };
+  /*   let divContainerCards = document.querySelector("#memoryTable");
+   */  // Indicamos cual fue el último ganador
+  /*   let anteriorGanadorMemory = localStorage.getItem("ganadorMemory");
+    const ultimoGanadorMemory = document.createElement("h4");
+    divContainerCards.append(ultimoGanadorMemory);
+    if (anteriorGanadorMemory != null) {
+      ultimoGanadorMemory.innerHTML = `El último ganador ha sido el ${anteriorGanadorMemory}`;
+    }; */
 };

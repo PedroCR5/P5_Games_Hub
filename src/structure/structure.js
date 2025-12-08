@@ -59,7 +59,7 @@ export function crearEstructuraPpal() {
     ultimoGanador.id = `ultimoGanador${e}`;
     console.log(`estoy en ${e} `);
     console.log(ultimoGanador);
-    ultimoGanador.className = "ultimosGanadores"
+    ultimoGanador.className = "ultimosGanadores";
     const gameContainer = document.createElement("div");
     gameContainer.id = `${e}Container`;
     const gameTable = document.createElement("div");
@@ -91,4 +91,3 @@ export function crearEstructuraPpal() {
   const memoryTitle = document.getElementById("memoryTitle");
   memoryTitle.innerText = "JUGAR AL MEMORY";
 };
-
