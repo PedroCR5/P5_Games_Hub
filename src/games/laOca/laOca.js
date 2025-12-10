@@ -209,7 +209,7 @@ export function gameOca() {
   //Pintar los jugadores
   const numberPlayers = document.getElementById("jugadoresOca");
   numberPlayers.addEventListener('input', () => {
-    //Si pulsamos de nuevo en número de jugadores, borrramos la partida para empezar una nueva.
+    //Si pulsamos de nuevo en número de jugadores, borramos la partida para empezar una nueva.
     const dadoAnterior = document.getElementById("dadoValor");
     if (dadoAnterior) { dadoAnterior.remove(); };
     let j = 0;
@@ -217,6 +217,14 @@ export function gameOca() {
       const elemento = document.getElementById(`ficha${j + 1}`);
       if (elemento) { elemento.remove(); };
     }
+    positionPlayer1 = "1";
+    positionPlayer2 = "1";
+    positionPlayer3 = "1";
+    positionPlayer4 = "1";
+    clavePlayerCurrent = "jugador1";
+    let lostTurnPlayers = {
+      player1: 0, player2: 0, player3: 0, player4: 0,
+    };
     createPlayerToPlay();
     let playersCurrentDice = document.getElementById("1Dice");
     playersCurrentDice.className = "jugadorDice jugadorDiceCurrent";
