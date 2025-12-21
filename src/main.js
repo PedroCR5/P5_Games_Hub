@@ -35,4 +35,4 @@ gameMemory();
 
 selectGameToPlay();// Click para seleccionar el juego
 returnToChangeTheGame();// Click para volver a la pantalla inicial y resetear la partida jugada
-//? Responsive
+//? Mirar la posada
