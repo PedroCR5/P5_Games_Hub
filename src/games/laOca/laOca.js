@@ -109,7 +109,7 @@ export function createImputNumberPlayers() {
   const numberPlayers = document.createElement("input");
   numberPlayers.value = "0";
   numberPlayers.type = 'number';
-  numberPlayers.min = "1";
+  numberPlayers.min = "2";
   numberPlayers.max = "4";
   numberPlayers.id = "jugadoresOca";
   numberPlayers.placeholder = "Número de jugadores";
@@ -126,6 +126,9 @@ export function createPlayerToPlay() {
   playersList.innerHTML = "";
   if (numberPlayers.value > 4) {
     numberPlayers.value = 4;
+  }
+  if (numberPlayers.value == 1) {
+    numberPlayers.value = 2;
   }
   let i = 0;
   for (i; i < numberPlayers.value; i++) {
