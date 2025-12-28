@@ -1,8 +1,6 @@
 import './tresEnRaya.css';
 export const printTresEnRaya = () => {
   const tresEnRayaTable = document.querySelector(`#tresEnRayaTable`);
-  const tresEnRayaContainer = document.querySelector(`#tresEnRayaContainer`);
-
   tresEnRayaTable.innerHTML = "";
   const arrayTresEnRaya = [
     [[""], [""], [""]],

@@ -100,7 +100,6 @@ nav {
   margin: var(--pf-margin-s);
   padding: var(--pf-padding-s);
 }
-
 @media screen and (min-width: 650px) and (max-width: 900px) {
   .titleNavAll {
     scale: 1.2;
@@ -156,7 +155,6 @@ nav {
     top: -100px;
   }
 }
-
 @media screen and (max-width: 650px) {
   nav {
     padding: 0;
