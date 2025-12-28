@@ -306,9 +306,15 @@ export function gameOca() {
             };
           } else {
             lostTurnPlayers.player2--;
-            clavePlayerCurrent = "jugador3";
-            let playersCurrentDice3 = document.getElementById("3Dice");
-            playersCurrentDice3.className = "jugadorDiceCurrent";
+            if (playersDice.length > 2) {
+              clavePlayerCurrent = "jugador3";
+              let playersCurrentDice3 = document.getElementById("3Dice");
+              playersCurrentDice3.className = "jugadorDiceCurrent";
+            } else {
+              clavePlayerCurrent = "jugador1";
+              let playersCurrentDice1 = document.getElementById("1Dice");
+              playersCurrentDice1.className = "jugadorDiceCurrent";
+            }
             let playersCurrentDice2 = document.getElementById("2Dice");
             playersCurrentDice2.className = "jugadorDice";
             return;
@@ -343,9 +349,15 @@ export function gameOca() {
             };
           } else {
             lostTurnPlayers.player3--;
-            clavePlayerCurrent = "jugador4";
-            let playersCurrentDice4 = document.getElementById("4Dice");
-            playersCurrentDice4.className = "jugadorDiceCurrent";
+            if (playersDice.length == 4) {
+              clavePlayerCurrent = "jugador4";
+              let playersCurrentDice4 = document.getElementById("4Dice");
+              playersCurrentDice4.className = "jugadorDiceCurrent";
+            } else {
+              clavePlayerCurrent = "jugador1";
+              let playersCurrentDice1 = document.getElementById("1Dice");
+              playersCurrentDice1.className = "jugadorDiceCurrent";
+            }
             let playersCurrentDice3 = document.getElementById("3Dice");
             playersCurrentDice3.className = "jugadorDice";
             return;
